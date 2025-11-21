@@ -1,697 +1,351 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Экзаменационная платформа - Networking</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
-            width: 100%;
-            padding: 40px;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #666;
-            font-size: 1.1em;
-        }
-
-        .lecture-selector {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .lecture-btn {
-            padding: 15px;
-            border: 2px solid #667eea;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .lecture-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .lecture-btn.active {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-color: #f5576c;
-        }
-
-        .quiz-container {
-            display: none;
-        }
-
-        .quiz-container.active {
-            display: block;
-        }
-
-        .question-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #667eea;
-        }
-
-        .question-number {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .question-text {
-            font-size: 1.2em;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option {
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            font-size: 1em;
-        }
-
-        .option:hover {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .option.selected {
-            border-color: #667eea;
-            background: #667eea;
-            color: white;
-        }
-
-        .option.correct {
-            border-color: #28a745;
-            background: #28a745;
-            color: white;
-        }
-
-        .option.incorrect {
-            border-color: #dc3545;
-            background: #dc3545;
-            color: white;
-        }
-
-        .option.show-correct {
-            border-color: #28a745;
-            background: #d4edda;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-item {
-            flex: 1;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .stat-label {
-            color: #666;
-            margin-top: 5px;
-        }
-
-        .results-container {
-            display: none;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .results-container.active {
-            display: block;
-        }
-
-        .results-score {
-            font-size: 4em;
-            font-weight: bold;
-            color: #667eea;
-            margin: 20px 0;
-        }
-
-        .results-message {
-            font-size: 1.5em;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .lecture-selector {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🌐 Экзаменационная платформа</h1>
-            <p>Подготовка к экзамену по Networking</p>
-        </div>
-
-        <div class="lecture-selector" id="lectureSelector">
-            <button class="lecture-btn" data-lecture="0">Lecture 1: Networking Today</button>
-            <button class="lecture-btn" data-lecture="1">Lecture 2: Protocols</button>
-            <button class="lecture-btn" data-lecture="2">Lecture 3: Network Layer</button>
-            <button class="lecture-btn" data-lecture="3">Lecture 4: Data Link</button>
-            <button class="lecture-btn" data-lecture="4">Lecture 5: Address Resolution</button>
-            <button class="lecture-btn" data-lecture="5">Lecture 6: IPv4</button>
-            <button class="lecture-btn" data-lecture="6">Lecture 7: IPv6 & ICMP</button>
-            <button class="lecture-btn" data-lecture="7">Lecture 8: Transport</button>
-            <button class="lecture-btn" data-lecture="8">Lecture 9: Application</button>
-            <button class="lecture-btn" data-lecture="9">Lecture 10: Security</button>
-            <button class="lecture-btn" data-lecture="all" style="grid-column: span 2;">Все вопросы</button>
-        </div>
-
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
-
-        <div class="quiz-container" id="quizContainer">
-            <div class="question-card" id="questionCard">
-                <div class="question-number" id="questionNumber"></div>
-                <div class="question-text" id="questionText"></div>
-                <div class="options" id="optionsContainer"></div>
-            </div>
-
-            <div class="controls">
-                <button class="btn btn-secondary" id="prevBtn">Назад</button>
-                <div>
-                    <button class="btn btn-success" id="checkBtn">Проверить</button>
-                    <button class="btn btn-primary" id="nextBtn" style="display: none;">Следующий</button>
-                </div>
-            </div>
-
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number" id="currentQuestion">0</div>
-                    <div class="stat-label">Текущий вопрос</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="totalQuestions">0</div>
-                    <div class="stat-label">Всего вопросов</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" id="correctAnswers">0</div>
-                    <div class="stat-label">Правильных</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="results-container" id="resultsContainer">
-            <h2>🎉 Тест завершен!</h2>
-            <div class="results-score" id="finalScore">0%</div>
-            <div class="results-message" id="resultsMessage"></div>
-            <button class="btn btn-primary" id="restartBtn">Начать заново</button>
-        </div>
-    </div>
-
-    <script>
-        const questionsData = {
-            "Lecture 1": [
-                {"q": "What is the primary function of a server in a network?", "options": ["To request information from other devices", "To provide information to end devices", "To store and deliver data or services to clients", "To route packets between networks", "To encrypt all network traffic"], "correct": 2},
-                {"q": "Which of the following is NOT a common type of network?", "options": ["LAN", "WAN", "MAN", "PAN (Personal Area Network)", "SAN"], "correct": 3},
-                {"q": "What is the role of a client in a network?", "options": ["To store large amounts of data", "To provide services to other devices", "To send requests to servers for information", "To manage network security", "To route traffic between subnets"], "correct": 2},
-                {"q": "Which device is responsible for forwarding packets between different networks?", "options": ["Switch", "Hub", "Router", "Repeater", "Bridge"], "correct": 2},
-                {"q": "What does the acronym IOS stand for in Cisco networking?", "options": ["Internet Operating System", "Integrated Operating Solution", "Internetwork Operating System", "Internal Operating Service", "Internet Organization System"], "correct": 2},
-                {"q": "Which command is used to enter privileged EXEC mode on a Cisco device?", "options": ["enable", "enable", "configure terminal", "login", "exit"], "correct": 0},
-                {"q": "What is the purpose of the 'hostname' command in Cisco IOS?", "options": ["To set the device's IP address", "To enable remote access", "To assign a name to the device", "To configure the default gateway", "To encrypt passwords"], "correct": 2},
-                {"q": "Which command is used to configure a password for console access?", "options": ["enable secret", "password", "line console 0, then password", "login", "service password-encryption"], "correct": 2},
-                {"q": "What is the function of the 'banner motd' command?", "options": ["To display a welcome message on the device", "To encrypt all passwords", "To display a legal notification or warning message", "To set the device's hostname", "To enable SSH access"], "correct": 2},
-                {"q": "Which command is used to save the running configuration to NVRAM?", "options": ["copy running-config startup-config", "copy running-config startup-config", "save config", "write memory", "backup config"], "correct": 0},
-                {"q": "What is the purpose of the 'service password-encryption' command?", "options": ["To encrypt all network traffic", "To enable SSH access", "To encrypt all plaintext passwords in the configuration", "To set a secret password for privileged EXEC mode", "To enable remote management"], "correct": 2},
-                {"q": "Which command is used to configure a password for remote access via Telnet or SSH?", "options": ["enable secret", "password", "line vty 0 4, then password", "login", "service password-encryption"], "correct": 2},
-                {"q": "What is the function of the 'no shutdown' command on an interface?", "options": ["To disable the interface", "To delete the interface configuration", "To activate the interface", "To reset the interface statistics", "To change the interface speed"], "correct": 2},
-                {"q": "Which command is used to display the current configuration of a Cisco device?", "options": ["show running-config", "show running-config", "show startup-config", "show interfaces", "show ip route"], "correct": 0},
-                {"q": "What is the purpose of the 'description' command on an interface?", "options": ["To set the interface speed", "To assign an IP address", "To add a comment or label to the interface", "To enable the interface", "To configure the default gateway"], "correct": 2}
-            ],
-            "Lecture 2": [
-                {"q": "What are the three essential elements of any communication?", "options": ["Sender, receiver, and protocol", "Message, signal, and medium", "Source, destination, and channel", "Encoder, decoder, and transmitter", "Protocol, suite, and model"], "correct": 2},
-                {"q": "What is the primary purpose of a protocol in networking?", "options": ["To provide physical connectivity", "To encrypt data", "To define the rules for communication between devices", "To route packets between networks", "To store data on servers"], "correct": 2},
-                {"q": "Which of the following is NOT a requirement for network protocols?", "options": ["Identified sender and receiver", "Common language and grammar", "Physical connection between devices", "Speed and timing of delivery", "Confirmation or acknowledgment requirements"], "correct": 2},
-                {"q": "What is the process of converting information into another acceptable form for transmission called?", "options": ["Decoding", "Formatting", "Encoding", "Encapsulation", "Multiplexing"], "correct": 2},
-                {"q": "What is the purpose of message formatting and encapsulation?", "options": ["To encrypt the message", "To compress the message", "To structure the message for transmission", "To route the message to the destination", "To authenticate the sender"], "correct": 2},
-                {"q": "Which of the following is NOT a message delivery option?", "options": ["Unicast", "Multicast", "Anycast (for IPv4)", "Broadcast", "Anycast (for IPv6)"], "correct": 2},
-                {"q": "What is the function of flow control in network protocols?", "options": ["To encrypt data", "To compress messages", "To manage the rate of data transmission", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "What is the purpose of sequencing in network protocols?", "options": ["To encrypt data", "To compress messages", "To number segments for reassembly at the destination", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which protocol suite is the most common and used by the internet?", "options": ["AppleTalk", "Novell NetWare", "TCP/IP", "OSI", "IEEE 802"], "correct": 2},
-                {"q": "What is the primary function of the transport layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To route packets between networks", "To manage end-to-end communication and reliability", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which protocol is responsible for guaranteed delivery in the TCP/IP suite?", "options": ["IP", "UDP", "TCP", "ICMP", "ARP"], "correct": 2},
-                {"q": "What is the purpose of the network layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To deliver messages globally from sender to receiver", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which protocol is used for automatic detection of devices or services on a network?", "options": ["TCP", "UDP", "Service Discovery", "ICMP", "ARP"], "correct": 2},
-                {"q": "What is the function of the data link layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To deliver messages from one NIC to another on the same network", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which of the following is NOT a benefit of using a layered model in networking?", "options": ["Assists in protocol design", "Fosters competition among vendors", "Prevents technology changes in one layer from affecting other layers", "Provides a common language for networking functions", "Simplifies troubleshooting"], "correct": 2}
-            ],
-            "Lecture 3": [
-                {"q": "What is the primary function of the network layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow end devices to exchange data across networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which protocol is the primary communication protocol for the network layer?", "options": ["TCP", "UDP", "IP", "ICMP", "ARP"], "correct": 2},
-                {"q": "What is the purpose of IP encapsulation?", "options": ["To encrypt data", "To compress messages", "To encapsulate the transport layer segment into an IP packet", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which of the following is NOT a characteristic of IP?", "options": ["Connectionless", "Best effort", "Guaranteed delivery", "Media independent", "Low overhead"], "correct": 2},
-                {"q": "What is the purpose of the Time to Live (TTL) field in the IPv4 header?", "options": ["To encrypt data", "To compress messages", "To limit the number of hops a packet can take", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which field in the IPv4 header identifies the next level protocol?", "options": ["Version", "Header Checksum", "Protocol", "Source Address", "Destination Address"], "correct": 2},
-                {"q": "What is the primary limitation of IPv4?", "options": ["Lack of security", "High overhead", "Address depletion", "Slow transmission speed", "Incompatibility with IPv6"], "correct": 2},
-                {"q": "What is the main improvement of IPv6 over IPv4?", "options": ["Increased security", "Faster transmission speed", "Larger address space", "Lower overhead", "Better error detection"], "correct": 2},
-                {"q": "Which field in the IPv6 header replaces the TTL field in IPv4?", "options": ["Version", "Traffic Class", "Hop Limit", "Flow Label", "Payload Length"], "correct": 2},
-                {"q": "What is the purpose of the default gateway on a host?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To forward packets to remote networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which command is used to display the routing table on a Windows host?", "options": ["show ip route", "show ipv6 route", "route print", "netstat -r", "show interfaces"], "correct": 2},
-                {"q": "What is the purpose of the ARP protocol?", "options": ["To encrypt data", "To compress messages", "To resolve IPv4 addresses to MAC addresses", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which protocol is used by IPv6 to resolve addresses to MAC addresses?", "options": ["ARP", "ICMP", "Neighbor Discovery (ND)", "DNS", "DHCP"], "correct": 2},
-                {"q": "What is the purpose of the 'no shutdown' command on a router interface?", "options": ["To disable the interface", "To delete the interface configuration", "To activate the interface", "To reset the interface statistics", "To change the interface speed"], "correct": 2},
-                {"q": "Which command is used to verify the configuration of a router interface?", "options": ["show running-config", "show startup-config", "show ip interface brief", "show interfaces", "show ip route"], "correct": 2}
-            ],
-            "Lecture 4": [
-                {"q": "What is the primary function of the data link layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow upper layer protocols to access the physical layer media", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which of the following is NOT a sublayer of the data link layer?", "options": ["Logical Link Control (LLC)", "Media Access Control (MAC)", "Physical Layer", "Both A and B", "None of the above"], "correct": 2},
-                {"q": "What is the purpose of the LLC sublayer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To communicate between networking software and hardware", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "What is the purpose of the MAC sublayer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To control access to the physical medium", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "What is the purpose of the Ethernet frame?", "options": ["To encrypt data", "To compress messages", "To encapsulate data for transmission over Ethernet", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which field in the Ethernet frame contains the source MAC address?", "options": ["Destination Address", "Type/Length", "Source Address", "Data", "Frame Check Sequence"], "correct": 2},
-                {"q": "What is the purpose of the Frame Check Sequence (FCS) in the Ethernet frame?", "options": ["To encrypt data", "To compress messages", "To detect errors in the frame", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which of the following is NOT a function of the data link layer?", "options": ["Error detection", "Frame encapsulation", "Routing packets between networks", "Access control to the physical medium", "Addressing end devices"], "correct": 2},
-                {"q": "What is the purpose of the 'show interfaces' command on a Cisco device?", "options": ["To display the running configuration", "To display the startup configuration", "To display statistics for all interfaces", "To display the routing table", "To display the ARP table"], "correct": 2},
-                {"q": "Which command is used to display the MAC address table on a Cisco switch?", "options": ["show running-config", "show startup-config", "show mac address-table", "show interfaces", "show ip route"], "correct": 2},
-                {"q": "What is the purpose of the 'clear mac address-table' command?", "options": ["To delete the running configuration", "To reset the device", "To clear the MAC address table", "To display the MAC address table", "To configure a new MAC address"], "correct": 2},
-                {"q": "Which of the following is NOT a type of Ethernet frame?", "options": ["Unicast", "Multicast", "Anycast", "Broadcast", "None of the above"], "correct": 2},
-                {"q": "What is the purpose of the 'duplex' command on a Cisco switch?", "options": ["To set the interface speed", "To assign an IP address", "To set the duplex mode of the interface", "To enable the interface", "To configure the default gateway"], "correct": 2},
-                {"q": "Which command is used to configure the speed of an interface on a Cisco switch?", "options": ["speed", "duplex", "speed", "interface", "no shutdown"], "correct": 0},
-                {"q": "What is the purpose of the 'show mac address-table dynamic' command?", "options": ["To display static MAC addresses", "To display all MAC addresses", "To display dynamically learned MAC addresses", "To display the running configuration", "To display the startup configuration"], "correct": 2}
-            ],
-            "Lecture 5": [
-                {"q": "What is the primary function of the network layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow end devices to exchange data across networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
-                {"q": "Which protocol is the primary communication protocol for the network layer?", "options": ["TCP", "UDP", "IP", "ICMP", "ARP"], "correct": 2},
-                {"q": "What is the purpose of IP encapsulation?", "options": ["To encrypt data", "To compress messages", "To encapsulate the transport layer segment into an IP packet", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which of the following is NOT a characteristic of IP?", "options": ["Connectionless", "Best effort", "Guaranteed delivery", "Media independent", "Low overhead"], "correct": 2},
-                {"q": "What is the purpose of the Time to Live (TTL) field in the IPv4 header?", "options": ["To encrypt data", "To compress messages", "To limit the number of hops a packet can take", "To route packets between networks", "To authenticate users"], "correct": 2},
-                {"q": "Which field in the IPv4 header identifies the next level protocol?", "options": ["Version", "Header Checksum", "Protocol", "Source Address", "Destination Address"], "correct": 2},
-                {"q": "What is the primary limitation of IPv4?", "options": ["Lack of security", "High overhead", "Address depletion", "Slow transmission speed", "Incompatibility with IPv6"], "correct": 2},
-                {"q": "What is the main improvement of IPv6 over IPv4?", "options": ["Increased security", "Faster transmission speed", "Larger address space", "Lower overhead", "Better error detection"], "correct": 2},
-                {"q": "Which field in the IPv6 header replaces the TTL field in IPv4?", "options": ["Version", "Traffic Class", "Hop Limit", "Flow Label", "Payload Length"], "correct": 2},
-                {"q": "What is the purpose of the default gateway on a host?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To forward packets to remote networks", "To format and encapsulate messages", "To provide security services"], "correct": 2}
-            ],
-            "Lecture 6": [
-                {"q": "What is the length of an IPv4 address?", "options": ["16 bits", "64 bits", "32 bits", "128 bits", "8 bits"], "correct": 2},
-                {"q": "Which part of an IPv4 address represents the network portion?", "options": ["Host bits", "Subnet mask", "The initial bits defined by the subnet mask", "Default gateway", "Broadcast address"], "correct": 2},
-                {"q": "What is the term for dividing an IP network into smaller sub-networks?", "options": ["Masking", "Hosting", "Subnetting", "Routing", "Addressing"], "correct": 2},
-                {"q": "Which operation is used to determine the network portion of an IP address using a subnet mask?", "options": ["OR", "AND", "XOR", "NOT", "NAND"], "correct": 1},
-                {"q": "What is the main purpose of a subnet mask?", "options": ["To identify the default gateway", "To specify the DNS server", "To separate the network and host portions of an IP address", "To encrypt IP packets", "To assign MAC addresses"], "correct": 2},
-                {"q": "What class is the IP address 192.168.1.1 belong to?", "options": ["Class A", "Class C", "Class B", "Class D", "Class E"], "correct": 1},
-                {"q": "What IP address is reserved for network broadcast in a subnet?", "options": ["Network address", "Gateway address", "The highest address in the subnet", "Loopback address", "First usable host address"], "correct": 2},
-                {"q": "Which of the following is a valid private IP address range?", "options": ["192.0.2.0 - 192.0.2.255", "10.0.0.0 - 10.255.255.255", "172.32.0.0 - 172.32.255.255", "169.254.0.0 - 169.254.255.255", "224.0.0.0 - 239.255.255.255"], "correct": 1},
-                {"q": "What does CIDR stand for in IP networking?", "options": ["Classful Internet Domain Routing", "Common Internet Data Relay", "Classless Inter-Domain Routing", "Computer Internet Directed Routing", "Combined IP Domain Routing"], "correct": 2},
-                {"q": "Which address is used for a loopback test on an IPv4 host?", "options": ["0.0.0.0", "127.0.0.1", "255.255.255.255", "192.168.0.1", "169.254.1.1"], "correct": 1},
-                {"q": "What is the prefix length notation for the subnet mask 255.255.255.0?", "options": ["/8", "/16", "/24", "/32", "/12"], "correct": 2},
-                {"q": "Why is subnetting used in IP networks?", "options": ["To increase broadcast domains", "To reduce network security", "To improve network performance and security by dividing networks", "To assign more unique IP addresses", "To increase routing complexity"], "correct": 2},
-                {"q": "What is the binary value of the decimal number 255 in an IP address octet?", "options": ["10000000", "11110000", "00001111", "11111111", "00000000"], "correct": 3},
-                {"q": "What does a host portion of all zeros in an IP address indicate?", "options": ["Network address", "Broadcast address", "Default gateway", "Host ID", "Subnet mask"], "correct": 0},
-                {"q": "Which protocol is primarily used to assign IPv4 addresses dynamically?", "options": ["DHCP", "DNS", "FTP", "SMTP", "ICMP"], "correct": 0}
-            ],
-            "Lecture 7": [
-                {"q": "What is the bit length of an IPv6 address?", "options": ["32 bits", "64 bits", "96 bits", "128 bits", "256 bits"], "correct": 3},
-                {"q": "Which of the following is NOT a valid IPv6 address type?", "options": ["Unicast", "Multicast", "Anycast", "Broadcast", "Global"], "correct": 3},
-                {"q": "What issue in IPv4 networks does IPv6 primarily address?", "options": ["Too much security", "Excessive packet loss", "Address exhaustion", "Lack of encryption", "High latency"], "correct": 2},
-                {"q": "What prefix is used for IPv6 link-local addresses?", "options": ["FE80::/10", "2001::/16", "FC00::/7", "FE80::/64", "FF00::/8"], "correct": 3},
-                {"q": "Which tool is used to test connectivity on IPv6 networks?", "options": ["ICMPv4 ping", "TCP SYN", "ICMPv6 ping", "UDP traceroute", "ARP request"], "correct": 2},
-                {"q": "What protocol is used by IPv4 for error messages and diagnostics?", "options": ["TCP", "UDP", "ICMPv4", "DNS", "DHCP"], "correct": 2},
-                {"q": "ICMPv6 includes which new message type not found in ICMPv4?", "options": ["Echo Request", "Destination Unreachable", "Neighbor Discovery", "Time Exceeded", "Redirect"], "correct": 2},
-                {"q": "Which of these is NOT a valid IPv6 address representation?", "options": ["Hexadecimal colon notation", "Decimal dot notation", "Zero compression", "Leading zeros omission", "Mixed IPv4/IPv6 notation"], "correct": 1},
-                {"q": "What is the purpose of IPv6 anycast addresses?", "options": ["To deliver to all hosts simultaneously", "To broadcast to subnet", "To deliver to the nearest interface among a group", "To multicast messages", "To address multiple hosts randomly"], "correct": 2},
-                {"q": "How many groups of hexadecimal digits are in a full IPv6 address?", "options": ["4", "6", "8", "12", "16"], "correct": 2},
-                {"q": "IPv6 addresses are divided into what main parts?", "options": ["Device ID and firmware version", "Network prefix and host ID", "Subnet and broadcast address", "Global routing prefix and interface ID", "Source and destination addresses"], "correct": 3},
-                {"q": "What transition mechanism allows IPv6 packets to be sent over IPv4 networks?", "options": ["DHCP", "ARP", "Tunneling", "SSL", "NAT"], "correct": 2},
-                {"q": "What does ICMP stand for?", "options": ["Internet Control Message Protocol", "International Communication Message Protocol", "Internet Control Message Protocol", "Internal Communication Management Protocol", "Internet Channel Messaging Protocol"], "correct": 0},
-                {"q": "Which ICMPv6 message is used to detect duplicate addresses?", "options": ["Echo Reply", "Neighbor Solicitation", "Destination Unreachable", "Time Exceeded", "Router Advertisement"], "correct": 1},
-                {"q": "Which of the following is a valid IPv6 multicast prefix?", "options": ["FF00::/8", "FE80::/10", "FC00::/7", "2000::/3", "FF02::/16"], "correct": 4}
-            ],
-            "Lecture 8": [
-                {"q": "Which protocol provides reliable, connection-oriented communication?", "options": ["UDP", "TCP", "IP", "ICMP", "ARP"], "correct": 1},
-                {"q": "What is the primary function of the transport layer?", "options": ["To send frames between devices", "To provide logical communication between applications", "To route packets across networks", "To encode data for transmission", "To assign IP addresses"], "correct": 1},
-                {"q": "Which transport layer protocol is connectionless and offers no guaranteed delivery?", "options": ["TCP", "UDP", "ICMP", "FTP", "HTTP"], "correct": 1},
-                {"q": "What is the term for a TCP connection setup process?", "options": ["Three-way handshake", "Four-way handshake", "Three-way handshake", "Two-way handshake", "One-way handshake"], "correct": 0},
-                {"q": "Which TCP flag is used to initiate a connection?", "options": ["ACK", "FIN", "SYN", "RST", "PSH"], "correct": 2},
-                {"q": "What is flow control in TCP?", "options": ["Encrypting data", "Routing packets", "Managing rate of data transmission between sender and receiver", "Address resolution", "Packet fragmentation"], "correct": 2},
-                {"q": "Which port number range is considered well-known ports?", "options": ["0-1023", "0-1023", "1024-49151", "49152-65535", "65536-70000"], "correct": 0},
-                {"q": "What does a socket represent in network communication?", "options": ["Physical connector", "Network interface", "Combination of IP address and port number", "Transport layer protocol", "Routing table entry"], "correct": 2},
-                {"q": "What UDP feature increases its usefulness for applications like DNS?", "options": ["Low latency and minimal overhead", "Guaranteed delivery", "Congestion control", "Session tracking", "Encryption"], "correct": 0},
-                {"q": "What mechanism does TCP use to ensure reliable data transfer?", "options": ["Broadcasting", "Multicasting", "Acknowledgments and retransmissions", "Unicasting", "Encryption"], "correct": 2},
-                {"q": "Which of the following is NOT part of the TCP header?", "options": ["Sequence number", "Acknowledgment number", "Window size", "MAC address", "Flags"], "correct": 3},
-                {"q": "What does the UDP checksum field check for?", "options": ["IP address validity", "Integrity of UDP header and data", "Packet length", "Source port accuracy", "Destination port accuracy"], "correct": 1},
-                {"q": "Which application typically uses TCP?", "options": ["HTTP", "DNS", "DHCP", "SNMP", "TFTP"], "correct": 0},
-                {"q": "What occurs during TCP connection termination?", "options": ["One-way disconnection", "Four-step process with FIN and ACK flags", "One-step reset", "DNS resolution", "ICMP exchange"], "correct": 1},
-                {"q": "What happens if a segment is lost in TCP transmission?", "options": ["Data loss", "Packet ignored", "Retransmission after timeout or duplicate ACKs", "Packet forwarded", "Connection reset"], "correct": 2}
-            ],
-            "Lecture 9": [
-                {"q": "What layer of the OSI model provides the interface between network and user applications?", "options": ["Transport", "Network", "Application", "Data Link", "Physical"], "correct": 2},
-                {"q": "Which protocol is used to resolve hostnames to IP addresses?", "options": ["DHCP", "FTP", "DNS", "SMTP", "SNMP"], "correct": 2},
-                {"q": "What protocol is used to send email between servers?", "options": ["POP3", "IMAP", "SMTP", "FTP", "HTTP"], "correct": 2},
-                {"q": "Which protocol allows users to retrieve email from a server while keeping it on the server?", "options": ["SMTP", "POP3", "IMAP", "DNS", "SNMP"], "correct": 2},
-                {"q": "What is the default port for HTTP?", "options": ["80", "21", "443", "110", "25"], "correct": 0},
-                {"q": "Which protocol encrypts HTTP traffic to ensure security?", "options": ["FTP", "DNS", "HTTPS", "SMTP", "Telnet"], "correct": 2},
-                {"q": "What does FTP stand for?", "options": ["File Transfer Program", "File Transfer Protocol", "Fast Transfer Protocol", "File Transmission Protection", "File Teleport Protocol"], "correct": 1},
-                {"q": "Which protocol is used for network management and monitoring?", "options": ["FTP", "HTTP", "SMTP", "SNMP", "DHCP"], "correct": 3},
-                {"q": "What is the function of DHCP?", "options": ["Secure network traffic", "Automatically assign IP addresses to hosts", "Resolve domain names", "Transfer files", "Send email"], "correct": 1},
-                {"q": "Which of the following is a peer-to-peer application?", "options": ["HTTP", "FTP", "BitTorrent", "SMTP", "DHCP"], "correct": 2},
-                {"q": "What is the function of the Session Layer in the OSI model?", "options": ["Data encoding", "Physical addressing", "Establishing, managing, and terminating sessions", "Routing", "Packet switching"], "correct": 2},
-                {"q": "Which protocol is used for remote login to devices?", "options": ["FTP", "HTTP", "Telnet", "SMTP", "SNMP"], "correct": 2},
-                {"q": "What does MIME stand for in email systems?", "options": ["Multimedia Internet Mail Extensions", "Multiple Internet Mail Encoding", "Multipurpose Internet Mail Extensions", "Mail Internet Message Exchange", "Multimedia Information Mail Exchange"], "correct": 2},
-                {"q": "What port number is associated with SMTP?", "options": ["110", "443", "25", "80", "21"], "correct": 2},
-                {"q": "Which protocol supports file sharing on Windows networks?", "options": ["SMB", "DNS", "FTP", "DHCP", "ICMP"], "correct": 0}
-            ],
-            "Lecture 10": [
-                {"q": "What is a common goal of network security?", "options": ["Increase bandwidth", "Faster IP routing", "Protect data and resources from unauthorized access", "Reduce packet size", "Improve resolution"], "correct": 2},
-                {"q": "What type of attack involves overwhelming a network to disrupt services?", "options": ["Denial of Service (DoS)", "Phishing", "Spoofing", "Sniffing", "Logic bomb"], "correct": 0},
-                {"q": "Which security principle ensures that data is not altered during transmission?", "options": ["Availability", "Integrity", "Confidentiality", "Authentication", "Non-repudiation"], "correct": 1},
-                {"q": "What type of malware encrypts user data and demands payment for its release?", "options": ["Virus", "Worm", "Ransomware", "Trojan", "Spyware"], "correct": 2},
-                {"q": "The concept of limiting access rights for users to the minimum necessary is known as:", "options": ["Firewalling", "Encryption", "Least privilege", "Auditing", "Authentication"], "correct": 2},
-                {"q": "What device filters incoming and outgoing traffic based on predefined rules?", "options": ["Switch", "Router", "Firewall", "Hub", "Repeater"], "correct": 2},
-                {"q": "What does AAA stand for in network security?", "options": ["Access, Administration, Authorization", "Authentication, Authorization, Accounting", "Access, Authentication, Auditing", "Authorization, Administration, Analysis", "Audit, Access, Authentication"], "correct": 1},
-                {"q": "Which type of attack involves impersonating another user or device?", "options": ["Phishing", "Spoofing", "Sniffing", "DoS", "Rootkit"], "correct": 1},
-                {"q": "What is the purpose of network segmentation?", "options": ["Increase data redundancy", "Improve security by isolating network parts", "Speed up DHCP", "Reduce router load", "Enhance routing protocols"], "correct": 1},
-                {"q": "What is the recommended action to protect devices from known vulnerabilities?", "options": ["Disable DHCP", "Use static IPs", "Regularly apply patches and updates", "Use older protocols", "Increase bandwidth"], "correct": 2}
-            ]
-        };
-
-        let currentLecture = [];
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-        let correctCount = 0;
-        let isAnswerChecked = false;
-
-        // Event listeners
-        document.getElementById('lectureSelector').addEventListener('click', (e) => {
-            if (e.target.classList.contains('lecture-btn')) {
-                const lectureIndex = e.target.dataset.lecture;
-                startQuiz(lectureIndex);
-                
-                // Update active button
-                document.querySelectorAll('.lecture-btn').forEach(btn => btn.classList.remove('active'));
-                e.target.classList.add('active');
-            }
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
-        document.getElementById('prevBtn').addEventListener('click', prevQuestion);
-        document.getElementById('checkBtn').addEventListener('click', checkAnswer);
-        document.getElementById('restartBtn').addEventListener('click', () => location.reload());
-
-        function startQuiz(lectureIndex) {
-            if (lectureIndex === 'all') {
-                currentLecture = [];
-                Object.values(questionsData).forEach(lecture => {
-                    currentLecture = currentLecture.concat(lecture);
-                });
-                // Shuffle all questions
-                currentLecture = shuffleArray(currentLecture);
-            } else {
-                const lectureKey = `Lecture ${parseInt(lectureIndex) + 1}`;
-                currentLecture = [...questionsData[lectureKey]];
-            }
-
-            currentQuestionIndex = 0;
-            userAnswers = new Array(currentLecture.length).fill(null);
-            correctCount = 0;
-            isAnswerChecked = false;
-
-            document.getElementById('quizContainer').classList.add('active');
-            document.getElementById('resultsContainer').classList.remove('active');
-            
-            updateStats();
-            displayQuestion();
-        }
-
-        function shuffleArray(array) {
-            const newArray = [...array];
-            for (let i = newArray.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-            }
-            return newArray;
-        }
-
-        function displayQuestion() {
-            const question = currentLecture[currentQuestionIndex];
-            
-            document.getElementById('questionNumber').textContent = `Вопрос ${currentQuestionIndex + 1} из ${currentLecture.length}`;
-            document.getElementById('questionText').textContent = question.q;
-            
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = '';
-            
-            question.options.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'option';
-                optionDiv.textContent = `${String.fromCharCode(65 + index)}) ${option}`;
-                optionDiv.dataset.index = index;
-                
-                if (userAnswers[currentQuestionIndex] === index) {
-                    optionDiv.classList.add('selected');
-                }
-                
-                if (isAnswerChecked) {
-                    optionDiv.style.pointerEvents = 'none';
-                    if (index === question.correct) {
-                        optionDiv.classList.add('correct');
-                    } else if (userAnswers[currentQuestionIndex] === index) {
-                        optionDiv.classList.add('incorrect');
-                    }
-                    if (index === question.correct && userAnswers[currentQuestionIndex] !== index) {
-                        optionDiv.classList.add('show-correct');
-                    }
-                } else {
-                    optionDiv.addEventListener('click', selectOption);
-                }
-                
-                optionsContainer.appendChild(optionDiv);
-            });
-            
-            updateButtons();
-            updateProgress();
-        }
-
-        function selectOption(e) {
-            if (isAnswerChecked) return;
-            
-            const selectedIndex = parseInt(e.target.dataset.index);
-            userAnswers[currentQuestionIndex] = selectedIndex;
-            
-            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
-            e.target.classList.add('selected');
-        }
-
-        function checkAnswer() {
-            if (userAnswers[currentQuestionIndex] === null) {
-                alert('Пожалуйста, выберите ответ!');
-                return;
-            }
-            
-            isAnswerChecked = true;
-            const question = currentLecture[currentQuestionIndex];
-            
-            if (userAnswers[currentQuestionIndex] === question.correct) {
-                correctCount++;
-            }
-            
-            displayQuestion();
-            updateStats();
-            
-            document.getElementById('checkBtn').style.display = 'none';
-            document.getElementById('nextBtn').style.display = 'inline-block';
-        }
-
-        function nextQuestion() {
-            if (currentQuestionIndex < currentLecture.length - 1) {
-                currentQuestionIndex++;
-                isAnswerChecked = false;
-                document.getElementById('checkBtn').style.display = 'inline-block';
-                document.getElementById('nextBtn').style.display = 'none';
-                displayQuestion();
-                updateStats();
-            } else {
-                showResults();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                isAnswerChecked = userAnswers[currentQuestionIndex] !== null;
-                
-                if (isAnswerChecked) {
-                    document.getElementById('checkBtn').style.display = 'none';
-                    document.getElementById('nextBtn').style.display = 'inline-block';
-                } else {
-                    document.getElementById('checkBtn').style.display = 'inline-block';
-                    document.getElementById('nextBtn').style.display = 'none';
-                }
-                
-                displayQuestion();
-                updateStats();
-            }
-        }
-
-        function updateButtons() {
-            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-        }
-
-        function updateProgress() {
-            const progress = ((currentQuestionIndex + 1) / currentLecture.length) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-        }
-
-        function updateStats() {
-            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
-            document.getElementById('totalQuestions').textContent = currentLecture.length;
-            document.getElementById('correctAnswers').textContent = correctCount;
-        }
-
-        function showResults() {
-            document.getElementById('quizContainer').classList.remove('active');
-            document.getElementById('resultsContainer').classList.add('active');
-            
-            const percentage = Math.round((correctCount / currentLecture.length) * 100);
-            document.getElementById('finalScore').textContent = percentage + '%';
-            
-            let message = '';
-            if (percentage >= 90) {
-                message = '🌟 Отлично! Ты великолепно подготовлен!';
-            } else if (percentage >= 75) {
-                message = '👍 Хорошо! Продолжай в том же духе!';
-            } else if (percentage >= 60) {
-                message = '📚 Неплохо, но есть над чем поработать!';
-            } else {
-                message = '💪 Нужно больше практики! Не сдавайся!';
-            }
-            
-            document.getElementById('resultsMessage').textContent = message;
-            document.getElementById('resultsMessage').textContent += `\n\nПравильных ответов: ${correctCount} из ${currentLecture.length}`;
-        }
-    </script>
-</body>
-</html>
+1. Which device operates primarily at Layer 2 of the OSI model?
+a) Router
+b) Switch
+c) Hub
+d) Firewall
+Answer: b
+
+2. What is the main function of a default gateway?
+a) To provide DNS resolution
+b) To connect to remote networks
+c) To assign IP addresses
+d) To block unwanted traffic
+Answer: b
+
+3. Which cable is used to connect a PC to a switch?
+a) Crossover cable
+b) Straight-through cable
+c) Fiber optic cable
+d) Console cable
+Answer: b
+
+4. What is the purpose of a MAC address?
+a) Identifies devices on the same IP network
+b) Identifies devices at the data link layer
+c) Provides IP routing
+d) Encrypts network traffic
+Answer: b
+
+5. What is the default VLAN on a Cisco switch?
+a) VLAN 0
+b) VLAN 10
+c) VLAN 1
+d) VLAN 99
+Answer: c
+
+6. Which layer of the OSI model is responsible for data encryption?
+a) Session
+b) Presentation
+c) Network
+d) Transport
+Answer: b
+
+7. Which protocol provides reliable data transfer?
+a) TCP
+b) UDP
+c) ICMP
+d) IP
+Answer: a
+
+8. In the TCP/IP model, which layer corresponds to the OSI Network layer?
+a) Application
+b) Internet
+c) Transport
+d) Link
+Answer: b
+
+9. Which tool captures and analyzes network packets?
+a) Putty
+b) Wireshark
+c) Packet Tracer
+d) Telnet
+Answer: b
+
+10. What is encapsulation in networking?
+a) Adding headers/trailers around data
+b) Encrypting data
+c) Removing headers
+d) Translating IP addresses
+Answer: a
+
+
+11. What unit measures bandwidth?
+a) Bytes
+b) Bits per second
+c) Hertz
+d) Megabytes per hour
+Answer: b
+
+12. Which device converts digital signals to analog for transmission?
+a) Switch
+b) Modem
+c) Hub
+d) Repeater
+Answer: b
+
+13. Which cable type is most resistant to electromagnetic interference?
+a) UTP
+b) STP
+c) Coaxial
+d) Fiber optic
+Answer: d
+
+14. Binary value of decimal 45 is:
+a) 100101
+b) 101101
+c) 110011
+d) 1011010
+Answer: b
+
+15. Which layer defines physical media characteristics?
+a) Network
+b) Data Link
+c) Physical
+d) Transport
+Answer: c
+
+16. Ethernet uses which access method?
+a) CSMA/CA
+b) CSMA/CD
+c) Token Ring
+d) TDMA
+Answer: b
+
+17. What is the frame delimiter in Ethernet?
+a) Preamble
+b) CRC
+c) Source MAC
+d) EtherType
+Answer: a
+
+18. Switches use which table to forward frames?
+a) ARP table
+b) Routing table
+c) MAC address table
+d) IP address table
+Answer: c
+
+19. What is the minimum Ethernet frame size?
+a) 46 bytes
+b) 64 bytes
+c) 128 bytes
+d) 512 bytes
+Answer: b
+
+20. VLANs are used to:
+a) Increase physical ports
+b) Divide a LAN into segments
+c) Reduce MAC addresses
+d) Encrypt data
+Answer: b
+
+21. Which command shows the routing table on a Cisco router?
+a) show interfaces
+b) show ip route
+c) show arp
+d) show version
+Answer: b
+
+22. Which protocol maps IP addresses to MAC addresses?
+a) DNS
+b) DHCP
+c) ARP
+d) ICMP
+Answer: c
+
+23. What type of address is 192.168.1.1?
+a) Public
+b) Private
+c) Multicast
+d) Loopback
+Answer: b
+
+24. Which device operates at Layer 3?
+a) Switch
+b) Router
+c) Bridge
+d) Hub
+Answer: b
+
+25. What is the function of a default route?
+a) For DNS lookup
+b) Used when no other route matches
+c) Used for ARP resolution
+d) For broadcast traffic
+Answer: b
+
+
+26. Subnet mask 255.255.255.192 provides how many usable hosts?
+a) 62
+b) 30
+c) 126
+d) 14
+Answer: a
+
+27. 192.168.10.0/26 — what is the broadcast address?
+a) 192.168.10.64
+b) 192.168.10.63
+c) 192.168.10.62
+d) 192.168.10.65
+Answer: b
+
+28. Which class is IP 172.16.5.1?
+a) Class A
+b) Class B
+c) Class C
+d) Class D
+Answer: b
+
+29. What is the CIDR notation for subnet mask 255.255.255.0?
+a) /24
+b) /25
+c) /26
+d) /27
+Answer: a
+
+30. Which command assigns an IP to a router interface?
+a) ip assign
+b) set ip address
+c) ip address 192.168.1.1 255.255.255.0
+d) assign address
+Answer: c
+
+31. IPv6 address length is:
+a) 32 bits
+b) 64 bits
+c) 128 bits
+d) 256 bits
+Answer: c
+
+32. Which IPv6 address is equivalent to IPv4 loopback 127.0.0.1?
+a) ::1
+b) ::
+c) FE80::1
+d) FF02::1
+Answer: a
+
+33. Which protocol is used by IPv6 for address resolution?
+a) ICMPv6
+b) ARP
+c) DHCPv6
+d) ND
+Answer: d
+
+34. What is the scope of address FE80::1?
+a) Global
+b) Unique local
+c) Link-local
+d) Anycast
+Answer: c
+
+35. Which ICMPv6 message type is Neighbor Advertisement?
+a) 133
+b) 134
+c) 135
+d) 136
+Answer: d
+
+36. Which protocol ensures reliable delivery?
+a) UDP
+b) TCP
+c) ICMP
+d) IP
+Answer: b
+
+37. Port 80 is used by:
+a) FTP
+b) SMTP
+c) HTTP
+d) DNS
+Answer: c
+
+38. Which field in TCP header ensures ordering?
+a) Sequence number
+b) Acknowledgment number
+c) Port number
+d) Window size
+Answer: a
+
+39. UDP is used for:
+a) File Transfer
+b) Web browsing
+c) Voice streaming
+d) Email
+Answer: c
+
+40. TCP three-way handshake sequence is:
+a) SYN → SYN-ACK → ACK
+b) ACK → SYN → SYN-ACK
+c) SYN → ACK → SYN-ACK
+d) FIN → ACK → FIN
+Answer: a
+
+41. DNS uses which transport protocol?
+a) TCP
+b) UDP
+c) ICMP
+d) Both TCP and UDP
+Answer: d
+
+42. SMTP works on which port?
+a) 21
+b) 25
+c) 80
+d) 110
+Answer: b
+
+43. POP3 retrieves emails from:
+a) Server to client
+b) Client to server
+c) Peer to peer
+d) None of these
+Answer: a
+
+44. FTP control connection uses which port?
+a) 20
+b) 21
+c) 22
+d) 23
+Answer: b
+
+45. HTTP status code 404 means:
+a) OK
+b) Forbidden
+c) Not Found
+d) Unauthorized
+Answer: c
+
+46. Which protocol securely connects to network devices?
+a) Telnet
+b) SSH
+c) HTTP
+d) FTP
+Answer: b
+
+47. Which command encrypts passwords on Cisco devices?
+a) enable secret
+b) password encrypt
+c) service password-encryption
+d) encrypt all
+Answer: c
+
+48. Which is a strong password example?
+a) admin123
+b) Password
+c) @NetWork!23
+d) 12345
+Answer: c
+
+49. Which message appears before login to warn users?
+a) MOTD banner
+b) Welcome banner
+c) Login message
+d) Session banner
+Answer: a
+
+50. Which feature prevents brute-force login attempts on Cisco devices?
+a) login lockout
+b) password block
+c) login block-for
+d) ssh timeout
+Answer: c
