@@ -1,351 +1,865 @@
-1. Which device operates primarily at Layer 2 of the OSI model?
-a) Router
-b) Switch
-c) Hub
-d) Firewall
-Answer: b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking • Exam Prep</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
 
-2. What is the main function of a default gateway?
-a) To provide DNS resolution
-b) To connect to remote networks
-c) To assign IP addresses
-d) To block unwanted traffic
-Answer: b
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
 
-3. Which cable is used to connect a PC to a switch?
-a) Crossover cable
-b) Straight-through cable
-c) Fiber optic cable
-d) Console cable
-Answer: b
+        :root {
+            --primary: #4A90E2;
+            --secondary: #50C878;
+            --accent: #FFB84D;
+            --success: #95E1D3;
+            --text: #2D3436;
+            --bg: #F8F9FA;
+            --white: #FFFFFF;
+        }
 
-4. What is the purpose of a MAC address?
-a) Identifies devices on the same IP network
-b) Identifies devices at the data link layer
-c) Provides IP routing
-d) Encrypts network traffic
-Answer: b
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-5. What is the default VLAN on a Cisco switch?
-a) VLAN 0
-b) VLAN 10
-c) VLAN 1
-d) VLAN 99
-Answer: c
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
 
-6. Which layer of the OSI model is responsible for data encryption?
-a) Session
-b) Presentation
-c) Network
-d) Transport
-Answer: b
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-7. Which protocol provides reliable data transfer?
-a) TCP
-b) UDP
-c) ICMP
-d) IP
-Answer: a
+        .back-btn {
+            padding: 12px 28px;
+            background: var(--bg);
+            border: 2px solid var(--text);
+            border-radius: 50px;
+            color: var(--text);
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            display: none;
+        }
 
-8. In the TCP/IP model, which layer corresponds to the OSI Network layer?
-a) Application
-b) Internet
-c) Transport
-d) Link
-Answer: b
+        .back-btn:hover {
+            background: var(--text);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
 
-9. Which tool captures and analyzes network packets?
-a) Putty
-b) Wireshark
-c) Packet Tracer
-d) Telnet
-Answer: b
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 60px;
+            padding: 0 40px;
+        }
 
-10. What is encapsulation in networking?
-a) Adding headers/trailers around data
-b) Encrypting data
-c) Removing headers
-d) Translating IP addresses
-Answer: a
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 80px;
+        }
 
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5em;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
 
-11. What unit measures bandwidth?
-a) Bytes
-b) Bits per second
-c) Hertz
-d) Megabytes per hour
-Answer: b
+        .hero-emoji {
+            font-size: 1.2em;
+        }
 
-12. Which device converts digital signals to analog for transmission?
-a) Switch
-b) Modem
-c) Hub
-d) Repeater
-Answer: b
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: #636E72;
+            font-weight: 500;
+        }
 
-13. Which cable type is most resistant to electromagnetic interference?
-a) UTP
-b) STP
-c) Coaxial
-d) Fiber optic
-Answer: d
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--accent);
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            border: 3px solid var(--text);
+        }
 
-14. Binary value of decimal 45 is:
-a) 100101
-b) 101101
-c) 110011
-d) 1011010
-Answer: b
+        /* Mode Cards */
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
 
-15. Which layer defines physical media characteristics?
-a) Network
-b) Data Link
-c) Physical
-d) Transport
-Answer: c
+        .mode-card {
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 30px;
+            padding: 50px 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
 
-16. Ethernet uses which access method?
-a) CSMA/CA
-b) CSMA/CD
-c) Token Ring
-d) TDMA
-Answer: b
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: var(--primary);
+            opacity: 0;
+            transition: all 0.4s;
+            transform: rotate(45deg);
+        }
 
-17. What is the frame delimiter in Ethernet?
-a) Preamble
-b) CRC
-c) Source MAC
-d) EtherType
-Answer: a
+        .mode-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 var(--text);
+        }
 
-18. Switches use which table to forward frames?
-a) ARP table
-b) Routing table
-c) MAC address table
-d) IP address table
-Answer: c
+        .mode-card:hover::before {
+            opacity: 0.05;
+        }
 
-19. What is the minimum Ethernet frame size?
-a) 46 bytes
-b) 64 bytes
-c) 128 bytes
-d) 512 bytes
-Answer: b
+        .mode-card:nth-child(1) { border-color: var(--primary); }
+        .mode-card:nth-child(2) { border-color: var(--secondary); }
+        .mode-card:nth-child(3) { border-color: var(--accent); }
+        .mode-card:nth-child(4) { border-color: var(--success); }
 
-20. VLANs are used to:
-a) Increase physical ports
-b) Divide a LAN into segments
-c) Reduce MAC addresses
-d) Encrypt data
-Answer: b
+        .mode-emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
 
-21. Which command shows the routing table on a Cisco router?
-a) show interfaces
-b) show ip route
-c) show arp
-d) show version
-Answer: b
+        .mode-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
 
-22. Which protocol maps IP addresses to MAC addresses?
-a) DNS
-b) DHCP
-c) ARP
-d) ICMP
-Answer: c
+        .mode-desc {
+            font-size: 1.1em;
+            color: #636E72;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
 
-23. What type of address is 192.168.1.1?
-a) Public
-b) Private
-c) Multicast
-d) Loopback
-Answer: b
+        /* Quiz Section */
+        #quiz-container {
+            display: none;
+        }
 
-24. Which device operates at Layer 3?
-a) Switch
-b) Router
-c) Bridge
-d) Hub
-Answer: b
+        .quiz-header {
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
 
-25. What is the function of a default route?
-a) For DNS lookup
-b) Used when no other route matches
-c) Used for ARP resolution
-d) For broadcast traffic
-Answer: b
+        .progress-bar-container {
+            margin-bottom: 30px;
+        }
 
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
 
-26. Subnet mask 255.255.255.192 provides how many usable hosts?
-a) 62
-b) 30
-c) 126
-d) 14
-Answer: a
+        .progress-track {
+            background: var(--bg);
+            height: 20px;
+            border-radius: 50px;
+            overflow: hidden;
+            border: 3px solid var(--text);
+        }
 
-27. 192.168.10.0/26 — what is the broadcast address?
-a) 192.168.10.64
-b) 192.168.10.63
-c) 192.168.10.62
-d) 192.168.10.65
-Answer: b
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-28. Which class is IP 172.16.5.1?
-a) Class A
-b) Class B
-c) Class C
-d) Class D
-Answer: b
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-29. What is the CIDR notation for subnet mask 255.255.255.0?
-a) /24
-b) /25
-c) /26
-d) /27
-Answer: a
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 20px;
+            border: 3px solid var(--text);
+        }
 
-30. Which command assigns an IP to a router interface?
-a) ip assign
-b) set ip address
-c) ip address 192.168.1.1 255.255.255.0
-d) assign address
-Answer: c
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-31. IPv6 address length is:
-a) 32 bits
-b) 64 bits
-c) 128 bits
-d) 256 bits
-Answer: c
+        .stat-label {
+            font-weight: 600;
+            color: #636E72;
+            margin-top: 8px;
+        }
 
-32. Which IPv6 address is equivalent to IPv4 loopback 127.0.0.1?
-a) ::1
-b) ::
-c) FE80::1
-d) FF02::1
-Answer: a
+        /* Question Box */
+        .question-box {
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+        }
 
-33. Which protocol is used by IPv6 for address resolution?
-a) ICMPv6
-b) ARP
-c) DHCPv6
-d) ND
-Answer: d
+        .question-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border: 3px solid var(--text);
+        }
 
-34. What is the scope of address FE80::1?
-a) Global
-b) Unique local
-c) Link-local
-d) Anycast
-Answer: c
+        .question-text {
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
 
-35. Which ICMPv6 message type is Neighbor Advertisement?
-a) 133
-b) 134
-c) 135
-d) 136
-Answer: d
+        /* Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-36. Which protocol ensures reliable delivery?
-a) UDP
-b) TCP
-c) ICMP
-d) IP
-Answer: b
+        .option {
+            background: var(--bg);
+            border: 4px solid var(--text);
+            border-radius: 20px;
+            padding: 24px 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
 
-37. Port 80 is used by:
-a) FTP
-b) SMTP
-c) HTTP
-d) DNS
-Answer: c
+        .option-marker {
+            width: 32px;
+            height: 32px;
+            border: 4px solid var(--text);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
 
-38. Which field in TCP header ensures ordering?
-a) Sequence number
-b) Acknowledgment number
-c) Port number
-d) Window size
-Answer: a
+        .option:hover {
+            background: var(--white);
+            transform: translateX(10px);
+        }
 
-39. UDP is used for:
-a) File Transfer
-b) Web browsing
-c) Voice streaming
-d) Email
-Answer: c
+        .option.selected {
+            background: var(--accent);
+        }
 
-40. TCP three-way handshake sequence is:
-a) SYN → SYN-ACK → ACK
-b) ACK → SYN → SYN-ACK
-c) SYN → ACK → SYN-ACK
-d) FIN → ACK → FIN
-Answer: a
+        .option.selected .option-marker {
+            background: var(--text);
+        }
 
-41. DNS uses which transport protocol?
-a) TCP
-b) UDP
-c) ICMP
-d) Both TCP and UDP
-Answer: d
+        .option.correct {
+            background: var(--success);
+            border-color: var(--text);
+        }
 
-42. SMTP works on which port?
-a) 21
-b) 25
-c) 80
-d) 110
-Answer: b
+        .option.correct .option-marker {
+            background: var(--text);
+            position: relative;
+        }
 
-43. POP3 retrieves emails from:
-a) Server to client
-b) Client to server
-c) Peer to peer
-d) None of these
-Answer: a
+        .option.correct .option-marker::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-44. FTP control connection uses which port?
-a) 20
-b) 21
-c) 22
-d) 23
-Answer: b
+        .option.incorrect {
+            background: #FF6B6B;
+            color: var(--white);
+        }
 
-45. HTTP status code 404 means:
-a) OK
-b) Forbidden
-c) Not Found
-d) Unauthorized
-Answer: c
+        .option.incorrect .option-marker {
+            background: var(--text);
+            border-color: var(--text);
+            position: relative;
+        }
 
-46. Which protocol securely connects to network devices?
-a) Telnet
-b) SSH
-c) HTTP
-d) FTP
-Answer: b
+        .option.incorrect .option-marker::after {
+            content: '✗';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-47. Which command encrypts passwords on Cisco devices?
-a) enable secret
-b) password encrypt
-c) service password-encryption
-d) encrypt all
-Answer: c
+        /* Buttons */
+        .btn {
+            padding: 18px 48px;
+            border: 4px solid var(--text);
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-48. Which is a strong password example?
-a) admin123
-b) Password
-c) @NetWork!23
-d) 12345
-Answer: c
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-49. Which message appears before login to warn users?
-a) MOTD banner
-b) Welcome banner
-c) Login message
-d) Session banner
-Answer: a
+        .btn-primary:hover {
+            background: var(--text);
+            transform: translateY(-4px);
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
 
-50. Which feature prevents brute-force login attempts on Cisco devices?
-a) login lockout
-b) password block
-c) login block-for
-d) ssh timeout
-Answer: c
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Flashcard */
+        .flashcard {
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 30px;
+            padding: 50px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flashcard-question {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .flashcard-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .flashcard-option {
+            background: var(--bg);
+            border: 3px solid var(--text);
+            padding: 18px 24px;
+            border-radius: 16px;
+            font-weight: 500;
+        }
+
+        .flashcard-option.correct {
+            background: var(--success);
+            font-weight: 700;
+        }
+
+        /* Search */
+        .search-box {
+            margin-bottom: 40px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 24px 32px;
+            background: var(--white);
+            border: 4px solid var(--text);
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Result */
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .result-emoji {
+            font-size: 8em;
+            margin-bottom: 30px;
+        }
+
+        .result-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .result-score {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 8em;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 40px 0;
+            line-height: 1;
+        }
+
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .modes-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 3em; }
+            .stats { grid-template-columns: 1fr; }
+            .question-box { padding: 30px; }
+            .navbar { padding: 16px 24px; }
+            .container { padding: 0 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span>🌐</span>
+            <span>Networking</span>
+        </div>
+        <button class="back-btn" onclick="returnToMenu()" id="backBtn">← Menu</button>
+    </nav>
+
+    <div class="container">
+        <div id="mode-selection">
+            <div class="hero">
+                <h1 class="hero-title">
+                    CCNA Exam<br>
+                    <span class="hero-emoji">💻</span>
+                </h1>
+                <p class="hero-subtitle">Networking Exam Preparation</p>
+                <div class="hero-badge">50 questions ready</div>
+            </div>
+
+            <div class="modes-grid">
+                <div class="mode-card" onclick="startMode('quiz')">
+                    <span class="mode-emoji">📝</span>
+                    <div class="mode-title">Testing</div>
+                    <div class="mode-desc">30 random questions</div>
+                </div>
+
+                <div class="mode-card" onclick="startMode('practice')">
+                    <span class="mode-emoji">💪</span>
+                    <div class="mode-title">Practice</div>
+                    <div class="mode-desc">Learn with feedback</div>
+                </div>
+
+                <div class="mode-card" onclick="startMode('flashcards')">
+                    <span class="mode-emoji">🗂️</span>
+                    <div class="mode-title">Flashcards</div>
+                    <div class="mode-desc">Quick review</div>
+                </div>
+
+                <div class="mode-card" onclick="startMode('browse')">
+                    <span class="mode-emoji">📚</span>
+                    <div class="mode-title">Browse</div>
+                    <div class="mode-desc">All questions + search</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-container">
+            <div class="quiz-header">
+                <div class="progress-bar-container">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span id="progress-text">0 / 0</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="progress-bar" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div id="current-question" class="stat-value">1</div>
+                        <div class="stat-label">Question</div>
+                    </div>
+                    <div class="stat">
+                        <div id="correct-count" class="stat-value">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat">
+                        <div id="incorrect-count" class="stat-value">0</div>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="question-area"></div>
+
+            <div class="controls">
+                <button id="next-btn" class="btn btn-primary" onclick="nextQuestion()" style="display:none;">Next →</button>
+                <button id="finish-btn" class="btn btn-primary" onclick="finishQuiz()" style="display:none;">Finish</button>
+            </div>
+        </div>
+
+        <div id="result-screen" class="result-screen">
+            <div class="result-emoji">🎉</div>
+            <h2 class="result-title">Test Complete!</h2>
+            <div class="result-score" id="final-score">0%</div>
+            <div class="quiz-header">
+                <div class="stats">
+                    <div class="stat">
+                        <div id="result-correct" class="stat-value">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat">
+                        <div id="result-incorrect" class="stat-value">0</div>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                    <div class="stat">
+                        <div id="result-total" class="stat-value">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="restartQuiz()" style="margin-top: 40px;">🔄 Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        const questionsData = [{"Question #": "1", "Question": "Which device operates primarily at Layer 2 of the OSI model?", "Options": {"A": "Router", "B": "Switch", "C": "Hub", "D": "Firewall"}, "Correct Answer Letter": "B", "Correct Answer Text": "Switch"}, {"Question #": "2", "Question": "What is the main function of a default gateway?", "Options": {"A": "To provide DNS resolution", "B": "To connect to remote networks", "C": "To assign IP addresses", "D": "To block unwanted traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "To connect to remote networks"}, {"Question #": "3", "Question": "Which cable is used to connect a PC to a switch?", "Options": {"A": "Crossover cable", "B": "Straight-through cable", "C": "Fiber optic cable", "D": "Console cable"}, "Correct Answer Letter": "B", "Correct Answer Text": "Straight-through cable"}, {"Question #": "4", "Question": "What is the purpose of a MAC address?", "Options": {"A": "Identifies devices on the same IP network", "B": "Identifies devices at the data link layer", "C": "Provides IP routing", "D": "Encrypts network traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "Identifies devices at the data link layer"}, {"Question #": "5", "Question": "What is the default VLAN on a Cisco switch?", "Options": {"A": "VLAN 0", "B": "VLAN 10", "C": "VLAN 1", "D": "VLAN 99"}, "Correct Answer Letter": "C", "Correct Answer Text": "VLAN 1"}, {"Question #": "6", "Question": "Which layer of the OSI model is responsible for data encryption?", "Options": {"A": "Session", "B": "Presentation", "C": "Network", "D": "Transport"}, "Correct Answer Letter": "B", "Correct Answer Text": "Presentation"}, {"Question #": "7", "Question": "Which protocol provides reliable data transfer?", "Options": {"A": "TCP", "B": "UDP", "C": "ICMP", "D": "IP"}, "Correct Answer Letter": "A", "Correct Answer Text": "TCP"}, {"Question #": "8", "Question": "In the TCP/IP model, which layer corresponds to the OSI Network layer?", "Options": {"A": "Application", "B": "Internet", "C": "Transport", "D": "Link"}, "Correct Answer Letter": "B", "Correct Answer Text": "Internet"}, {"Question #": "9", "Question": "Which tool captures and analyzes network packets?", "Options": {"A": "Putty", "B": "Wireshark", "C": "Packet Tracer", "D": "Telnet"}, "Correct Answer Letter": "B", "Correct Answer Text": "Wireshark"}, {"Question #": "10", "Question": "What is encapsulation in networking?", "Options": {"A": "Adding headers/trailers around data", "B": "Encrypting data", "C": "Removing headers", "D": "Translating IP addresses"}, "Correct Answer Letter": "A", "Correct Answer Text": "Adding headers/trailers around data"}, {"Question #": "11", "Question": "What unit measures bandwidth?", "Options": {"A": "Bytes", "B": "Bits per second", "C": "Hertz", "D": "Megabytes per hour"}, "Correct Answer Letter": "B", "Correct Answer Text": "Bits per second"}, {"Question #": "12", "Question": "Which device converts digital signals to analog for transmission?", "Options": {"A": "Switch", "B": "Modem", "C": "Hub", "D": "Repeater"}, "Correct Answer Letter": "B", "Correct Answer Text": "Modem"}, {"Question #": "13", "Question": "Which cable type is most resistant to electromagnetic interference?", "Options": {"A": "UTP", "B": "STP", "C": "Coaxial", "D": "Fiber optic"}, "Correct Answer Letter": "D", "Correct Answer Text": "Fiber optic"}, {"Question #": "14", "Question": "Binary value of decimal 45 is:", "Options": {"A": "100101", "B": "101101", "C": "110011", "D": "1011010"}, "Correct Answer Letter": "B", "Correct Answer Text": "101101"}, {"Question #": "15", "Question": "Which layer defines physical media characteristics?", "Options": {"A": "Network", "B": "Data Link", "C": "Physical", "D": "Transport"}, "Correct Answer Letter": "C", "Correct Answer Text": "Physical"}, {"Question #": "16", "Question": "Ethernet uses which access method?", "Options": {"A": "CSMA/CA", "B": "CSMA/CD", "C": "Token Ring", "D": "TDMA"}, "Correct Answer Letter": "B", "Correct Answer Text": "CSMA/CD"}, {"Question #": "17", "Question": "What is the frame delimiter in Ethernet?", "Options": {"A": "Preamble", "B": "CRC", "C": "Source MAC", "D": "EtherType"}, "Correct Answer Letter": "A", "Correct Answer Text": "Preamble"}, {"Question #": "18", "Question": "Switches use which table to forward frames?", "Options": {"A": "ARP table", "B": "Routing table", "C": "MAC address table", "D": "IP address table"}, "Correct Answer Letter": "C", "Correct Answer Text": "MAC address table"}, {"Question #": "19", "Question": "What is the minimum Ethernet frame size?", "Options": {"A": "46 bytes", "B": "64 bytes", "C": "128 bytes", "D": "512 bytes"}, "Correct Answer Letter": "B", "Correct Answer Text": "64 bytes"}, {"Question #": "20", "Question": "VLANs are used to:", "Options": {"A": "Increase physical ports", "B": "Divide a LAN into segments", "C": "Reduce MAC addresses", "D": "Encrypt data"}, "Correct Answer Letter": "B", "Correct Answer Text": "Divide a LAN into segments"}, {"Question #": "21", "Question": "Which command shows the routing table on a Cisco router?", "Options": {"A": "show interfaces", "B": "show ip route", "C": "show arp", "D": "show version"}, "Correct Answer Letter": "B", "Correct Answer Text": "show ip route"}, {"Question #": "22", "Question": "Which protocol maps IP addresses to MAC addresses?", "Options": {"A": "DNS", "B": "DHCP", "C": "ARP", "D": "ICMP"}, "Correct Answer Letter": "C", "Correct Answer Text": "ARP"}, {"Question #": "23", "Question": "What type of address is 192.168.1.1?", "Options": {"A": "Public", "B": "Private", "C": "Multicast", "D": "Loopback"}, "Correct Answer Letter": "B", "Correct Answer Text": "Private"}, {"Question #": "24", "Question": "Which device operates at Layer 3?", "Options": {"A": "Switch", "B": "Router", "C": "Bridge", "D": "Hub"}, "Correct Answer Letter": "B", "Correct Answer Text": "Router"}, {"Question #": "25", "Question": "What is the function of a default route?", "Options": {"A": "For DNS lookup", "B": "Used when no other route matches", "C": "Used for ARP resolution", "D": "For broadcast traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "Used when no other route matches"}, {"Question #": "26", "Question": "Subnet mask 255.255.255.192 provides how many usable hosts?", "Options": {"A": "62", "B": "30", "C": "126", "D": "14"}, "Correct Answer Letter": "A", "Correct Answer Text": "62"}, {"Question #": "27", "Question": "192.168.10.0/26 — what is the broadcast address?", "Options": {"A": "192.168.10.64", "B": "192.168.10.63", "C": "192.168.10.62", "D": "192.168.10.65"}, "Correct Answer Letter": "B", "Correct Answer Text": "192.168.10.63"}, {"Question #": "28", "Question": "Which class is IP 172.16.5.1?", "Options": {"A": "Class A", "B": "Class B", "C": "Class C", "D": "Class D"}, "Correct Answer Letter": "B", "Correct Answer Text": "Class B"}, {"Question #": "29", "Question": "What is the CIDR notation for subnet mask 255.255.255.0?", "Options": {"A": "/24", "B": "/25", "C": "/26", "D": "/27"}, "Correct Answer Letter": "A", "Correct Answer Text": "/24"}, {"Question #": "30", "Question": "Which command assigns an IP to a router interface?", "Options": {"A": "ip assign", "B": "set ip address", "C": "ip address 192.168.1.1 255.255.255.0", "D": "assign address"}, "Correct Answer Letter": "C", "Correct Answer Text": "ip address 192.168.1.1 255.255.255.0"}, {"Question #": "31", "Question": "IPv6 address length is:", "Options": {"A": "32 bits", "B": "64 bits", "C": "128 bits", "D": "256 bits"}, "Correct Answer Letter": "C", "Correct Answer Text": "128 bits"}, {"Question #": "32", "Question": "Which IPv6 address is equivalent to IPv4 loopback 127.0.0.1?", "Options": {"A": "::1", "B": "::", "C": "FE80::1", "D": "FF02::1"}, "Correct Answer Letter": "A", "Correct Answer Text": "::1"}, {"Question #": "33", "Question": "Which protocol is used by IPv6 for address resolution?", "Options": {"A": "ICMPv6", "B": "ARP", "C": "DHCPv6", "D": "ND"}, "Correct Answer Letter": "D", "Correct Answer Text": "ND"}, {"Question #": "34", "Question": "What is the scope of address FE80::1?", "Options": {"A": "Global", "B": "Unique local", "C": "Link-local", "D": "Anycast"}, "Correct Answer Letter": "C", "Correct Answer Text": "Link-local"}, {"Question #": "35", "Question": "Which ICMPv6 message type is Neighbor Advertisement?", "Options": {"A": "133", "B": "134", "C": "135", "D": "136"}, "Correct Answer Letter": "D", "Correct Answer Text": "136"}, {"Question #": "36", "Question": "Which protocol ensures reliable delivery?", "Options": {"A": "UDP", "B": "TCP", "C": "ICMP", "D": "IP"}, "Correct Answer Letter": "B", "Correct Answer Text": "TCP"}, {"Question #": "37", "Question": "Port 80 is used by:", "Options": {"A": "FTP", "B": "SMTP", "C": "HTTP", "D": "DNS"}, "Correct Answer Letter": "C", "Correct Answer Text": "HTTP"}, {"Question #": "38", "Question": "Which field in TCP header ensures ordering?", "Options": {"A": "Sequence number", "B": "Acknowledgment number", "C": "Port number", "D": "Window size"}, "Correct Answer Letter": "A", "Correct Answer Text": "Sequence number"}, {"Question #": "39", "Question": "UDP is used for:", "Options": {"A": "File Transfer", "B": "Web browsing", "C": "Voice streaming", "D": "Email"}, "Correct Answer Letter": "C", "Correct Answer Text": "Voice streaming"}, {"Question #": "40", "Question": "TCP three-way handshake sequence is:", "Options": {"A": "SYN → SYN-ACK → ACK", "B": "ACK → SYN → SYN-ACK", "C": "SYN → ACK → SYN-ACK", "D": "FIN → ACK → FIN"}, "Correct Answer Letter": "A", "Correct Answer Text": "SYN → SYN-ACK → ACK"}, {"Question #": "41", "Question": "DNS uses which transport protocol?", "Options": {"A": "TCP", "B": "UDP", "C": "ICMP", "D": "Both TCP and UDP"}, "Correct Answer Letter": "D", "Correct Answer Text": "Both TCP and UDP"}, {"Question #": "42", "Question": "SMTP works on which port?", "Options": {"A": "21", "B": "25", "C": "80", "D": "110"}, "Correct Answer Letter": "B", "Correct Answer Text": "25"}, {"Question #": "43", "Question": "POP3 retrieves emails from:", "Options": {"A": "Server to client", "B": "Client to server", "C": "Peer to peer", "D": "None of these"}, "Correct Answer Letter": "A", "Correct Answer Text": "Server to client"}, {"Question #": "44", "Question": "FTP control connection uses which port?", "Options": {"A": "20", "B": "21", "C": "22", "D": "23"}, "Correct Answer Letter": "B", "Correct Answer Text": "21"}, {"Question #": "45", "Question": "HTTP status code 404 means:", "Options": {"A": "OK", "B": "Forbidden", "C": "Not Found", "D": "Unauthorized"}, "Correct Answer Letter": "C", "Correct Answer Text": "Not Found"}, {"Question #": "46", "Question": "Which protocol securely connects to network devices?", "Options": {"A": "Telnet", "B": "SSH", "C": "HTTP", "D": "FTP"}, "Correct Answer Letter": "B", "Correct Answer Text": "SSH"}, {"Question #": "47", "Question": "Which command encrypts passwords on Cisco devices?", "Options": {"A": "enable secret", "B": "password encrypt", "C": "service password-encryption", "D": "encrypt all"}, "Correct Answer Letter": "C", "Correct Answer Text": "service password-encryption"}, {"Question #": "48", "Question": "Which is a strong password example?", "Options": {"A": "admin123", "B": "Password", "C": "@NetWork!23", "D": "12345"}, "Correct Answer Letter": "C", "Correct Answer Text": "@NetWork!23"}, {"Question #": "49", "Question": "Which message appears before login to warn users?", "Options": {"A": "MOTD banner", "B": "Welcome banner", "C": "Login message", "D": "Session banner"}, "Correct Answer Letter": "A", "Correct Answer Text": "MOTD banner"}, {"Question #": "50", "Question": "Which feature prevents brute-force login attempts on Cisco devices?", "Options": {"A": "login lockout", "B": "password block", "C": "login block-for", "D": "ssh timeout"}, "Correct Answer Letter": "C", "Correct Answer Text": "login block-for"}];
+
+        let currentMode = '';
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let selectedQuestions = [];
+        let selectedAnswer = null;
+
+        function startMode(mode) {
+            currentMode = mode;
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            incorrectAnswers = 0;
+
+            document.getElementById('mode-selection').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('result-screen').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'block';
+
+            if (mode === 'quiz') {
+                selectedQuestions = shuffleArray([...questionsData]).slice(0, 30);
+                loadQuestionWithOptions();
+            } else if (mode === 'practice') {
+                selectedQuestions = [...questionsData];
+                loadQuestionWithOptions();
+            } else if (mode === 'flashcards') {
+                selectedQuestions = shuffleArray([...questionsData]);
+                loadFlashcard();
+            } else if (mode === 'browse') {
+                loadBrowseMode();
+            }
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function loadQuestionWithOptions() {
+            if (currentQuestionIndex >= selectedQuestions.length) {
+                finishQuiz();
+                return;
+            }
+
+            selectedAnswer = null;
+            const question = selectedQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('correct-count').textContent = correctAnswers;
+            document.getElementById('incorrect-count').textContent = incorrectAnswers;
+
+            let optionsHTML = '';
+            const options = question['Options'];
+            for (let letter in options) {
+                optionsHTML += `<div class="option" onclick="selectOption('${letter}')" data-letter="${letter}">
+                    <div class="option-marker"></div>
+                    <div><strong>${letter})</strong> ${options[letter]}</div>
+                </div>`;
+            }
+
+            const questionHTML = `
+                <div class="question-box">
+                    <div class="question-badge">Question #${question['Question #']}</div>
+                    <div class="question-text">${question['Question']}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                    <div style="margin-top: 40px; text-align: center;">
+                        <button class="btn btn-primary" onclick="checkAnswer()" id="check-btn">Check Answer</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('question-area').innerHTML = questionHTML;
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('finish-btn').style.display = 'none';
+        }
+
+        function selectOption(letter) {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            document.querySelector(`[data-letter="${letter}"]`).classList.add('selected');
+            selectedAnswer = letter;
+        }
+
+        function checkAnswer() {
+            if (!selectedAnswer) {
+                alert('Please select an answer!');
+                return;
+            }
+
+            const question = selectedQuestions[currentQuestionIndex];
+            const correctLetter = question['Correct Answer Letter'];
+
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                const letter = opt.getAttribute('data-letter');
+
+                if (letter === correctLetter) {
+                    opt.classList.add('correct');
+                } else if (letter === selectedAnswer && selectedAnswer !== correctLetter) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            if (selectedAnswer === correctLetter) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+
+            document.getElementById('check-btn').style.display = 'none';
+            showNextButton();
+        }
+
+        function showNextButton() {
+            document.getElementById('correct-count').textContent = correctAnswers;
+            document.getElementById('incorrect-count').textContent = incorrectAnswers;
+
+            if (currentQuestionIndex < selectedQuestions.length - 1) {
+                document.getElementById('next-btn').style.display = 'block';
+            } else {
+                document.getElementById('finish-btn').style.display = 'block';
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+
+            if (currentMode === 'flashcards') {
+                loadFlashcard();
+            } else {
+                loadQuestionWithOptions();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
+
+            const total = correctAnswers + incorrectAnswers;
+            const percentage = total > 0 ? Math.round((correctAnswers / total) * 100) : 0;
+
+            document.getElementById('final-score').textContent = percentage + '%';
+            document.getElementById('result-correct').textContent = correctAnswers;
+            document.getElementById('result-incorrect').textContent = incorrectAnswers;
+            document.getElementById('result-total').textContent = total;
+        }
+
+        function loadFlashcard() {
+            if (currentQuestionIndex >= selectedQuestions.length) {
+                currentQuestionIndex = 0;
+            }
+
+            const question = selectedQuestions[currentQuestionIndex];
+            const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+
+            let optionsHTML = '';
+            const options = question['Options'];
+            const correctLetter = question['Correct Answer Letter'];
+
+            for (let letter in options) {
+                const isCorrect = letter === correctLetter;
+                optionsHTML += `<div class="flashcard-option ${isCorrect ? 'correct' : ''}"><strong>${letter})</strong> ${options[letter]}</div>`;
+            }
+
+            const flashcardHTML = `
+                <div class="flashcard">
+                    <div class="flashcard-question">
+                        <div>${question['Question']}</div>
+                    </div>
+                    <div class="flashcard-options">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('question-area').innerHTML = flashcardHTML;
+            document.getElementById('next-btn').style.display = 'block';
+            document.getElementById('next-btn').textContent = 'Next Card →';
+            document.getElementById('finish-btn').style.display = 'none';
+        }
+
+        function loadBrowseMode() {
+            let browseHTML = '<div class="search-box"><input type="text" class="search-input" placeholder="🔍 Search..." oninput="filterQuestions(this.value)"></div><div id="all-questions">';
+
+            questionsData.forEach((q, index) => {
+                let optionsHTML = '';
+                const options = q['Options'];
+                const correctLetter = q['Correct Answer Letter'];
+
+                for (let letter in options) {
+                    const isCorrect = letter === correctLetter;
+                    optionsHTML += `<div class="flashcard-option ${isCorrect ? 'correct' : ''}" style="margin-bottom: 12px;"><strong>${letter})</strong> ${options[letter]}</div>`;
+                }
+
+                browseHTML += `
+                    <div class="question-box question-item" style="margin-bottom: 30px;">
+                        <div class="question-badge">#${q['Question #']}</div>
+                        <div class="question-text">${q['Question']}</div>
+                        <div style="margin-top: 24px;">
+                            ${optionsHTML}
+                        </div>
+                    </div>
+                `;
+            });
+
+            browseHTML += '</div>';
+            document.getElementById('question-area').innerHTML = browseHTML;
+            document.querySelector('.quiz-header').style.display = 'none';
+        }
+
+        function filterQuestions(searchText) {
+            const items = document.querySelectorAll('.question-item');
+            const search = searchText.toLowerCase();
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(search)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function returnToMenu() {
+            document.getElementById('mode-selection').style.display = 'block';
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'none';
+            document.getElementById('backBtn').style.display = 'none';
+            document.querySelector('.quiz-header').style.display = 'block';
+        }
+
+        function restartQuiz() {
+            returnToMenu();
+        }
+    </script>
+</body>
+</html>
