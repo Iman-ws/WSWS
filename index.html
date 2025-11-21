@@ -3,754 +3,695 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP-адресация: Обучение с нуля</title>
+    <title>Экзаменационная платформа - Networking</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
         }
-        
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
         }
-        
+
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
             text-align: center;
+            margin-bottom: 30px;
         }
-        
+
         .header h1 {
+            color: #667eea;
             font-size: 2.5em;
             margin-bottom: 10px;
         }
-        
+
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        .tab {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            border: none;
-            background: transparent;
+            color: #666;
             font-size: 1.1em;
         }
-        
-        .tab:hover {
-            background: #e9ecef;
+
+        .lecture-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
         }
-        
-        .tab.active {
-            background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
+
+        .lecture-btn {
+            padding: 15px;
+            border: 2px solid #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
-        
-        .content {
-            padding: 40px;
+
+        .lecture-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
-        
-        .section {
+
+        .lecture-btn.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-color: #f5576c;
+        }
+
+        .quiz-container {
             display: none;
         }
-        
-        .section.active {
+
+        .quiz-container.active {
             display: block;
-            animation: fadeIn 0.5s;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .theory-block {
+
+        .question-card {
             background: #f8f9fa;
+            border-radius: 15px;
             padding: 25px;
-            border-radius: 10px;
             margin-bottom: 20px;
             border-left: 5px solid #667eea;
         }
-        
-        .theory-block h3 {
+
+        .question-number {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .theory-block p {
-            line-height: 1.8;
+            font-weight: bold;
             font-size: 1.1em;
             margin-bottom: 10px;
         }
-        
-        .highlight {
-            background: #fff3cd;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
+
+        .question-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        
-        table th {
+
+        .option {
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            font-size: 1em;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option.selected {
+            border-color: #667eea;
             background: #667eea;
             color: white;
-            padding: 15px;
-            text-align: left;
         }
-        
-        table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
+
+        .option.correct {
+            border-color: #28a745;
+            background: #28a745;
+            color: white;
         }
-        
-        table tr:hover {
-            background: #f8f9fa;
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #dc3545;
+            color: white;
         }
-        
-        .input-group {
-            margin: 20px 0;
+
+        .option.show-correct {
+            border-color: #28a745;
+            background: #d4edda;
         }
-        
-        .input-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #495057;
-            font-size: 1.1em;
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-        
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1.1em;
-            transition: border 0.3s;
-        }
-        
-        .input-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
+
         .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 10px 5px;
         }
-        
-        .btn:hover {
+
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        
-        .btn:active {
-            transform: translateY(0);
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
         }
-        
-        .result-box {
-            background: #d4edda;
-            border: 2px solid #28a745;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
+
+        .btn-secondary:hover {
+            background: #5a6268;
         }
-        
-        .error-box {
-            background: #f8d7da;
-            border: 2px solid #dc3545;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
+
+        .btn-success {
+            background: #28a745;
+            color: white;
         }
-        
-        .step {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .step h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-        
-        .step p {
-            line-height: 1.6;
-            font-size: 1.05em;
-        }
-        
-        .ip-display {
-            font-family: 'Courier New', monospace;
-            background: #2c3e50;
-            color: #2ecc71;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 1.3em;
-            text-align: center;
-            margin: 15px 0;
-        }
-        
-        .quiz-option {
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .quiz-option:hover {
-            background: #e9ecef;
-            border-color: #667eea;
-        }
-        
-        .quiz-option.correct {
-            background: #d4edda;
-            border-color: #28a745;
-        }
-        
-        .quiz-option.wrong {
-            background: #f8d7da;
-            border-color: #dc3545;
-        }
-        
+
         .progress-bar {
             width: 100%;
-            height: 30px;
+            height: 10px;
             background: #e9ecef;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
-        
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.5s;
+            transition: width 0.3s ease;
+        }
+
+        .stats {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2em;
             font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .results-score {
+            font-size: 4em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .results-message {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .lecture-selector {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🌐 IP-адресация с нуля</h1>
-            <p>Пошаговое обучение для подготовки к экзамену</p>
+            <h1>🌐 Экзаменационная платформа</h1>
+            <p>Подготовка к экзамену по Networking</p>
         </div>
-        
-        <div class="tabs">
-            <button class="tab active" onclick="showSection(0)">📚 Теория</button>
-            <button class="tab" onclick="showSection(1)">🧮 Калькулятор</button>
-            <button class="tab" onclick="showSection(2)">💪 Тренажер</button>
-            <button class="tab" onclick="showSection(3)">📋 Шпаргалка</button>
+
+        <div class="lecture-selector" id="lectureSelector">
+            <button class="lecture-btn" data-lecture="0">Lecture 1: Networking Today</button>
+            <button class="lecture-btn" data-lecture="1">Lecture 2: Protocols</button>
+            <button class="lecture-btn" data-lecture="2">Lecture 3: Network Layer</button>
+            <button class="lecture-btn" data-lecture="3">Lecture 4: Data Link</button>
+            <button class="lecture-btn" data-lecture="4">Lecture 5: Address Resolution</button>
+            <button class="lecture-btn" data-lecture="5">Lecture 6: IPv4</button>
+            <button class="lecture-btn" data-lecture="6">Lecture 7: IPv6 & ICMP</button>
+            <button class="lecture-btn" data-lecture="7">Lecture 8: Transport</button>
+            <button class="lecture-btn" data-lecture="8">Lecture 9: Application</button>
+            <button class="lecture-btn" data-lecture="9">Lecture 10: Security</button>
+            <button class="lecture-btn" data-lecture="all" style="grid-column: span 2;">Все вопросы</button>
         </div>
-        
-        <div class="content">
-            <!-- РАЗДЕЛ 1: ТЕОРИЯ -->
-            <div class="section active" id="section-0">
-                <h2 style="color: #667eea; margin-bottom: 30px;">📚 Теория: Что такое IP-адрес?</h2>
-                
-                <div class="theory-block">
-                    <h3>Что такое IP-адрес?</h3>
-                    <p>IP-адрес — это <span class="highlight">уникальный номер</span> компьютера в сети. Он состоит из <span class="highlight">4 чисел</span>, разделенных точками.</p>
-                    <div class="ip-display">192.168.10.1</div>
-                    <p>Каждое число называется <span class="highlight">октет</span> и может быть от <strong>0</strong> до <strong>255</strong>.</p>
-                </div>
-                
-                <div class="theory-block">
-                    <h3>Что такое маска (Prefix)?</h3>
-                    <p>Маска показывает, <span class="highlight">где заканчивается адрес сети</span> и начинается адрес компьютера (хоста).</p>
-                    <p>Пример: <code>192.168.10.50<strong>/24</strong></code> — число после <strong>/</strong> это маска.</p>
-                    <p><strong>Аналогия:</strong> Представь адрес как "Улица Пушкина, дом 10, квартира 5":</p>
-                    <ul style="margin-left: 30px; line-height: 2;">
-                        <li><strong>Улица</strong> = адрес сети (одинаковый для всех домов на улице)</li>
-                        <li><strong>Квартира</strong> = адрес хоста (уникальный номер компьютера)</li>
-                    </ul>
-                </div>
-                
-                <div class="theory-block">
-                    <h3>Какие октеты мы меняем?</h3>
-                    <p>Маска говорит, с каким октетом работать:</p>
-                    <table>
-                        <tr>
-                            <th>Маска</th>
-                            <th>Рабочий октет</th>
-                            <th>Пример</th>
-                        </tr>
-                        <tr>
-                            <td>/1 — /8</td>
-                            <td>1-й октет</td>
-                            <td>10.0.0.0 → <strong>10</strong>.?.?.?</td>
-                        </tr>
-                        <tr>
-                            <td>/9 — /16</td>
-                            <td>2-й октет</td>
-                            <td>172.16.0.0 → 172.<strong>16</strong>.?.?</td>
-                        </tr>
-                        <tr>
-                            <td>/17 — /24</td>
-                            <td>3-й октет</td>
-                            <td>192.168.10.0 → 192.168.<strong>10</strong>.?</td>
-                        </tr>
-                        <tr>
-                            <td>/25 — /32</td>
-                            <td>4-й октет</td>
-                            <td>10.0.0.128 → 10.0.0.<strong>128</strong></td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="theory-block">
-                    <h3>Магическое число (Шаг сети)</h3>
-                    <p>Это <span class="highlight">размер блока</span> адресов в вашей подсети. Запомните эту таблицу:</p>
-                    <table>
-                        <tr>
-                            <th>Маска</th>
-                            <th>Шаг (Magic Number)</th>
-                            <th>Маска в десятичном виде</th>
-                        </tr>
-                        <tr><td>/25</td><td>128</td><td>.128</td></tr>
-                        <tr><td>/26</td><td>64</td><td>.192</td></tr>
-                        <tr><td>/27</td><td>32</td><td>.224</td></tr>
-                        <tr><td>/28</td><td>16</td><td>.240</td></tr>
-                        <tr><td>/29</td><td>8</td><td>.248</td></tr>
-                        <tr><td>/30</td><td>4</td><td>.252</td></tr>
-                    </table>
-                    <p><strong>Правило:</strong> Сети идут с этим шагом. Например, для /26 (шаг 64): 0, 64, 128, 192.</p>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="question-card" id="questionCard">
+                <div class="question-number" id="questionNumber"></div>
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" id="prevBtn">Назад</button>
+                <div>
+                    <button class="btn btn-success" id="checkBtn">Проверить</button>
+                    <button class="btn btn-primary" id="nextBtn" style="display: none;">Следующий</button>
                 </div>
             </div>
-            
-            <!-- РАЗДЕЛ 2: КАЛЬКУЛЯТОР -->
-            <div class="section" id="section-1">
-                <h2 style="color: #667eea; margin-bottom: 30px;">🧮 Пошаговый калькулятор</h2>
-                
-                <div class="input-group">
-                    <label>Введите IP-адрес:</label>
-                    <input type="text" id="calc-ip" placeholder="192.168.10.50" value="75.149.221.150">
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="currentQuestion">0</div>
+                    <div class="stat-label">Текущий вопрос</div>
                 </div>
-                
-                <div class="input-group">
-                    <label>Введите маску (префикс):</label>
-                    <input type="number" id="calc-mask" placeholder="24" value="18" min="1" max="32">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalQuestions">0</div>
+                    <div class="stat-label">Всего вопросов</div>
                 </div>
-                
-                <button class="btn" onclick="calculate()">🔍 Показать решение по шагам</button>
-                
-                <div id="calc-result"></div>
-            </div>
-            
-            <!-- РАЗДЕЛ 3: ТРЕНАЖЕР -->
-            <div class="section" id="section-2">
-                <h2 style="color: #667eea; margin-bottom: 30px;">💪 Тренажер</h2>
-                
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress" style="width: 0%">0/10</div>
-                </div>
-                
-                <div id="quiz-container"></div>
-                
-                <button class="btn" onclick="startQuiz()">🎯 Начать новый тест</button>
-            </div>
-            
-            <!-- РАЗДЕЛ 4: ШПАРГАЛКА -->
-            <div class="section" id="section-3">
-                <h2 style="color: #667eea; margin-bottom: 30px;">📋 Шпаргалка</h2>
-                
-                <div class="theory-block">
-                    <h3>Таблица масок и шагов</h3>
-                    <table>
-                        <tr>
-                            <th>CIDR</th>
-                            <th>Шаг</th>
-                            <th>Десятичная маска</th>
-                            <th>Кол-во хостов</th>
-                        </tr>
-                        <tr><td>/24</td><td>256</td><td>255.255.255.0</td><td>254</td></tr>
-                        <tr><td>/25</td><td>128</td><td>255.255.255.128</td><td>126</td></tr>
-                        <tr><td>/26</td><td>64</td><td>255.255.255.192</td><td>62</td></tr>
-                        <tr><td>/27</td><td>32</td><td>255.255.255.224</td><td>30</td></tr>
-                        <tr><td>/28</td><td>16</td><td>255.255.255.240</td><td>14</td></tr>
-                        <tr><td>/29</td><td>8</td><td>255.255.255.248</td><td>6</td></tr>
-                        <tr><td>/30</td><td>4</td><td>255.255.255.252</td><td>2</td></tr>
-                    </table>
-                </div>
-                
-                <div class="theory-block">
-                    <h3>Алгоритм решения</h3>
-                    <div class="step">
-                        <h4>Шаг 1: Определи рабочий октет</h4>
-                        <p>/1-/8 = 1-й | /9-/16 = 2-й | /17-/24 = 3-й | /25-/32 = 4-й</p>
-                    </div>
-                    <div class="step">
-                        <h4>Шаг 2: Найди "шаг" из таблицы</h4>
-                        <p>Например, /26 → шаг 64</p>
-                    </div>
-                    <div class="step">
-                        <h4>Шаг 3: Построй "лестницу"</h4>
-                        <p>0, 64, 128, 192, 256...</p>
-                    </div>
-                    <div class="step">
-                        <h4>Шаг 4: Найди, куда попадает число</h4>
-                        <p>Если число 150, оно между 128 и 192</p>
-                    </div>
-                    <div class="step">
-                        <h4>Шаг 5: Network = начало, Broadcast = конец - 1</h4>
-                        <p>Network: .128 | Broadcast: .191</p>
-                    </div>
-                </div>
-                
-                <div class="theory-block">
-                    <h3>Примеры из экзамена</h3>
-                    <table>
-                        <tr>
-                            <th>IP/Маска</th>
-                            <th>Network</th>
-                            <th>First Host</th>
-                            <th>Last Host</th>
-                            <th>Broadcast</th>
-                        </tr>
-                        <tr>
-                            <td>28.112.99.22/24</td>
-                            <td>28.112.99.0</td>
-                            <td>28.112.99.1</td>
-                            <td>28.112.99.254</td>
-                            <td>28.112.99.255</td>
-                        </tr>
-                        <tr>
-                            <td>192.169.10.1/25</td>
-                            <td>192.169.10.0</td>
-                            <td>192.169.10.1</td>
-                            <td>192.169.10.126</td>
-                            <td>192.169.10.127</td>
-                        </tr>
-                        <tr>
-                            <td>99.240.132.206/30</td>
-                            <td>99.240.132.204</td>
-                            <td>99.240.132.205</td>
-                            <td>99.240.132.206</td>
-                            <td>99.240.132.207</td>
-                        </tr>
-                    </table>
+                <div class="stat-item">
+                    <div class="stat-number" id="correctAnswers">0</div>
+                    <div class="stat-label">Правильных</div>
                 </div>
             </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer">
+            <h2>🎉 Тест завершен!</h2>
+            <div class="results-score" id="finalScore">0%</div>
+            <div class="results-message" id="resultsMessage"></div>
+            <button class="btn btn-primary" id="restartBtn">Начать заново</button>
         </div>
     </div>
 
     <script>
-        // Переключение табов
-        function showSection(index) {
-            const sections = document.querySelectorAll('.section');
-            const tabs = document.querySelectorAll('.tab');
+        const questionsData = {
+            "Lecture 1": [
+                {"q": "What is the primary function of a server in a network?", "options": ["To request information from other devices", "To provide information to end devices", "To store and deliver data or services to clients", "To route packets between networks", "To encrypt all network traffic"], "correct": 2},
+                {"q": "Which of the following is NOT a common type of network?", "options": ["LAN", "WAN", "MAN", "PAN (Personal Area Network)", "SAN"], "correct": 3},
+                {"q": "What is the role of a client in a network?", "options": ["To store large amounts of data", "To provide services to other devices", "To send requests to servers for information", "To manage network security", "To route traffic between subnets"], "correct": 2},
+                {"q": "Which device is responsible for forwarding packets between different networks?", "options": ["Switch", "Hub", "Router", "Repeater", "Bridge"], "correct": 2},
+                {"q": "What does the acronym IOS stand for in Cisco networking?", "options": ["Internet Operating System", "Integrated Operating Solution", "Internetwork Operating System", "Internal Operating Service", "Internet Organization System"], "correct": 2},
+                {"q": "Which command is used to enter privileged EXEC mode on a Cisco device?", "options": ["enable", "enable", "configure terminal", "login", "exit"], "correct": 0},
+                {"q": "What is the purpose of the 'hostname' command in Cisco IOS?", "options": ["To set the device's IP address", "To enable remote access", "To assign a name to the device", "To configure the default gateway", "To encrypt passwords"], "correct": 2},
+                {"q": "Which command is used to configure a password for console access?", "options": ["enable secret", "password", "line console 0, then password", "login", "service password-encryption"], "correct": 2},
+                {"q": "What is the function of the 'banner motd' command?", "options": ["To display a welcome message on the device", "To encrypt all passwords", "To display a legal notification or warning message", "To set the device's hostname", "To enable SSH access"], "correct": 2},
+                {"q": "Which command is used to save the running configuration to NVRAM?", "options": ["copy running-config startup-config", "copy running-config startup-config", "save config", "write memory", "backup config"], "correct": 0},
+                {"q": "What is the purpose of the 'service password-encryption' command?", "options": ["To encrypt all network traffic", "To enable SSH access", "To encrypt all plaintext passwords in the configuration", "To set a secret password for privileged EXEC mode", "To enable remote management"], "correct": 2},
+                {"q": "Which command is used to configure a password for remote access via Telnet or SSH?", "options": ["enable secret", "password", "line vty 0 4, then password", "login", "service password-encryption"], "correct": 2},
+                {"q": "What is the function of the 'no shutdown' command on an interface?", "options": ["To disable the interface", "To delete the interface configuration", "To activate the interface", "To reset the interface statistics", "To change the interface speed"], "correct": 2},
+                {"q": "Which command is used to display the current configuration of a Cisco device?", "options": ["show running-config", "show running-config", "show startup-config", "show interfaces", "show ip route"], "correct": 0},
+                {"q": "What is the purpose of the 'description' command on an interface?", "options": ["To set the interface speed", "To assign an IP address", "To add a comment or label to the interface", "To enable the interface", "To configure the default gateway"], "correct": 2}
+            ],
+            "Lecture 2": [
+                {"q": "What are the three essential elements of any communication?", "options": ["Sender, receiver, and protocol", "Message, signal, and medium", "Source, destination, and channel", "Encoder, decoder, and transmitter", "Protocol, suite, and model"], "correct": 2},
+                {"q": "What is the primary purpose of a protocol in networking?", "options": ["To provide physical connectivity", "To encrypt data", "To define the rules for communication between devices", "To route packets between networks", "To store data on servers"], "correct": 2},
+                {"q": "Which of the following is NOT a requirement for network protocols?", "options": ["Identified sender and receiver", "Common language and grammar", "Physical connection between devices", "Speed and timing of delivery", "Confirmation or acknowledgment requirements"], "correct": 2},
+                {"q": "What is the process of converting information into another acceptable form for transmission called?", "options": ["Decoding", "Formatting", "Encoding", "Encapsulation", "Multiplexing"], "correct": 2},
+                {"q": "What is the purpose of message formatting and encapsulation?", "options": ["To encrypt the message", "To compress the message", "To structure the message for transmission", "To route the message to the destination", "To authenticate the sender"], "correct": 2},
+                {"q": "Which of the following is NOT a message delivery option?", "options": ["Unicast", "Multicast", "Anycast (for IPv4)", "Broadcast", "Anycast (for IPv6)"], "correct": 2},
+                {"q": "What is the function of flow control in network protocols?", "options": ["To encrypt data", "To compress messages", "To manage the rate of data transmission", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "What is the purpose of sequencing in network protocols?", "options": ["To encrypt data", "To compress messages", "To number segments for reassembly at the destination", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which protocol suite is the most common and used by the internet?", "options": ["AppleTalk", "Novell NetWare", "TCP/IP", "OSI", "IEEE 802"], "correct": 2},
+                {"q": "What is the primary function of the transport layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To route packets between networks", "To manage end-to-end communication and reliability", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which protocol is responsible for guaranteed delivery in the TCP/IP suite?", "options": ["IP", "UDP", "TCP", "ICMP", "ARP"], "correct": 2},
+                {"q": "What is the purpose of the network layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To deliver messages globally from sender to receiver", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which protocol is used for automatic detection of devices or services on a network?", "options": ["TCP", "UDP", "Service Discovery", "ICMP", "ARP"], "correct": 2},
+                {"q": "What is the function of the data link layer in the TCP/IP model?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To deliver messages from one NIC to another on the same network", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which of the following is NOT a benefit of using a layered model in networking?", "options": ["Assists in protocol design", "Fosters competition among vendors", "Prevents technology changes in one layer from affecting other layers", "Provides a common language for networking functions", "Simplifies troubleshooting"], "correct": 2}
+            ],
+            "Lecture 3": [
+                {"q": "What is the primary function of the network layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow end devices to exchange data across networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which protocol is the primary communication protocol for the network layer?", "options": ["TCP", "UDP", "IP", "ICMP", "ARP"], "correct": 2},
+                {"q": "What is the purpose of IP encapsulation?", "options": ["To encrypt data", "To compress messages", "To encapsulate the transport layer segment into an IP packet", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which of the following is NOT a characteristic of IP?", "options": ["Connectionless", "Best effort", "Guaranteed delivery", "Media independent", "Low overhead"], "correct": 2},
+                {"q": "What is the purpose of the Time to Live (TTL) field in the IPv4 header?", "options": ["To encrypt data", "To compress messages", "To limit the number of hops a packet can take", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which field in the IPv4 header identifies the next level protocol?", "options": ["Version", "Header Checksum", "Protocol", "Source Address", "Destination Address"], "correct": 2},
+                {"q": "What is the primary limitation of IPv4?", "options": ["Lack of security", "High overhead", "Address depletion", "Slow transmission speed", "Incompatibility with IPv6"], "correct": 2},
+                {"q": "What is the main improvement of IPv6 over IPv4?", "options": ["Increased security", "Faster transmission speed", "Larger address space", "Lower overhead", "Better error detection"], "correct": 2},
+                {"q": "Which field in the IPv6 header replaces the TTL field in IPv4?", "options": ["Version", "Traffic Class", "Hop Limit", "Flow Label", "Payload Length"], "correct": 2},
+                {"q": "What is the purpose of the default gateway on a host?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To forward packets to remote networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which command is used to display the routing table on a Windows host?", "options": ["show ip route", "show ipv6 route", "route print", "netstat -r", "show interfaces"], "correct": 2},
+                {"q": "What is the purpose of the ARP protocol?", "options": ["To encrypt data", "To compress messages", "To resolve IPv4 addresses to MAC addresses", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which protocol is used by IPv6 to resolve addresses to MAC addresses?", "options": ["ARP", "ICMP", "Neighbor Discovery (ND)", "DNS", "DHCP"], "correct": 2},
+                {"q": "What is the purpose of the 'no shutdown' command on a router interface?", "options": ["To disable the interface", "To delete the interface configuration", "To activate the interface", "To reset the interface statistics", "To change the interface speed"], "correct": 2},
+                {"q": "Which command is used to verify the configuration of a router interface?", "options": ["show running-config", "show startup-config", "show ip interface brief", "show interfaces", "show ip route"], "correct": 2}
+            ],
+            "Lecture 4": [
+                {"q": "What is the primary function of the data link layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow upper layer protocols to access the physical layer media", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which of the following is NOT a sublayer of the data link layer?", "options": ["Logical Link Control (LLC)", "Media Access Control (MAC)", "Physical Layer", "Both A and B", "None of the above"], "correct": 2},
+                {"q": "What is the purpose of the LLC sublayer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To communicate between networking software and hardware", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "What is the purpose of the MAC sublayer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To control access to the physical medium", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "What is the purpose of the Ethernet frame?", "options": ["To encrypt data", "To compress messages", "To encapsulate data for transmission over Ethernet", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which field in the Ethernet frame contains the source MAC address?", "options": ["Destination Address", "Type/Length", "Source Address", "Data", "Frame Check Sequence"], "correct": 2},
+                {"q": "What is the purpose of the Frame Check Sequence (FCS) in the Ethernet frame?", "options": ["To encrypt data", "To compress messages", "To detect errors in the frame", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which of the following is NOT a function of the data link layer?", "options": ["Error detection", "Frame encapsulation", "Routing packets between networks", "Access control to the physical medium", "Addressing end devices"], "correct": 2},
+                {"q": "What is the purpose of the 'show interfaces' command on a Cisco device?", "options": ["To display the running configuration", "To display the startup configuration", "To display statistics for all interfaces", "To display the routing table", "To display the ARP table"], "correct": 2},
+                {"q": "Which command is used to display the MAC address table on a Cisco switch?", "options": ["show running-config", "show startup-config", "show mac address-table", "show interfaces", "show ip route"], "correct": 2},
+                {"q": "What is the purpose of the 'clear mac address-table' command?", "options": ["To delete the running configuration", "To reset the device", "To clear the MAC address table", "To display the MAC address table", "To configure a new MAC address"], "correct": 2},
+                {"q": "Which of the following is NOT a type of Ethernet frame?", "options": ["Unicast", "Multicast", "Anycast", "Broadcast", "None of the above"], "correct": 2},
+                {"q": "What is the purpose of the 'duplex' command on a Cisco switch?", "options": ["To set the interface speed", "To assign an IP address", "To set the duplex mode of the interface", "To enable the interface", "To configure the default gateway"], "correct": 2},
+                {"q": "Which command is used to configure the speed of an interface on a Cisco switch?", "options": ["speed", "duplex", "speed", "interface", "no shutdown"], "correct": 0},
+                {"q": "What is the purpose of the 'show mac address-table dynamic' command?", "options": ["To display static MAC addresses", "To display all MAC addresses", "To display dynamically learned MAC addresses", "To display the running configuration", "To display the startup configuration"], "correct": 2}
+            ],
+            "Lecture 5": [
+                {"q": "What is the primary function of the network layer?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To allow end devices to exchange data across networks", "To format and encapsulate messages", "To provide security services"], "correct": 2},
+                {"q": "Which protocol is the primary communication protocol for the network layer?", "options": ["TCP", "UDP", "IP", "ICMP", "ARP"], "correct": 2},
+                {"q": "What is the purpose of IP encapsulation?", "options": ["To encrypt data", "To compress messages", "To encapsulate the transport layer segment into an IP packet", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which of the following is NOT a characteristic of IP?", "options": ["Connectionless", "Best effort", "Guaranteed delivery", "Media independent", "Low overhead"], "correct": 2},
+                {"q": "What is the purpose of the Time to Live (TTL) field in the IPv4 header?", "options": ["To encrypt data", "To compress messages", "To limit the number of hops a packet can take", "To route packets between networks", "To authenticate users"], "correct": 2},
+                {"q": "Which field in the IPv4 header identifies the next level protocol?", "options": ["Version", "Header Checksum", "Protocol", "Source Address", "Destination Address"], "correct": 2},
+                {"q": "What is the primary limitation of IPv4?", "options": ["Lack of security", "High overhead", "Address depletion", "Slow transmission speed", "Incompatibility with IPv6"], "correct": 2},
+                {"q": "What is the main improvement of IPv6 over IPv4?", "options": ["Increased security", "Faster transmission speed", "Larger address space", "Lower overhead", "Better error detection"], "correct": 2},
+                {"q": "Which field in the IPv6 header replaces the TTL field in IPv4?", "options": ["Version", "Traffic Class", "Hop Limit", "Flow Label", "Payload Length"], "correct": 2},
+                {"q": "What is the purpose of the default gateway on a host?", "options": ["To provide physical connectivity", "To manage end-to-end communication", "To forward packets to remote networks", "To format and encapsulate messages", "To provide security services"], "correct": 2}
+            ],
+            "Lecture 6": [
+                {"q": "What is the length of an IPv4 address?", "options": ["16 bits", "64 bits", "32 bits", "128 bits", "8 bits"], "correct": 2},
+                {"q": "Which part of an IPv4 address represents the network portion?", "options": ["Host bits", "Subnet mask", "The initial bits defined by the subnet mask", "Default gateway", "Broadcast address"], "correct": 2},
+                {"q": "What is the term for dividing an IP network into smaller sub-networks?", "options": ["Masking", "Hosting", "Subnetting", "Routing", "Addressing"], "correct": 2},
+                {"q": "Which operation is used to determine the network portion of an IP address using a subnet mask?", "options": ["OR", "AND", "XOR", "NOT", "NAND"], "correct": 1},
+                {"q": "What is the main purpose of a subnet mask?", "options": ["To identify the default gateway", "To specify the DNS server", "To separate the network and host portions of an IP address", "To encrypt IP packets", "To assign MAC addresses"], "correct": 2},
+                {"q": "What class is the IP address 192.168.1.1 belong to?", "options": ["Class A", "Class C", "Class B", "Class D", "Class E"], "correct": 1},
+                {"q": "What IP address is reserved for network broadcast in a subnet?", "options": ["Network address", "Gateway address", "The highest address in the subnet", "Loopback address", "First usable host address"], "correct": 2},
+                {"q": "Which of the following is a valid private IP address range?", "options": ["192.0.2.0 - 192.0.2.255", "10.0.0.0 - 10.255.255.255", "172.32.0.0 - 172.32.255.255", "169.254.0.0 - 169.254.255.255", "224.0.0.0 - 239.255.255.255"], "correct": 1},
+                {"q": "What does CIDR stand for in IP networking?", "options": ["Classful Internet Domain Routing", "Common Internet Data Relay", "Classless Inter-Domain Routing", "Computer Internet Directed Routing", "Combined IP Domain Routing"], "correct": 2},
+                {"q": "Which address is used for a loopback test on an IPv4 host?", "options": ["0.0.0.0", "127.0.0.1", "255.255.255.255", "192.168.0.1", "169.254.1.1"], "correct": 1},
+                {"q": "What is the prefix length notation for the subnet mask 255.255.255.0?", "options": ["/8", "/16", "/24", "/32", "/12"], "correct": 2},
+                {"q": "Why is subnetting used in IP networks?", "options": ["To increase broadcast domains", "To reduce network security", "To improve network performance and security by dividing networks", "To assign more unique IP addresses", "To increase routing complexity"], "correct": 2},
+                {"q": "What is the binary value of the decimal number 255 in an IP address octet?", "options": ["10000000", "11110000", "00001111", "11111111", "00000000"], "correct": 3},
+                {"q": "What does a host portion of all zeros in an IP address indicate?", "options": ["Network address", "Broadcast address", "Default gateway", "Host ID", "Subnet mask"], "correct": 0},
+                {"q": "Which protocol is primarily used to assign IPv4 addresses dynamically?", "options": ["DHCP", "DNS", "FTP", "SMTP", "ICMP"], "correct": 0}
+            ],
+            "Lecture 7": [
+                {"q": "What is the bit length of an IPv6 address?", "options": ["32 bits", "64 bits", "96 bits", "128 bits", "256 bits"], "correct": 3},
+                {"q": "Which of the following is NOT a valid IPv6 address type?", "options": ["Unicast", "Multicast", "Anycast", "Broadcast", "Global"], "correct": 3},
+                {"q": "What issue in IPv4 networks does IPv6 primarily address?", "options": ["Too much security", "Excessive packet loss", "Address exhaustion", "Lack of encryption", "High latency"], "correct": 2},
+                {"q": "What prefix is used for IPv6 link-local addresses?", "options": ["FE80::/10", "2001::/16", "FC00::/7", "FE80::/64", "FF00::/8"], "correct": 3},
+                {"q": "Which tool is used to test connectivity on IPv6 networks?", "options": ["ICMPv4 ping", "TCP SYN", "ICMPv6 ping", "UDP traceroute", "ARP request"], "correct": 2},
+                {"q": "What protocol is used by IPv4 for error messages and diagnostics?", "options": ["TCP", "UDP", "ICMPv4", "DNS", "DHCP"], "correct": 2},
+                {"q": "ICMPv6 includes which new message type not found in ICMPv4?", "options": ["Echo Request", "Destination Unreachable", "Neighbor Discovery", "Time Exceeded", "Redirect"], "correct": 2},
+                {"q": "Which of these is NOT a valid IPv6 address representation?", "options": ["Hexadecimal colon notation", "Decimal dot notation", "Zero compression", "Leading zeros omission", "Mixed IPv4/IPv6 notation"], "correct": 1},
+                {"q": "What is the purpose of IPv6 anycast addresses?", "options": ["To deliver to all hosts simultaneously", "To broadcast to subnet", "To deliver to the nearest interface among a group", "To multicast messages", "To address multiple hosts randomly"], "correct": 2},
+                {"q": "How many groups of hexadecimal digits are in a full IPv6 address?", "options": ["4", "6", "8", "12", "16"], "correct": 2},
+                {"q": "IPv6 addresses are divided into what main parts?", "options": ["Device ID and firmware version", "Network prefix and host ID", "Subnet and broadcast address", "Global routing prefix and interface ID", "Source and destination addresses"], "correct": 3},
+                {"q": "What transition mechanism allows IPv6 packets to be sent over IPv4 networks?", "options": ["DHCP", "ARP", "Tunneling", "SSL", "NAT"], "correct": 2},
+                {"q": "What does ICMP stand for?", "options": ["Internet Control Message Protocol", "International Communication Message Protocol", "Internet Control Message Protocol", "Internal Communication Management Protocol", "Internet Channel Messaging Protocol"], "correct": 0},
+                {"q": "Which ICMPv6 message is used to detect duplicate addresses?", "options": ["Echo Reply", "Neighbor Solicitation", "Destination Unreachable", "Time Exceeded", "Router Advertisement"], "correct": 1},
+                {"q": "Which of the following is a valid IPv6 multicast prefix?", "options": ["FF00::/8", "FE80::/10", "FC00::/7", "2000::/3", "FF02::/16"], "correct": 4}
+            ],
+            "Lecture 8": [
+                {"q": "Which protocol provides reliable, connection-oriented communication?", "options": ["UDP", "TCP", "IP", "ICMP", "ARP"], "correct": 1},
+                {"q": "What is the primary function of the transport layer?", "options": ["To send frames between devices", "To provide logical communication between applications", "To route packets across networks", "To encode data for transmission", "To assign IP addresses"], "correct": 1},
+                {"q": "Which transport layer protocol is connectionless and offers no guaranteed delivery?", "options": ["TCP", "UDP", "ICMP", "FTP", "HTTP"], "correct": 1},
+                {"q": "What is the term for a TCP connection setup process?", "options": ["Three-way handshake", "Four-way handshake", "Three-way handshake", "Two-way handshake", "One-way handshake"], "correct": 0},
+                {"q": "Which TCP flag is used to initiate a connection?", "options": ["ACK", "FIN", "SYN", "RST", "PSH"], "correct": 2},
+                {"q": "What is flow control in TCP?", "options": ["Encrypting data", "Routing packets", "Managing rate of data transmission between sender and receiver", "Address resolution", "Packet fragmentation"], "correct": 2},
+                {"q": "Which port number range is considered well-known ports?", "options": ["0-1023", "0-1023", "1024-49151", "49152-65535", "65536-70000"], "correct": 0},
+                {"q": "What does a socket represent in network communication?", "options": ["Physical connector", "Network interface", "Combination of IP address and port number", "Transport layer protocol", "Routing table entry"], "correct": 2},
+                {"q": "What UDP feature increases its usefulness for applications like DNS?", "options": ["Low latency and minimal overhead", "Guaranteed delivery", "Congestion control", "Session tracking", "Encryption"], "correct": 0},
+                {"q": "What mechanism does TCP use to ensure reliable data transfer?", "options": ["Broadcasting", "Multicasting", "Acknowledgments and retransmissions", "Unicasting", "Encryption"], "correct": 2},
+                {"q": "Which of the following is NOT part of the TCP header?", "options": ["Sequence number", "Acknowledgment number", "Window size", "MAC address", "Flags"], "correct": 3},
+                {"q": "What does the UDP checksum field check for?", "options": ["IP address validity", "Integrity of UDP header and data", "Packet length", "Source port accuracy", "Destination port accuracy"], "correct": 1},
+                {"q": "Which application typically uses TCP?", "options": ["HTTP", "DNS", "DHCP", "SNMP", "TFTP"], "correct": 0},
+                {"q": "What occurs during TCP connection termination?", "options": ["One-way disconnection", "Four-step process with FIN and ACK flags", "One-step reset", "DNS resolution", "ICMP exchange"], "correct": 1},
+                {"q": "What happens if a segment is lost in TCP transmission?", "options": ["Data loss", "Packet ignored", "Retransmission after timeout or duplicate ACKs", "Packet forwarded", "Connection reset"], "correct": 2}
+            ],
+            "Lecture 9": [
+                {"q": "What layer of the OSI model provides the interface between network and user applications?", "options": ["Transport", "Network", "Application", "Data Link", "Physical"], "correct": 2},
+                {"q": "Which protocol is used to resolve hostnames to IP addresses?", "options": ["DHCP", "FTP", "DNS", "SMTP", "SNMP"], "correct": 2},
+                {"q": "What protocol is used to send email between servers?", "options": ["POP3", "IMAP", "SMTP", "FTP", "HTTP"], "correct": 2},
+                {"q": "Which protocol allows users to retrieve email from a server while keeping it on the server?", "options": ["SMTP", "POP3", "IMAP", "DNS", "SNMP"], "correct": 2},
+                {"q": "What is the default port for HTTP?", "options": ["80", "21", "443", "110", "25"], "correct": 0},
+                {"q": "Which protocol encrypts HTTP traffic to ensure security?", "options": ["FTP", "DNS", "HTTPS", "SMTP", "Telnet"], "correct": 2},
+                {"q": "What does FTP stand for?", "options": ["File Transfer Program", "File Transfer Protocol", "Fast Transfer Protocol", "File Transmission Protection", "File Teleport Protocol"], "correct": 1},
+                {"q": "Which protocol is used for network management and monitoring?", "options": ["FTP", "HTTP", "SMTP", "SNMP", "DHCP"], "correct": 3},
+                {"q": "What is the function of DHCP?", "options": ["Secure network traffic", "Automatically assign IP addresses to hosts", "Resolve domain names", "Transfer files", "Send email"], "correct": 1},
+                {"q": "Which of the following is a peer-to-peer application?", "options": ["HTTP", "FTP", "BitTorrent", "SMTP", "DHCP"], "correct": 2},
+                {"q": "What is the function of the Session Layer in the OSI model?", "options": ["Data encoding", "Physical addressing", "Establishing, managing, and terminating sessions", "Routing", "Packet switching"], "correct": 2},
+                {"q": "Which protocol is used for remote login to devices?", "options": ["FTP", "HTTP", "Telnet", "SMTP", "SNMP"], "correct": 2},
+                {"q": "What does MIME stand for in email systems?", "options": ["Multimedia Internet Mail Extensions", "Multiple Internet Mail Encoding", "Multipurpose Internet Mail Extensions", "Mail Internet Message Exchange", "Multimedia Information Mail Exchange"], "correct": 2},
+                {"q": "What port number is associated with SMTP?", "options": ["110", "443", "25", "80", "21"], "correct": 2},
+                {"q": "Which protocol supports file sharing on Windows networks?", "options": ["SMB", "DNS", "FTP", "DHCP", "ICMP"], "correct": 0}
+            ],
+            "Lecture 10": [
+                {"q": "What is a common goal of network security?", "options": ["Increase bandwidth", "Faster IP routing", "Protect data and resources from unauthorized access", "Reduce packet size", "Improve resolution"], "correct": 2},
+                {"q": "What type of attack involves overwhelming a network to disrupt services?", "options": ["Denial of Service (DoS)", "Phishing", "Spoofing", "Sniffing", "Logic bomb"], "correct": 0},
+                {"q": "Which security principle ensures that data is not altered during transmission?", "options": ["Availability", "Integrity", "Confidentiality", "Authentication", "Non-repudiation"], "correct": 1},
+                {"q": "What type of malware encrypts user data and demands payment for its release?", "options": ["Virus", "Worm", "Ransomware", "Trojan", "Spyware"], "correct": 2},
+                {"q": "The concept of limiting access rights for users to the minimum necessary is known as:", "options": ["Firewalling", "Encryption", "Least privilege", "Auditing", "Authentication"], "correct": 2},
+                {"q": "What device filters incoming and outgoing traffic based on predefined rules?", "options": ["Switch", "Router", "Firewall", "Hub", "Repeater"], "correct": 2},
+                {"q": "What does AAA stand for in network security?", "options": ["Access, Administration, Authorization", "Authentication, Authorization, Accounting", "Access, Authentication, Auditing", "Authorization, Administration, Analysis", "Audit, Access, Authentication"], "correct": 1},
+                {"q": "Which type of attack involves impersonating another user or device?", "options": ["Phishing", "Spoofing", "Sniffing", "DoS", "Rootkit"], "correct": 1},
+                {"q": "What is the purpose of network segmentation?", "options": ["Increase data redundancy", "Improve security by isolating network parts", "Speed up DHCP", "Reduce router load", "Enhance routing protocols"], "correct": 1},
+                {"q": "What is the recommended action to protect devices from known vulnerabilities?", "options": ["Disable DHCP", "Use static IPs", "Regularly apply patches and updates", "Use older protocols", "Increase bandwidth"], "correct": 2}
+            ]
+        };
+
+        let currentLecture = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let correctCount = 0;
+        let isAnswerChecked = false;
+
+        // Event listeners
+        document.getElementById('lectureSelector').addEventListener('click', (e) => {
+            if (e.target.classList.contains('lecture-btn')) {
+                const lectureIndex = e.target.dataset.lecture;
+                startQuiz(lectureIndex);
+                
+                // Update active button
+                document.querySelectorAll('.lecture-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+        document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+        document.getElementById('checkBtn').addEventListener('click', checkAnswer);
+        document.getElementById('restartBtn').addEventListener('click', () => location.reload());
+
+        function startQuiz(lectureIndex) {
+            if (lectureIndex === 'all') {
+                currentLecture = [];
+                Object.values(questionsData).forEach(lecture => {
+                    currentLecture = currentLecture.concat(lecture);
+                });
+                // Shuffle all questions
+                currentLecture = shuffleArray(currentLecture);
+            } else {
+                const lectureKey = `Lecture ${parseInt(lectureIndex) + 1}`;
+                currentLecture = [...questionsData[lectureKey]];
+            }
+
+            currentQuestionIndex = 0;
+            userAnswers = new Array(currentLecture.length).fill(null);
+            correctCount = 0;
+            isAnswerChecked = false;
+
+            document.getElementById('quizContainer').classList.add('active');
+            document.getElementById('resultsContainer').classList.remove('active');
             
-            sections.forEach(s => s.classList.remove('active'));
-            tabs.forEach(t => t.classList.remove('active'));
-            
-            sections[index].classList.add('active');
-            tabs[index].classList.add('active');
+            updateStats();
+            displayQuestion();
         }
-        
-        // Калькулятор IP
-        function calculate() {
-            const ipInput = document.getElementById('calc-ip').value;
-            const maskInput = parseInt(document.getElementById('calc-mask').value);
-            const resultDiv = document.getElementById('calc-result');
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function displayQuestion() {
+            const question = currentLecture[currentQuestionIndex];
             
-            try {
-                const octets = ipInput.split('.').map(o => parseInt(o));
+            document.getElementById('questionNumber').textContent = `Вопрос ${currentQuestionIndex + 1} из ${currentLecture.length}`;
+            document.getElementById('questionText').textContent = question.q;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = `${String.fromCharCode(65 + index)}) ${option}`;
+                optionDiv.dataset.index = index;
                 
-                if (octets.length !== 4 || octets.some(o => isNaN(o) || o < 0 || o > 255)) {
-                    throw new Error('Неверный формат IP');
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionDiv.classList.add('selected');
                 }
                 
-                if (maskInput < 1 || maskInput > 32) {
-                    throw new Error('Маска должна быть от 1 до 32');
-                }
-                
-                // Определяем рабочий октет
-                let workingOctet;
-                if (maskInput <= 8) workingOctet = 0;
-                else if (maskInput <= 16) workingOctet = 1;
-                else if (maskInput <= 24) workingOctet = 2;
-                else workingOctet = 3;
-                
-                // Вычисляем шаг
-                const bitsInOctet = maskInput - (workingOctet * 8);
-                const step = Math.pow(2, 8 - bitsInOctet);
-                
-                // Находим адрес сети
-                const networkOctets = [...octets];
-                networkOctets[workingOctet] = Math.floor(octets[workingOctet] / step) * step;
-                for (let i = workingOctet + 1; i < 4; i++) {
-                    networkOctets[i] = 0;
-                }
-                
-                // Находим broadcast
-                const broadcastOctets = [...networkOctets];
-                broadcastOctets[workingOctet] = networkOctets[workingOctet] + step - 1;
-                for (let i = workingOctet + 1; i < 4; i++) {
-                    broadcastOctets[i] = 255;
-                }
-                
-                // Вычисляем маску
-                const subnetMask = [];
-                for (let i = 0; i < 4; i++) {
-                    if (i < workingOctet) {
-                        subnetMask.push(255);
-                    } else if (i === workingOctet) {
-                        subnetMask.push(256 - step);
-                    } else {
-                        subnetMask.push(0);
+                if (isAnswerChecked) {
+                    optionDiv.style.pointerEvents = 'none';
+                    if (index === question.correct) {
+                        optionDiv.classList.add('correct');
+                    } else if (userAnswers[currentQuestionIndex] === index) {
+                        optionDiv.classList.add('incorrect');
                     }
+                    if (index === question.correct && userAnswers[currentQuestionIndex] !== index) {
+                        optionDiv.classList.add('show-correct');
+                    }
+                } else {
+                    optionDiv.addEventListener('click', selectOption);
                 }
                 
-                // Формируем результат
-                let html = '<div class="result-box">';
-                html += '<h3>✅ Решение найдено!</h3>';
-                
-                html += '<div class="step">';
-                html += '<h4>Шаг 1: Определяем рабочий октет</h4>';
-                html += `<p>Маска /${maskInput} попадает в диапазон: `;
-                if (workingOctet === 0) html += '/1-/8 → работаем с <strong>1-м октетом</strong>';
-                else if (workingOctet === 1) html += '/9-/16 → работаем со <strong>2-м октетом</strong>';
-                else if (workingOctet === 2) html += '/17-/24 → работаем с <strong>3-м октетом</strong>';
-                else html += '/25-/32 → работаем с <strong>4-м октетом</strong>';
-                html += '</p></div>';
-                
-                html += '<div class="step">';
-                html += '<h4>Шаг 2: Вычисляем "шаг" (Magic Number)</h4>';
-                html += `<p>В рабочем октете задействовано <strong>${bitsInOctet}</strong> бит(а).<br>`;
-                html += `Формула: 2<sup>${8 - bitsInOctet}</sup> = <strong>${step}</strong></p>`;
-                html += `<p>Сети идут с шагом: 0, ${step}, ${step*2}, ${step*3}...</p>`;
-                html += '</div>';
-                
-                html += '<div class="step">';
-                html += '<h4>Шаг 3: Находим адрес сети</h4>';
-                html += `<p>Рабочее число: <strong>${octets[workingOctet]}</strong><br>`;
-                html += `Оно попадает в диапазон между <strong>${networkOctets[workingOctet]}</strong> и <strong>${networkOctets[workingOctet] + step}</strong></p>`;
-                html += `<p class="ip-display">Network Address: ${networkOctets.join('.')}</p>`;
-                html += '</div>';
-                
-                html += '<div class="step">';
-                html += '<h4>Шаг 4: Находим Broadcast</h4>';
-                html += `<p>Следующая сеть начинается с ${networkOctets[workingOctet] + step}, значит наша заканчивается на ${networkOctets[workingOctet] + step - 1}</p>`;
-                html += `<p class="ip-display">Broadcast Address: ${broadcastOctets.join('.')}</p>`;
-                html += '</div>';
-                
-                html += '<div class="step">';
-                html += '<h4>Шаг 5: Итоговая таблица</h4>';
-                html += '<table>';
-                html += '<tr><th>Параметр</th><th>Значение</th></tr>';
-                html += `<tr><td>Network Address</td><td><strong>${networkOctets.join('.')}</strong></td></tr>`;
-                
-                const firstHost = [...networkOctets];
-                firstHost[3]++;
-                html += `<tr><td>First Host</td><td><strong>${firstHost.join('.')}</strong></td></tr>`;
-                
-                const lastHost = [...broadcastOctets];
-                lastHost[3]--;
-                html += `<tr><td>Last Host</td><td><strong>${lastHost.join('.')}</strong></td></tr>`;
-                
-                html += `<tr><td>Broadcast Address</td><td><strong>${broadcastOctets.join('.')}</strong></td></tr>`;
-                html += `<tr><td>Subnet Mask</td><td><strong>${subnetMask.join('.')}</strong></td></tr>`;
-                html += '</table></div>';
-                
-                html += '</div>';
-                resultDiv.innerHTML = html;
-                
-            } catch (error) {
-                resultDiv.innerHTML = `<div class="error-box"><strong>❌ Ошибка:</strong> ${error.message}</div>`;
-            }
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            updateButtons();
+            updateProgress();
         }
-        
-        // Тренажер
-        let quizQuestions = [];
-        let currentQuestion = 0;
-        let correctAnswers = 0;
-        
-        function generateQuizQuestion() {
-            const masks = [24, 25, 26, 27, 28, 29, 30];
-            const mask = masks[Math.floor(Math.random() * masks.length)];
+
+        function selectOption(e) {
+            if (isAnswerChecked) return;
             
-            const oct1 = Math.floor(Math.random() * 223) + 1;
-            const oct2 = Math.floor(Math.random() * 255);
-            const oct3 = Math.floor(Math.random() * 255);
-            const oct4 = Math.floor(Math.random() * 255);
+            const selectedIndex = parseInt(e.target.dataset.index);
+            userAnswers[currentQuestionIndex] = selectedIndex;
             
-            const ip = `${oct1}.${oct2}.${oct3}.${oct4}`;
-            
-            // Вычисляем правильный ответ
-            const octets = [oct1, oct2, oct3, oct4];
-            const workingOctet = mask <= 8 ? 0 : mask <= 16 ? 1 : mask <= 24 ? 2 : 3;
-            const bitsInOctet = mask - (workingOctet * 8);
-            const step = Math.pow(2, 8 - bitsInOctet);
-            
-            const networkOctets = [...octets];
-            networkOctets[workingOctet] = Math.floor(octets[workingOctet] / step) * step;
-            for (let i = workingOctet + 1; i < 4; i++) {
-                networkOctets[i] = 0;
-            }
-            
-            const correct = networkOctets.join('.');
-            
-            // Генерируем неправильные ответы
-            const wrong1 = [...networkOctets];
-            wrong1[workingOctet] += step;
-            
-            const wrong2 = [...networkOctets];
-            wrong2[workingOctet] = wrong2[workingOctet] > 0 ? wrong2[workingOctet] - step : step;
-            
-            const wrong3 = [...octets];
-            wrong3[3] = 0;
-            
-            const answers = [
-                { text: correct, correct: true },
-                { text: wrong1.join('.'), correct: false },
-                { text: wrong2.join('.'), correct: false },
-                { text: wrong3.join('.'), correct: false }
-            ].sort(() => Math.random() - 0.5);
-            
-            return {
-                question: `Найдите адрес сети для IP: ${ip}/${mask}`,
-                answers: answers,
-                ip: ip,
-                mask: mask
-            };
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            e.target.classList.add('selected');
         }
-        
-        function startQuiz() {
-            quizQuestions = [];
-            for (let i = 0; i < 10; i++) {
-                quizQuestions.push(generateQuizQuestion());
-            }
-            currentQuestion = 0;
-            correctAnswers = 0;
-            showQuizQuestion();
-        }
-        
-        function showQuizQuestion() {
-            if (currentQuestion >= quizQuestions.length) {
-                const container = document.getElementById('quiz-container');
-                const percent = (correctAnswers / quizQuestions.length * 100).toFixed(0);
-                let grade = percent >= 90 ? '🏆 Отлично!' : percent >= 70 ? '👍 Хорошо!' : percent >= 50 ? '😐 Нормально' : '😢 Нужно еще поучить';
-                
-                container.innerHTML = `
-                    <div class="result-box" style="text-align: center;">
-                        <h2>${grade}</h2>
-                        <p style="font-size: 2em; margin: 20px 0;">${correctAnswers}/${quizQuestions.length}</p>
-                        <p style="font-size: 1.3em;">Правильных ответов: ${percent}%</p>
-                    </div>
-                `;
+
+        function checkAnswer() {
+            if (userAnswers[currentQuestionIndex] === null) {
+                alert('Пожалуйста, выберите ответ!');
                 return;
             }
             
-            const q = quizQuestions[currentQuestion];
-            const container = document.getElementById('quiz-container');
+            isAnswerChecked = true;
+            const question = currentLecture[currentQuestionIndex];
             
-            let html = `
-                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0;">
-                    <h3 style="color: #667eea; margin-bottom: 20px;">Вопрос ${currentQuestion + 1} из ${quizQuestions.length}</h3>
-                    <p style="font-size: 1.3em; margin-bottom: 20px;">${q.question}</p>
-                    <div id="quiz-answers">
-            `;
-            
-            q.answers.forEach((answer, index) => {
-                html += `
-                    <div class="quiz-option" onclick="checkAnswer(${index})">
-                        ${String.fromCharCode(65 + index)}. ${answer.text}
-                    </div>
-                `;
-            });
-            
-            html += '</div></div>';
-            container.innerHTML = html;
-            
-            updateProgress();
-        }
-        
-        function checkAnswer(index) {
-            const q = quizQuestions[currentQuestion];
-            const options = document.querySelectorAll('.quiz-option');
-            
-            options.forEach((opt, i) => {
-                opt.style.pointerEvents = 'none';
-                if (q.answers[i].correct) {
-                    opt.classList.add('correct');
-                } else if (i === index) {
-                    opt.classList.add('wrong');
-                }
-            });
-            
-            if (q.answers[index].correct) {
-                correctAnswers++;
+            if (userAnswers[currentQuestionIndex] === question.correct) {
+                correctCount++;
             }
             
-            setTimeout(() => {
-                currentQuestion++;
-                showQuizQuestion();
-            }, 1500);
+            displayQuestion();
+            updateStats();
+            
+            document.getElementById('checkBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'inline-block';
         }
-        
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentLecture.length - 1) {
+                currentQuestionIndex++;
+                isAnswerChecked = false;
+                document.getElementById('checkBtn').style.display = 'inline-block';
+                document.getElementById('nextBtn').style.display = 'none';
+                displayQuestion();
+                updateStats();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                isAnswerChecked = userAnswers[currentQuestionIndex] !== null;
+                
+                if (isAnswerChecked) {
+                    document.getElementById('checkBtn').style.display = 'none';
+                    document.getElementById('nextBtn').style.display = 'inline-block';
+                } else {
+                    document.getElementById('checkBtn').style.display = 'inline-block';
+                    document.getElementById('nextBtn').style.display = 'none';
+                }
+                
+                displayQuestion();
+                updateStats();
+            }
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+        }
+
         function updateProgress() {
-            const progress = document.getElementById('progress');
-            const percent = (currentQuestion / quizQuestions.length * 100);
-            progress.style.width = percent + '%';
-            progress.textContent = `${currentQuestion}/${quizQuestions.length}`;
+            const progress = ((currentQuestionIndex + 1) / currentLecture.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
         }
-        
-        // Инициализация при загрузке
-        window.onload = function() {
-            startQuiz();
-        };
+
+        function updateStats() {
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = currentLecture.length;
+            document.getElementById('correctAnswers').textContent = correctCount;
+        }
+
+        function showResults() {
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.add('active');
+            
+            const percentage = Math.round((correctCount / currentLecture.length) * 100);
+            document.getElementById('finalScore').textContent = percentage + '%';
+            
+            let message = '';
+            if (percentage >= 90) {
+                message = '🌟 Отлично! Ты великолепно подготовлен!';
+            } else if (percentage >= 75) {
+                message = '👍 Хорошо! Продолжай в том же духе!';
+            } else if (percentage >= 60) {
+                message = '📚 Неплохо, но есть над чем поработать!';
+            } else {
+                message = '💪 Нужно больше практики! Не сдавайся!';
+            }
+            
+            document.getElementById('resultsMessage').textContent = message;
+            document.getElementById('resultsMessage').textContent += `\n\nПравильных ответов: ${correctCount} из ${currentLecture.length}`;
+        }
     </script>
 </body>
 </html>
