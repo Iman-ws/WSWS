@@ -611,2324 +611,2318 @@
             <button class="btn btn-primary" onclick="restartQuiz()" style="margin-top: 40px;">🔄 Попробовать снова</button>
         </div>
     </div>
-
-    <script>
-        // СЮДА ВСТАВЬ СВОЙ МАССИВ ВОПРОСОВ
-        const questionsData = [
+<script>
+    // ВСТАВЬТЕ СЮДА ВЕСЬ ВАШ НОВЫЙ JSON ИЗ ФАЙЛА
+    const questionsData = [
   {
-    "Question #": "1",
-    "Question": "What are the advantages of cloud computing over computing on premises?",
-    "Correct Answer Letter": "E",
-    "Correct Answer Text": "All of the above.",
-    "Options": {
-      "A": "Avoid large capital purchase.",
-      "B": "Use on-demand capacity.",
-      "C": "Go global in minutes.",
-      "D": "Increase speed and agility.",
-      "E": "All of the above."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "What is the pricing model that enables AWS customers to pay for resources on an as-needed basis?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Pay as you go.",
-    "Options": {
-      "A": "Pay as you decommission.",
-      "B": "Pay as you go.",
-      "C": "Pay as you buy.",
-      "D": "Pay as you reserve."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which of these is Not a cloud computing model?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "System Administration as a service.",
-    "Options": {
-      "A": "System Administration as a service.",
-      "B": "Platform as a service.",
-      "C": "Infrastructure as a service.",
-      "D": "Software as a service."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "True or False? AWS owns and maintains the network-connected hardware required for application services, while you provision and use what you need.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "Which of these is not a primary benefit of cloud computing over on-premises computing?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Pay for racking, stacking and powering servers.",
-    "Options": {
-      "A": "Increase speed and agility.",
-      "B": "Pay for racking, stacking and powering servers.",
-      "C": "Eliminate guessing on your infrastructure capacity need.",
-      "D": "Trade capital expense for variable expense."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "Which of the following are not benefits of AWS Cloud computing? (Choose two).",
-    "Correct Answer Letter": [
-      "A",
-      "C"
+    "module": "Module 1: Cloud Concepts",
+    "question": "What are the advantages of cloud computing over computing on premises?",
+    "options": [
+      "A) Avoid large capital purchase.",
+      "B) Use on-demand capacity.",
+      "C) Go global in minutes.",
+      "D) Increase speed and agility.",
+      "E) All of the above."
     ],
-    "Correct Answer Text": [
-      "Multiple procurement cycles.",
-      "High-latency. (Примечание: пометка $ смещена в файле, но это верный логический ответ)"
-    ],
-    "Options": {
-      "A": "Multiple procurement cycles.",
-      "B": "High-availability.",
-      "C": "High-latency. (Примечание: пометка $ смещена в файле, но это верный логический ответ)",
-      "D": "Temporary and disposable resources.",
-      "E": "Fault-tolerant databases."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which of the following is a compute service?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Amazon EC2.",
-    "Options": {
-      "A": "Amazon VPC.",
-      "B": "Amazon S3.",
-      "C": "Amazon EC2.",
-      "D": "Amazon Cloudfront.",
-      "E": "Amazon Redshift."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "True or False? Cloud computing provides a simple way to access servers, storage, databases... You own the network-connected hardware...",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "Economies of scale result from __________.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Having hundreds of thousands of customers aggregated in the cloud.",
-    "Options": {
-      "A": "Having many different cloud providers.",
-      "B": "Having hundreds of thousands of customers aggregated in the cloud.",
-      "C": "Having hundreds of cloud services available over the internet.",
-      "D": "Having to invest heavily in data centers and servers."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "Which of these are ways to access AWS core services? (Choose three).",
-    "Correct Answer Letter": [
-      "C",
-      "D",
-      "E"
-    ],
-    "Correct Answer Text": [
-      "AWS Management Console.",
-      "AWS Command Line Interface (AWS CLI).",
-      "Software Development Kits (SDK's)."
-    ],
-    "Options": {
-      "A": "Technical support calls.",
-      "B": "AWS Marketplace.",
-      "C": "AWS Management Console.",
-      "D": "AWS Command Line Interface (AWS CLI).",
-      "E": "Software Development Kits (SDK's)."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "What options are available for reserved instances? (Choose 3).",
-    "Correct Answer Letter": [
-      "A",
-      "B",
-      "C"
-    ],
-    "Correct Answer Text": [
-      "AURI.",
-      "NURI.",
-      "PURI."
-    ],
-    "Options": {
-      "A": "AURI.",
-      "B": "NURI.",
-      "C": "PURI.",
-      "D": "DURI."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Where can a customer go to get more details about Amazon Elastic Compute Cloud (Amazon EC2) billing activity that took the place 3 months ago?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "AWS Cost Explorer.",
-    "Options": {
-      "A": "Amazon EC2 Dashboard.",
-      "B": "AWS Cost Explorer.",
-      "C": "AWS Trusted Advisor Dashboard.",
-      "D": "AWS CloudTrail logs stored in Amazon Simple Storage Service (Amazon S3)."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "True or false? To receive the discounted rate associated with Reserved Instances, you must make a full, upfront payment for the term of the agreement.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which statement is true about the pricing model on AWS?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Compute is typically charged as a monthly fee based on instance type.",
-    "Options": {
-      "A": "In most cases, there is per gigabyte charge for inbound data transfer.",
-      "B": "Compute is typically charged as a monthly fee based on instance type.",
-      "C": "Outbound charges are free up to a per account limit."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "What are the four support plans offered by AWS support?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Basic, Developer, Business, Enterprise.",
-    "Options": {
-      "A": "Basic, Developer, Business, Enterprise.",
-      "B": "Basic, Startup, Business, Enterprise.",
-      "C": "Free, Bronze, Silver, Gold.",
-      "D": "All support is free."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "What AWS tool lets you explore AWS services and create an estimate for the cost of your use cases on AWS?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "AWS Pricing Calculator.",
-    "Options": {
-      "A": "AWS Pricing Calculator.",
-      "B": "AWS Budgets.",
-      "C": "AWS Cost and Usage Report.",
-      "D": "AWS Billing Dashboard."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "As AWS grows the cost of doing business is reduced and savings are passed back to the customer with lower pricing. What is this optimization called?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Economies of Scale.",
-    "Options": {
-      "A": "Expenditure Awareness.",
-      "B": "Economies of Scale.",
-      "C": "Matching supply and demand.",
-      "D": "EC2 Right Sizing."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "True or false? AWS offers a variety of services at no charge.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "What are the benefits of using AWS Organizations? (Choose two).",
-    "Correct Answer Letter": [
-      "B",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Replaces existing AWS Identity and Access Management (IAM) policies with service control policies (SCP).",
-      "Simplifies automating account creation and management by using API's."
-    ],
-    "Options": {
-      "A": "Provides the ability to create groups of accounts and then attach policies to a group.",
-      "B": "Replaces existing AWS Identity and Access Management (IAM) policies with service control policies (SCP).",
-      "C": "Provides the ability to create an unlimited number of nested organizational units (OU's) to support your desired structure.",
-      "D": "Simplifies automating account creation and management by using API's."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "True or false? Unlimited services are available with the AWS Free Tier to new AWS customers for 12 months following their AWS sign-up date.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "AWS Edge Locations. (Пометка в файле смещена, но это верный ответ)",
-    "Options": {
-      "A": "AWS Regions.",
-      "B": "AWS Edge Locations. (Пометка в файле смещена, но это верный ответ)",
-      "C": "AWS Availability Zones.",
-      "D": "Amazon Virtual Private Cloud (Amazon VPC)."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "You can run applications and workloads from a region closer to the end users to __________ latency.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Decrease.",
-    "Options": {
-      "A": "Increase.",
-      "B": "Decrease."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "True or False? Networking, storage, compute, and databases are examples of service categories that AWS offers.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which of the following are geographic areas that host two or more Availability Zones?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "AWS Regions.",
-    "Options": {
-      "A": "AWS Regions.",
-      "B": "Compute Zones.",
-      "C": "Edge Locations."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "__________ means the infrastructure has built-in component redundancy and __________ means that resources dynamically adjust to increases or decreases in capacity requirements.",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Fault tolerant, no human intervention. (В файле отмечена эта строка, хотя логически ответ C)",
-    "Options": {
-      "A": "No human intervention, fault tolerant.",
-      "B": "Elastic and scalable, no human intervention.",
-      "C": "Fault tolerant, elastic and scalable.",
-      "D": "Fault tolerant, no human intervention. (В файле отмечена эта строка, хотя логически ответ C)"
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "True or false? Availability zones within a region are connected through low-latency links.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which of these statements about availability zones is NOT true?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Availability zones are connected to each other using high-speed private links. (Примечание: в файле это отмечено как неверное, хотя в AWS это верно. Возможно, подразумевалось \"отсутствие\" изоляции).",
-    "Options": {
-      "A": "Availability zones are designed for fault isolation.",
-      "B": "Availability zones are made up of one or more data centers.",
-      "C": "A data center can be used for more than one Availability zone.",
-      "D": "Availability zones are connected to each other using high-speed private links. (Примечание: в файле это отмечено как неверное, хотя в AWS это верно. Возможно, подразумевалось \"отсутствие\" изоляции)."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "What is true about Regions? (Choose two).",
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "All regions are located in one specific geographic area.",
-      "Each region is located in a separate geographic area."
-    ],
-    "Options": {
-      "A": "They are the physical locations of your customers.",
-      "B": "A region is a physical location that has multiple availability zones.",
-      "C": "All regions are located in one specific geographic area.",
-      "D": "Each region is located in a separate geographic area."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "AWS highly recommends provisioning your compute resources across __________ Availability Zones.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Multiple",
-    "Options": {
-      "A": "All",
-      "B": "Multiple",
-      "C": "Single",
-      "D": "No"
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "True or false? Edge locations are only located in the same general area as Regions.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "In the shared responsibility model, AWS is responsible for providing what?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Security to the cloud. (В файле отмечено \"to\", но правильный термин \"of\". Пометка стоит возле строки с \"to\").",
-    "Options": {
-      "A": "Security of the cloud.",
-      "B": "Security to the cloud. (В файле отмечено \"to\", но правильный термин \"of\". Пометка стоит возле строки с \"to\").",
-      "C": "Security for the cloud.",
-      "D": "Security in the cloud."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "In the shared responsibility model, which of the following are examples of \"security in the cloud?\" (Choose two).",
-    "Correct Answer Letter": [
-      "D",
-      "E"
-    ],
-    "Correct Answer Text": [
-      "Encryption of data at rest and data in transit.",
-      "Protecting the global infrastructure. (Ошибка в файле: отмечено Protecting, но это \"Of the cloud\". Вероятно, Security Group Configurations — второй верный ответ)."
-    ],
-    "Options": {
-      "A": "Compliance with compute security standards and regulation.",
-      "B": "Physical security of the facilities in which the services operate.",
-      "C": "Security group configurations.",
-      "D": "Encryption of data at rest and data in transit.",
-      "E": "Protecting the global infrastructure. (Ошибка в файле: отмечено Protecting, но это \"Of the cloud\". Вероятно, Security Group Configurations — второй верный ответ)."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which of the following is the responsibility of AWS under the AWS shared responsibility model?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Maintaining physical hardware.",
-    "Options": {
-      "A": "Configuring third party applications.",
-      "B": "Maintaining physical hardware.",
-      "C": "Security application access and data.",
-      "D": "Managing custom Amazon Machine Images (AMI's)."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "When creating an AWS Identity and Access Management (IAM) policy, what are the two types of access that can be granted to a user?",
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Programmatic Access.",
-      "AWS Management Console Access."
-    ],
-    "Options": {
-      "A": "Institutional Access.",
-      "B": "Authorized Access.",
-      "C": "Programmatic Access.",
-      "D": "AWS Management Console Access.",
-      "E": "Administrative Root Access."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "True or false? AWS Organizations enables you to consolidate multiple AWS accounts so that you centrally manage them.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False. (Ошибка файла: На самом деле True).",
-    "Options": {
-      "A": "True.",
-      "B": "False. (Ошибка файла: На самом деле True)."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "Which of the following are best practices to secure your account using AWS Identity and Access Management? (Choose 2).",
-    "Correct Answer Letter": [
-      "D",
-      "E"
-    ],
-    "Correct Answer Text": [
-      "Avoid using IAM groups to grant the same access permissions to multiple users. (Ошибка файла: группы рекомендуются).",
-      "Define fine-grained access rights."
-    ],
-    "Options": {
-      "A": "Provide users with default administrative privileges.",
-      "B": "Leave unused and unnecessary users and credentials in place.",
-      "C": "Manage access to AWS resources.",
-      "D": "Avoid using IAM groups to grant the same access permissions to multiple users. (Ошибка файла: группы рекомендуются).",
-      "E": "Define fine-grained access rights."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which of the following should be done by the AWS account root user?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Change the AWS support plan.",
-    "Options": {
-      "A": "Secure access for applications.",
-      "B": "Integrate with other AWS services.",
-      "C": "Change granular permissions.",
-      "D": "Change the AWS support plan."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "After initial login, what does AWS recommend as the best practice for the AWS account root user?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Delete the access keys of the AWS account root user.",
-    "Options": {
-      "A": "Delete the AWS account root user.",
-      "B": "Revoke all permissions on the AWS account root user.",
-      "C": "Restrict permission on the AWS account root user.",
-      "D": "Delete the access keys of the AWS account root user."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "How would a system administrator add an additional layer of login security to a user's AWS management console?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Enable multi-factor authentication.",
-    "Options": {
-      "A": "Use Amazon Cloud Directory.",
-      "B": "Audit AWS Identity and Access Management (IAM) roles.",
-      "C": "Enable multi-factor authentication.",
-      "D": "Enable AWS CloudTrail."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "True or false? AWS Key Management Service (AWS KMS) enables you to assess, audit, and evaluate the configurations of your AWS resources.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "With Amazon Virtual Private Cloud (Amazon VPC), what is the smallest size subnet you can have in VPC?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "/28",
-    "Options": {
-      "A": "/28",
-      "B": "/26",
-      "C": "/30",
-      "D": "/24"
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "With Amazon VPC, what is the maximum size IP address range you can have?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "/16",
-    "Options": {
-      "A": "/24",
-      "B": "/16",
-      "C": "/28",
-      "D": "/30"
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "You need to allow resources in private subnet to access the internet. Which of the following must be present to enable access?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Network access control lists. (В файле отмечено NACL, хотя правильный ответ для включения доступа — NAT Gateway).",
-    "Options": {
-      "A": "Security groups.",
-      "B": "Route tables.",
-      "C": "NAT gateway.",
-      "D": "Network access control lists. (В файле отмечено NACL, хотя правильный ответ для включения доступа — NAT Gateway)."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which AWS networking service enables a company to create a virtual network within AWS?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Amazon Virtual Private Cloud (Amazon VPC).",
-    "Options": {
-      "A": "Amazon Virtual Private Cloud (Amazon VPC).",
-      "B": "AWS Config.",
-      "C": "Amazon Route 53.",
-      "D": "AWS Direct Connect."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "True or false? Private subnets have direct access to the internet.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "AWS Edge Locations.",
-    "Options": {
-      "A": "Amazon Virtual Private Cloud (Amazon VPC).",
-      "B": "AWS Availability Zones.",
-      "C": "AWS Regions.",
-      "D": "AWS Edge Locations."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which of the following is an optional security control that can be applied at the subnet layer of a VPC?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Network ACL.",
-    "Options": {
-      "A": "Firewall.",
-      "B": "Network ACL.",
-      "C": "Web application firewall.",
-      "D": "Security group."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "What happens when you use Amazon Virtual Private Cloud to create a new VPC?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "A main route table is created by default.",
-    "Options": {
-      "A": "An internet gateway is created by default.",
-      "B": "Three subnets are created by default: in one Availability Zone.",
-      "C": "Three subnets are created by default: one for each Availability Zone.",
-      "D": "A main route table is created by default."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "Which of the following can be used to protect Amazon Elastic Compute Cloud (Amazon EC2) instances hosted in AWS?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Security group.",
-    "Options": {
-      "A": "AMI.",
-      "B": "Security group.",
-      "C": "Internet Gateway."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "How many IP addresses are available (CIDR /24)?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "251.",
-    "Options": {
-      "A": "246.",
-      "B": "251.",
-      "C": "256.",
-      "D": "250."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Amazon EC2 instances can be launched on-demand when needed.",
-    "Options": {
-      "A": "Amazon EC2 Costs are billed on a monthly basis.",
-      "B": "Customers retain full administrative access to their Amazon EC2 instances.",
-      "C": "Customers can permanently run enough instances to handle peak workloads.",
-      "D": "Amazon EC2 instances can be launched on-demand when needed."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "If your project requires monthly reports that iterate through very large amounts of data, which Amazon Elastic Compute Cloud EC2 purchasing option should you consider?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Scheduled Reserved Instances.",
-    "Options": {
-      "A": "Spot Instances.",
-      "B": "Scheduled Reserved Instances.",
-      "C": "Dedicated Hosts.",
-      "D": "On-Demand Instances."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "What is included in an Amazon Machine Image (AMI)? Select the best answer.",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "All of the above.",
-    "Options": {
-      "A": "A template for the root volume for the instance.",
-      "B": "Launch permissions that control which AWS accounts can use the AMI to launch instances.",
-      "C": "A block device mapping that specifies the volumes to attach to the instance when it's launched.",
-      "D": "All of the above."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which Amazon Elastic Compute Cloud EC2 feature ensures your instances will not share a physical host with instances from any other AWS customer?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Dedicated Instances.",
-    "Options": {
-      "A": "Amazon VPC.",
-      "B": "Placement Groups.",
-      "C": "Dedicated Instances.",
-      "D": "Reserved Instances."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "Which of the following services is a serverless compute service in AWS?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "AWS Lambda.",
-    "Options": {
-      "A": "AWS Config.",
-      "B": "AWS Lambda.",
-      "C": "AWS OpsWork.",
-      "D": "Amazon EC2."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "What is the service provided by AWS that enables developers to easily deploy and manage applications in the cloud?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "AWS Elastic Beanstalk.",
-    "Options": {
-      "A": "Amazon Elastic Container Service.",
-      "B": "AWS Elastic Beanstalk.",
-      "C": "AWS OpsWork.",
-      "D": "AWS CloudFormation."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Your web application needs four instances to support steady traffic... traffic triples on last day. What is the most cost-effective way?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month. (В файле отмечен этот вариант, хотя логически вариант C вернее).",
-    "Options": {
-      "A": "Run 12 reserved instances all of the time.",
-      "B": "Run four On-Demand Instances constantly, then add eight more On-Demand on the last day of each month.",
-      "C": "Run four Reserved Instances constantly, then add eight On-Demand Instances on the last day of each month.",
-      "D": "Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month. (В файле отмечен этот вариант, хотя логически вариант C вернее)."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "True or false? Containers contain an entire operating system.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "Which Amazon EC2 option is best for long-term workload with predictable usage patterns?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Reserved Instances.",
-    "Options": {
-      "A": "Spot Instances.",
-      "B": "On-Demand Instances.",
-      "C": "Reserved Instances."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "Which of the following must be specified when launching a new Amazon Elastic Cloud Compute EC2 windows instance? (Choose two).",
-    "Correct Answer Letter": [
-      "A",
-      "B"
-    ],
-    "Correct Answer Text": [
-      "Amazon EC2 instance type.",
-      "Amazon Machine Image (AMI)."
-    ],
-    "Options": {
-      "A": "Amazon EC2 instance type.",
-      "B": "Amazon Machine Image (AMI).",
-      "C": "The Amazon EC2 Instance ID.",
-      "D": "Password for the administrator account."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "True or false. Amazon Simple Storage Service (S3) is an object storage suitable for the storage of flat files like Microsoft Word documents, photos, etc.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Amazon S3 replicates all objects __________.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "In multiple Availability Zones within the same region.",
-    "Options": {
-      "A": "On multiple volumes within an availability zone.",
-      "B": "In multiple Availability Zones within the same region.",
-      "C": "Across multiple regions for higher durability.",
-      "D": "On multiple S3 buckets."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which of the following can be used as a storage class for an S3 object lifecycle policy?",
-    "Correct Answer Letter": [
-      "A",
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "S3 Standard Access.",
-      "S3 Infrequent Access.",
-      "Simple Storage Service Glacier."
-    ],
-    "Options": {
-      "A": "S3 Standard Access.",
-      "B": "AWS Storage Gateway.",
-      "C": "S3 Infrequent Access.",
-      "D": "Simple Storage Service Glacier.",
-      "E": "S3 Reduced Redundancy Storage."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "The name of an S3 bucket must be unique __________.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Worldwide across all AWS accounts.",
-    "Options": {
-      "A": "Worldwide across all AWS accounts.",
-      "B": "Within a region.",
-      "C": "Across all your AWS accounts.",
-      "D": "Within your AWS account."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "You can use Amazon Elastic File System (EFS) to:",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Host a robust CDN to deliver entire web sites with dynamic, static, and streaming content. (Ошибка файла: отмечено C, правильный ответ B).",
-    "Options": {
-      "A": "Provide simple, scalable, elastic file storage for use only within AWS.",
-      "B": "Implement storage for Amazon EC2 instances that multiple virtual machines can access at the same time.",
-      "C": "Host a robust CDN to deliver entire web sites with dynamic, static, and streaming content. (Ошибка файла: отмечено C, правильный ответ B).",
-      "D": "Generate user specific content."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "Amazon Elastic Block Storage (Amazon EBS) is recommended when data __________ and __________ (Choose two).",
-    "Correct Answer Letter": [
-      "B",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Must be quickly accessible, requiring long-term persistence.",
-      "Needs to be stored in a different availability zone than the one the EC2 instance is in. (Ошибка файла: отмечено D, но EBS привязан к одной зоне)."
-    ],
-    "Options": {
-      "A": "Requires object level storage.",
-      "B": "Must be quickly accessible, requiring long-term persistence.",
-      "C": "Requires an encryption solution.",
-      "D": "Needs to be stored in a different availability zone than the one the EC2 instance is in. (Ошибка файла: отмечено D, но EBS привязан к одной зоне)."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "True or false, by default all data stored in Amazon S3 is viewable by the public.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "False.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "Regarding Amazon S3 Glacier, what is a vault?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "A container for storing archives. (Пометка в файле смещена, но это верный ответ).",
-    "Options": {
-      "A": "The rules that determine who may (or may not) access archives.",
-      "B": "An object (photos, videos, files, or documents).",
-      "C": "A container for storing archives. (Пометка в файле смещена, но это верный ответ).",
-      "D": "A policy that identifies who can access content stored in Glacier."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "True or false. When you create a bucket in Amazon S3, it is associated with a specific AWS Region.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "Which of the following are features of Amazon Elastic Block Store (Amazon EBS). (Choose two).",
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Amazon EBS data is automatically backed up to tape. (Ошибка файла).",
-      "Data stored on Amazone EBS is automatically replicated within an Availability Zone."
-    ],
-    "Options": {
-      "A": "Data on an Amazon EBS volume is lost when the attached instance is stopped.",
-      "B": "Amazon EBS volumes can be encrypted transparently to workloads on the attached instance.",
-      "C": "Amazon EBS data is automatically backed up to tape. (Ошибка файла).",
-      "D": "Data stored on Amazone EBS is automatically replicated within an Availability Zone."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "What database technology is best suited to hold session state?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Amazon Redshift. (Ошибка файла: Redshift не для сессий).",
-    "Options": {
-      "A": "Amazon Relational Database Service (Amazon RDS).",
-      "B": "Amazon DynamoDB.",
-      "C": "Amazon Redshift. (Ошибка файла: Redshift не для сессий).",
-      "D": "Amazon Simple Storage Service (Amazon S3)."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Amazon RDS automatically patches the database software and backs up your database...",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "True.",
-    "Options": {
-      "A": "True.",
-      "B": "False."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "You need to find an item in an Amazon DynamoDB table using an attribute other than item's primary key.",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Scan.",
-    "Options": {
-      "A": "PutItem.",
-      "B": "Scan.",
-      "C": "Query.",
-      "D": "GetItem."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "In Amazon DynamoDB, what does the query operation enable you to do?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "All of the above.",
-    "Options": {
-      "A": "Query a table using the partition key and an optional sort key filter.",
-      "B": "Query any secondary indexes that exist for a table.",
-      "C": "Efficiently retrieve items from a table or secondary index.",
-      "D": "All of the above."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "Which AWS cloud service is best suited for analyzing your data by using standard structured query language (SQL) and existing business intelligence (BI) tools?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Amazon Redshift.",
-    "Options": {
-      "A": "Amazon Relational Database Service (Amazon RDS).",
-      "B": "Amazon Simple Storage Service Glacier.",
-      "C": "Amazon Dynamo DB.",
-      "D": "Amazon Redshift."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "In Amazon DynamoDB, an attribute is __________.",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "A fundamental data element.",
-    "Options": {
-      "A": "A fundamental data element.",
-      "B": "A collection of items.",
-      "C": "A collection of attributes."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "If you are developing an application that requires a database with extremely fast performance...",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Amazon DynamoDB.",
-    "Options": {
-      "A": "Amazon Relational Database Service.",
-      "B": "Amazon ElastiCache.",
-      "C": "Amazon DynamoDB.",
-      "D": "Amazon Redshift."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "Which of the following use cases is appropriate for using Amazon Relational Database Services (Amazon RDS).",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Complex transactions.",
-    "Options": {
-      "A": "Massive read/write rates.",
-      "B": "Simple get or put requests.",
-      "C": "Complex transactions.",
-      "D": "All of the above."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "What should you consider when choosing a database type?",
-    "Correct Answer Letter": "E",
-    "Correct Answer Text": "All of the above.",
-    "Options": {
-      "A": "Data size.",
-      "B": "Data access period.",
-      "C": "Query frequency.",
-      "D": "Highly available.",
-      "E": "All of the above."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "A company has an application... connect to MYSQL database... use AWS features such as high availability...",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Amazon Aurora.",
-    "Options": {
-      "A": "Amazon RDS.",
-      "B": "Amazon Aurora.",
-      "C": "Amazon DynamoDB.",
-      "D": "Amazon Redshift."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "Which of the following is not one of the four areas of the performance efficiency pillar?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Traceability",
-    "Options": {
-      "A": "Tradeoffs",
-      "B": "Selection",
-      "C": "Traceability",
-      "D": "Monitoring"
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Which of the following is a principle when designing cloud-based systems?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Assume everything will fail.",
-    "Options": {
-      "A": "Build tightly-coupled components.",
-      "B": "Make infrequent, large batch changes.",
-      "C": "Assume everything will fail.",
-      "D": "Use as many services as possible."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which of the following are pillars of the AWS Well-Architected Framework?",
-    "Correct Answer Letter": [
-      "A",
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Security",
-      "Operational excellence",
-      "Cost Optimization"
-    ],
-    "Options": {
-      "A": "Security",
-      "B": "Persistence",
-      "C": "Operational excellence",
-      "D": "Cost Optimization"
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which design principles are recommended when considering performance efficiency?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Democratize advanced technologies.",
-    "Options": {
-      "A": "Match supply with demand.",
-      "B": "Use serverless architectures.",
-      "C": "Analyze and attribute expenditure.",
-      "D": "Democratize advanced technologies.",
-      "E": "Enable traceability."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "AWS Trusted Advisor provides insight regarding which five categories of an AWS account?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Performance, cost optimization, access control, connectivity, security.",
-    "Options": {
-      "A": "Security, fault tolerance, high availability, connectivity, service limits.",
-      "B": "Performance, cost optimization, security, fault tolerance, service limits.",
-      "C": "Performance, cost optimization, access control, connectivity, security.",
-      "D": "Security, access control, high availability, performance, service limits."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "What is the focus of the sustainability pillar of the well-architected framework?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Minimizing the environmental impacts of running cloud workloads.",
-    "Options": {
-      "A": "Designing workloads that recover quickly from failures.",
-      "B": "Minimizing the environmental impacts of running cloud workloads.",
-      "C": "Avoiding unnecessary costs in cloud workloads.",
-      "D": "Automating updates to cloud workloads."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which online tool can assist in security compliance?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "AWS Trusted Advisor.",
-    "Options": {
-      "A": "Amazon Kinesis.",
-      "B": "AWS Support.",
-      "C": "AWS Trusted Advisor.",
-      "D": "Amazon CloudWatch."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "Which of the following is a measure of your system's ability to provide functionality when desired by the user?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Reliability.",
-    "Options": {
-      "A": "Availability.",
-      "B": "Fault Tolerance.",
-      "C": "Reliability.",
-      "D": "Performance efficiency."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "What is defined as the ability for a system to remain operational even if some of the components of that system fail?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Fault tolerance.",
-    "Options": {
-      "A": "High durability.",
-      "B": "Fault tolerance.",
-      "C": "High availability."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "Which of the following best describes a system that can withstand some measures of degradation, experiences minimal downtime and requires minimal human intervention?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Highly available system.",
-    "Options": {
-      "A": "Highly available system."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "Which of the following AWS tools help your application scale up or down based on demand?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Amazon EC2 Auto Scaling",
-    "Options": {
-      "A": "Availability zones.",
-      "B": "Amazon EC2 Auto Scaling",
-      "C": "AWS CloudFormation.",
-      "D": "Elastic Load Balancing AWS Config."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Which service would you use to send alerts based on Amazon CloudWatch alarms?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Amazon Simple Notification Service (Amazon SNS).",
-    "Options": {
-      "A": "Amazon Simple Notification Service (Amazon SNS).",
-      "B": "AWS CloudTrail.",
-      "C": "AWS Trusted Advisor.",
-      "D": "Amazon Route 53."
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which of the following are characteristics of Amazon EC2 Auto Scaling? (Choose three).",
-    "Correct Answer Letter": [
-      "A",
-      "C",
-      "E"
-    ],
-    "Correct Answer Text": [
-      "Responds to changing conditions by adding or terminating instances.",
-      "Launches instances from a specified Amazon Machine Image (AMI).",
-      "Enforces a minimum number of running Amazon EC2 instances"
-    ],
-    "Options": {
-      "A": "Responds to changing conditions by adding or terminating instances.",
-      "B": "Only supports dynamic scaling.",
-      "C": "Launches instances from a specified Amazon Machine Image (AMI).",
-      "D": "Delivers push notifications.",
-      "E": "Enforces a minimum number of running Amazon EC2 instances"
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which of the following must be configured on an Elastic Load Balancing load balancer to expect incoming traffic?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "A listener.",
-    "Options": {
-      "A": "A port.",
-      "B": "A network interface.",
-      "C": "A listener.",
-      "D": "An instance."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "Which of the following elements are used to create an Amazon EC2 Auto Scaling launch configuration?",
-    "Correct Answer Letter": [
-      "A",
-      "C"
-    ],
-    "Correct Answer Text": [
-      "Amazon Machine Image (AMI).",
-      "Instance type."
-    ],
-    "Options": {
-      "A": "Amazon Machine Image (AMI).",
-      "B": "Load balancer.",
-      "C": "Instance type.",
-      "D": "Amazon Elastic Block Store (Amazon EBS) volumes."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "Which of the following services can help you collect important metrics from Amazon Relational Database Service (Amazon RDS) and Amazon Elastic Compute Cloud (Amazon EC2) instances?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Amazon CloudWatch.",
-    "Options": {
-      "A": "Amazon CloudWatch.",
-      "B": "Amazon CloudFront.",
-      "C": "Amazon CloudSearch.",
-      "D": "Amazon CloudTrail.",
-      "E": "Amazon EC2 Auto Scaling."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which of the following are elements of an Auto Scaling group? (Choose three).",
-    "Correct Answer Letter": [
-      "A",
-      "B",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Maximum size.",
-      "Minimum size.",
-      "Desired capacity."
-    ],
-    "Options": {
-      "A": "Maximum size.",
-      "B": "Minimum size.",
-      "C": "Health checks.",
-      "D": "Desired capacity."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "There is an audit at your company and they need to have a big log of all access to AWS resources in the account.",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Amazon Elastic Compute Cloud (Amazon EC2). (Ошибка файла: правильный сервис — CloudTrail, но отмечен EC2).",
-    "Options": {
-      "A": "Amazon CloudWatch.",
-      "B": "AWS CloudTrail.",
-      "C": "Amazon Elastic Compute Cloud (Amazon EC2). (Ошибка файла: правильный сервис — CloudTrail, но отмечен EC2).",
-      "D": "Amazon Simple Notification Service (Amazon SNS)."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "In Elastic Load Balancing, when the load balancing detects an unhealthy target, which of the following are true?",
-    "Correct Answer Letter": [
-      "A",
-      "C",
-      "E"
-    ],
-    "Correct Answer Text": [
-      "Stops routing traffic to that target.",
-      "Resumes routing traffic when it detects that the target is healthy again.",
-      "Resumes routing traffic when manually restarted. (Ошибка файла)."
-    ],
-    "Options": {
-      "A": "Stops routing traffic to that target.",
-      "B": "Triggers an alarm.",
-      "C": "Resumes routing traffic when it detects that the target is healthy again.",
-      "D": "Routes traffic to a healthy target.",
-      "E": "Resumes routing traffic when manually restarted. (Ошибка файла)."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "What are the three types of load balancers that Elastic Load Balancing offers? (Choose three).",
-    "Correct Answer Letter": [
-      "B",
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Application Load Balancer.",
-      "Network Load Balancer.",
-      "Classic Load Balancer."
-    ],
-    "Options": {
-      "A": "Internet Load Balancer.",
-      "B": "Application Load Balancer.",
-      "C": "Network Load Balancer.",
-      "D": "Classic Load Balancer.",
-      "E": "Compute Load Balancer.",
-      "F": "Auto Scaling Load Balancer."
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "The systems development lifecycle (SDLC) has six phases. The first three phases are plan, define, and design. What are the last three phases of the SDLC?",
-    "Options": {
-      "A": "Code, build, and test",
-      "B": "Develop, deploy, and maintain",
-      "C": "Test, deploy, and maintain",
-      "D": "Code, build, and maintain"
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "Develop, deploy, and maintain"
-  },
-  {
-    "Question #": "2",
-    "Question": "Which task is performed during the develop stage of the systems development lifecycle (SDLC)?",
-    "Options": {
-      "A": "New components are obtained and installed.",
-      "B": "Deficiencies are identified.",
-      "C": "New system requirements are defined.",
-      "D": "The system is put into use."
-    },
-    "Correct Answer Letter": [
-      "A"
-    ],
-    "Correct Answer Text": "New components are obtained and installed."
-  },
-  {
-    "Question #": "3",
-    "Question": "A systems administrator must grant a new developer permissions that are associated with the developer role. This role is associated with the developer group. Which AWS service should the administrator use to assign the new developer to the developer group?",
-    "Options": {
-      "A": "Amazon Elastic Compute Cloud (Amazon EC2)",
-      "B": "AWS Identity and Access Management (IAM)",
-      "C": "AWS Resource Access Manager (AWS RAM)",
-      "D": "Amazon Simple Storage Service (Amazon S3)"
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "AWS Identity and Access Management (IAM)"
-  },
-  {
-    "Question #": "4",
-    "Question": "Which of the following is an important benefit of AWS CloudShell?",
-    "Options": {
-      "A": "You manually patch and update the environment.",
-      "B": "You pay up front for reserved blocks of time and capacity.",
-      "C": "Users get 500 MB of storage per region.",
-      "D": "It inherits your credentials from the AWS Management Console."
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "It inherits your credentials from the AWS Management Console."
-  },
-  {
-    "Question #": "5",
-    "Question": "What are three ways to interact with AWS service application programming interfaces (APIs)? (Select the THREE best options.)",
-    "Options": {
-      "A": "AWS CloudTrail",
-      "B": "AWS software development kits (SDKs)",
-      "C": "AWS Identity and Access Management (IAM)",
-      "D": "AWS Management Console",
-      "E": "AWS X-Ray",
-      "F": "AWS Command Line Interface (AWS CLI)"
-    },
-    "Correct Answer Letter": [
-      "B",
-      "D",
-      "F"
-    ],
-    "Correct Answer Text": "AWS software development kits (SDKs); AWS Management Console; AWS Command Line Interface (AWS CLI)"
-  },
-  {
-    "Question #": "6",
-    "Question": "Which tool enables users to control their AWS services from the command line and automate service management with scripts?",
-    "Options": {
-      "A": "Amazon Q Developer",
-      "B": "AWS Tools for PowerShell",
-      "C": "AWS X-Ray",
-      "D": "AWS Identity and Access Management (IAM)"
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "AWS Tools for PowerShell"
-  },
-  {
-    "Question #": "7",
-    "Question": "What is Amazon Q Developer?",
-    "Options": {
-      "A": "A wizard that leads you through the steps to configure your integrated development environment (IDE)",
-      "B": "A generative Al-powered coding assistant",
-      "C": "A cloud-based integrated development environment (IDE)",
-      "D": "A browser-based CLI"
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "A generative Al-powered coding assistant"
-  },
-  {
-    "Question #": "8",
-    "Question": "Which statements describe AWS resource application programming interfaces (APIs)? (Select TWO.)",
-    "Options": {
-      "A": "They have objects for request and result data.",
-      "B": "They provide a lower-level abstraction than the higher-level calls made by service client APIs.",
-      "C": "They provide access to resources through objects and collections.",
-      "D": "They provide a higher-level abstraction than the low-level calls made by service client APIs.",
-      "E": "They have at least one class per conceptual resource."
-    },
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "They provide access to resources through objects and collections.",
-      "They provide a higher-level abstraction than the low-level calls made by service client APIs."
+    "correctAnswers": [
+      4
     ]
   },
   {
-    "Question #": "9",
-    "Question": "A developer is using the AWS software development kit (SDK) for Python (Boto3) and must specify the Region. Which method enables the developer specify the Region?",
-    "Options": {
-      "A": "By setting the Region when they instantiate the service client",
-      "B": "By setting the AWS PROFILE environment variable",
-      "C": "Users cannot specify the AWS Region in the service client",
-      "D": "By associating a default Region with their profile in the credentials file in the .aws folder within their \"home\" folder"
-    },
-    "Correct Answer Letter": [
-      "A"
+    "module": "Module 1: Cloud Concepts",
+    "question": "What is the pricing model that enables AWS customers to pay for resources on an as-needed basis?",
+    "options": [
+      "A) Pay as you decommission.",
+      "B) Pay as you go.",
+      "C) Pay as you buy.",
+      "D) Pay as you reserve."
     ],
-    "Correct Answer Text": "By setting the Region when they instantiate the service client"
-  },
-  {
-    "Question #": "10",
-    "Question": "A developer makes an application programming interface (API) call to access an Amazon Simple Storage Service (Amazon S3) bucket that doesn't exist. Which HTTP response code does the developer receive from the AWS service?",
-    "Options": {
-      "A": "300 series",
-      "B": "200 series",
-      "C": "500 series",
-      "D": "400 series"
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "400 series"
-  },
-  {
-    "Question #": "11",
-    "Question": "A student is learning about Amazon Simple Storage Service (Amazon S3). During an interview, a potential employer asks the student to explain how Amazon S3 can be used as a storage solution. Which option is a use case for Amazon S3?",
-    "Options": {
-      "A": "Shared file systems",
-      "B": "Hosting active databases",
-      "C": "Data lake",
-      "D": "Block-level storage"
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Data lake"
-  },
-  {
-    "Question #": "12",
-    "Question": "A _ organizes the Amazon Simple Storage Service (Amazon S3) namespace at the highest level.",
-    "Options": {
-      "A": "Container",
-      "B": "Region",
-      "C": "Group",
-      "D": "Bucket"
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "Bucket"
-  },
-  {
-    "Question #": "13",
-    "Question": "A developer wants to store image files in a bucket that is called images-bucket, but receives the error BucketAlreadyExists. Which action must the developer take to resolve this error?",
-    "Options": {
-      "A": "Bucket names are unique to the Region that they are created in. If the requested bucket name is not available, the developer must create the images-bucket in a different Region.",
-      "B": "Bucket names go to the highest bidder. The developer must outbid the current bucket owner.",
-      "C": "Bucket names are globally unique. If the requested bucket name is not available, the developer must rename the bucket.",
-      "D": "The developer must contact AWS Support to request approval to use the same bucket name."
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Bucket names are globally unique. If the requested bucket name is not available, the developer must rename the bucket."
-  },
-  {
-    "Question #": "14",
-    "Question": "A developer is using Amazon Simple Storage Service (Amazon S3) to host a static website in a bucket that is called frank-martha-cafe. This bucket is in the us-east-1 Region. Which URL is the virtual-hosted-style URL for the website?",
-    "Options": {
-      "A": "https://s3-website-us-east-1.amazonaws.com/frank-martha-cafe",
-      "B": "https://www.frank-martha-cafe.s3-website-us-east-1.amazonaws.com",
-      "C": "https://frank-martha-cafe.s3-us-east-1.amazonaws.com",
-      "D": "https://frank-martha-cafe.s3-website-us-east-1.amazonaws.com"
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "https://frank-martha-cafe.s3-website-us-east-1.amazonaws.com"
-  },
-  {
-    "Question #": "15",
-    "Question": "After versioning is enabled on an Amazon Simple Storage Service (Amazon S3) bucket, it can be disabled.",
-    "Options": {
-      "A": "True",
-      "B": "False"
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "False"
-  },
-  {
-    "Question #": "16",
-    "Question": "What is the largest size of an object that a user can upload to Amazon Simple Storage Service (Amazon S3) in a single PUT operation?",
-    "Options": {
-      "A": "5 GB",
-      "B": "5 TB",
-      "C": "100 MB",
-      "D": "1 GB"
-    },
-    "Correct Answer Letter": [
-      "A"
-    ],
-    "Correct Answer Text": "5 GB"
-  },
-  {
-    "Question #": "17",
-    "Question": "A developer uses an Amazon Simple Storage Service (Amazon S3) bucket. They want to allow a certain AWS Identity and Access Management (IAM) user to perform any S3 operations on the bucket and its objects. They also want to follow AWS recommendations for granting permissions. Which mechanism should the developer apply to the bucket?",
-    "Options": {
-      "A": "Cross-Origin resource Sharing (CORS)",
-      "B": "IAM policy",
-      "C": "Bucket policy",
-      "D": "Bucket access control list (ACL)"
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Bucket policy"
-  },
-  {
-    "Question #": "18",
-    "Question": "A developer wants to allow a user to download private objects directly from an Amazon Simple Storage Service (Amazon S3) bucket without needing AWS security credentials or permissions. What can the developer share with the user to grant them time-limited access to the objects?",
-    "Options": {
-      "A": "A temporary token",
-      "B": "The bucket endpoint URL",
-      "C": "A presigned URL",
-      "D": "Their AWS account root user credentials"
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "A presigned URL"
-  },
-  {
-    "Question #": "19",
-    "Question": "Which method can be used to encrypt Amazon Simple Storage Service (Amazon S3) objects in transit?",
-    "Options": {
-      "A": "Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)",
-      "B": "Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)",
-      "C": "Secure Sockets Layer/Transport Layer Security (SSL/TLS)",
-      "D": "Server-Side Encryption with Customer-Provided Keys (SSE-C)"
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Secure Sockets Layer/Transport Layer Security (SSL/TLS)"
-  },
-  {
-    "Question #": "20",
-    "Question": "A developer hosts a static website in an Amazon Simple Storage Service (Amazon S3) bucket. The website references image objects in another S3 bucket. However, these images do not display on the website. What could be the problem?",
-    "Options": {
-      "A": "Cross-Region Replication (CRR) has not been enabled on the bucket where the assets are stored.",
-      "B": "Cross-Origin Resource Sharing (CORS) has not been enabled on the bucket where the assets are stored.",
-      "C": "The security group of the S3 bucket does not include an inbound rule to allow HTTP traffic on port 80.",
-      "D": "Amazon S3 does not support object sharing between buckets."
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "Cross-Origin Resource Sharing (CORS) has not been enabled on the bucket where the assets are stored."
-  },
-  {
-    "Question #": "1",
-    "Question": "Which option is the Amazon Web Services (AWS) customer responsible for under the AWS shared responsibility model? (Select TWO.)",
-    "Options": {
-      "A": "Security group configuration.",
-      "B": "Physical servers.",
-      "C": "Client-side data.",
-      "D": "Edge location infrastructure.",
-      "E": "Availability Zone security."
-    },
-    "Correct Answer Letter": [
-      "A",
-      "C"
-    ],
-    "Correct Answer Text": [
-      "Security group configuration.",
-      "Client-side data."
+    "correctAnswers": [
+      1
     ]
   },
   {
-    "Question #": "2",
-    "Question": "Which AWS Identity and Access Management (IAM) resource explicitly grants or denies permissions to a user or group of users?",
-    "Options": {
-      "A": "IAM roles.",
-      "B": "IAM users.",
-      "C": "IAM groups.",
-      "D": "IAM policies."
-    },
-    "Correct Answer Letter": [
-      "D"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Which of these is NOT a cloud computing model?",
+    "options": [
+      "A) System Administration as a service.",
+      "B) Platform as a service.",
+      "C) Infrastructure as a service.",
+      "D) Software as a service."
     ],
-    "Correct Answer Text": "IAM policies."
-  },
-  {
-    "Question #": "3",
-    "Question": "What is the correct term for the process of verifying a user's identity as a developer?",
-    "Options": {
-      "A": "Endorsement.",
-      "B": "Authentication.",
-      "C": "Confirmation.",
-      "D": "Authorization."
-    },
-    "Correct Answer Letter": [
-      "B"
-    ],
-    "Correct Answer Text": "Authentication."
-  },
-  {
-    "Question #": "4",
-    "Question": "Which statements about IAM user authentication are true? (Select TWO.)",
-    "Options": {
-      "A": "AWS credentials to authenticate with any supported services must be provided.",
-      "B": "A user name and password to authenticate to the console must be provided.",
-      "C": "A .pem or .ppk file is used to authenticate programmatically to the AWS API.",
-      "D": "It is a best practice to use the account root user credentials to authenticate programmatically via AWS CLI.",
-      "E": "Each AWS account can have only one administrator who manages other IAM users."
-    },
-    "Correct Answer Letter": [
-      "A",
-      "B"
-    ],
-    "Correct Answer Text": [
-      "AWS credentials to authenticate with any supported services must be provided.",
-      "A user name and password to authenticate to the console must be provided."
+    "correctAnswers": [
+      0
     ]
   },
   {
-    "Question #": "5",
-    "Question": "Which suggestion is an AWS recommendation for securing AWS credentials for applications that run on Amazon EC2 instances?",
-    "Options": {
-      "A": "Embed AWS credentials in the SDK client code.",
-      "B": "Store credentials in local AWS configuration files.",
-      "C": "Create an IAM role and attach it to the EC2 instance.",
-      "D": "Create an IAM user and attach it to the EC2 instance."
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 1: Cloud Concepts",
+    "question": "True or False? AWS owns and maintains the network-connected hardware required for application services, while you provision and use what you need.",
+    "options": [
+      "A) True.",
+      "B) False."
     ],
-    "Correct Answer Text": "Create an IAM role and attach it to the EC2 instance."
-  },
-  {
-    "Question #": "6",
-    "Question": "What is the format of AWS Identity and Access Management (IAM) policies that define the allowable API calls an entity can invoke?",
-    "Options": {
-      "A": "YAML Ain't Markup Language (YAML).",
-      "B": "Security Assertion Markup Language (SAML).",
-      "C": "Comma-separated values (CSV).",
-      "D": "JavaScript Object Notation (JSON)."
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "JavaScript Object Notation (JSON)."
-  },
-  {
-    "Question #": "7",
-    "Question": "An administrator created an IAM group called managers within an AWS account. A ____ policy is attached that allows managers to read and write to an S3 bucket in the same account. What is this type of policy?",
-    "Options": {
-      "A": "Identity-based.",
-      "B": "Resource-based.",
-      "C": "Cross-account access.",
-      "D": "AdministratorAccess managed."
-    },
-    "Correct Answer Letter": [
-      "A"
-    ],
-    "Correct Answer Text": "Identity-based."
-  },
-  {
-    "Question #": "8",
-    "Question": "Which statement reflects best practices when granting permissions to users, groups, roles, and resources?",
-    "Options": {
-      "A": "Create policies that allow broad access and then limit permissions based on usage.",
-      "B": "Use the account root user for routine administrator tasks.",
-      "C": "Create policies that follow the principle of least privilege.",
-      "D": "Do not set policies for individual resources."
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Create policies that follow the principle of least privilege."
-  },
-  {
-    "Question #": "9",
-    "Question": "What is the effect of the following IAM policy statement?",
-    "Options": {
-      "A": "Denies actions on DynamoDB or Amazon S3 resources except for the resources that are listed in the NotResource element.",
-      "B": "Denies the ability to write to the pollynotes DynamoDB table.",
-      "C": "Denies the ability to read from the polly-notes-web S3 bucket.",
-      "D": "Denies actions on the DynamoDB table or S3 buckets that are listed in the NotResource element."
-    },
-    "Correct Answer Letter": [
-      "A"
-    ],
-    "Correct Answer Text": "Denies actions on DynamoDB or Amazon S3 resources except for the resources that are listed in the NotResource element."
-  },
-  {
-    "Question #": "10",
-    "Question": "Which statements are true about evaluation logic for IAM policies? (Select TWO.)",
-    "Options": {
-      "A": "You cannot have deny and allow statements in the same policy.",
-      "B": "An explicit allow overrides an explicit deny.",
-      "C": "An explicit deny overrides an explicit allow.",
-      "D": "By default, all requests are denied.",
-      "E": "By default, all requests are allowed."
-    },
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "An explicit deny overrides an explicit allow.",
-      "By default, all requests are denied."
+    "correctAnswers": [
+      0
     ]
   },
   {
-    "Question #": "11",
-    "Question": "Which statement best describes Amazon DynamoDB?",
-    "Options": {
-      "A": "An in-memory data store that can boost the performance of databases.",
-      "B": "A graph database engine that is optimized for storing billions of relationships.",
-      "C": "A relational database built for the cloud and compatible with MySQL and PostgreSQL.",
-      "D": "A key-value and document database that scales horizontally and works well for internet-scale applications."
-    },
-    "Correct Answer Letter": [
-      "D"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Which of these is NOT a primary benefit of cloud computing over on-premises computing?",
+    "options": [
+      "A) Increase speed and agility.",
+      "B) Pay for racking, stacking and powering servers.",
+      "C) Eliminate guessing on your infrastructure capacity need.",
+      "D) Trade capital expense for variable expense."
     ],
-    "Correct Answer Text": "A key-value and document database that scales horizontally and works well for internet-scale applications."
-  },
-  {
-    "Question #": "12",
-    "Question": "Which component is part of an Amazon DynamoDB table?",
-    "Options": {
-      "A": "Predefined schema.",
-      "B": "SQL-based queries.",
-      "C": "Attributes.",
-      "D": "Columns."
-    },
-    "Correct Answer Letter": [
-      "C"
-    ],
-    "Correct Answer Text": "Attributes."
-  },
-  {
-    "Question #": "13",
-    "Question": "A DynamoDB table called SensorReadings uses sensor ID as the partition key and timestamp as the sort key. Which statement is true?",
-    "Options": {
-      "A": "The sensor ID together with the timestamp represent a simple primary key.",
-      "B": "It is impossible for two items to have the same partition key.",
-      "C": "It is impossible for two items to have the same sort key.",
-      "D": "It is impossible for two items to have the same primary key."
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "It is impossible for two items in the SensorReadings table to have the same primary key."
-  },
-  {
-    "Question #": "14",
-    "Question": "Which statement about Amazon DynamoDB partitions is true?",
-    "Options": {
-      "A": "DynamoDB stores data in partitions and chooses the partition based on the range attribute.",
-      "B": "If a table has a simple primary key, DynamoDB stores and retrieves each item based on its hash attribute.",
-      "C": "If a table has a composite primary key, DynamoDB sorts items by sort key before selecting a partition.",
-      "D": "A developer writes a hash function to tell DynamoDB how to partition items."
-    },
-    "Correct Answer Letter": [
-      "A",
-      "B"
-    ],
-    "Correct Answer Text": [
-      "DynamoDB stores data in partitions and chooses the partition based on the range attribute.",
-      "If a table has a simple primary key, DynamoDB stores and retrieves each item based on its hash attribute."
+    "correctAnswers": [
+      1
     ]
   },
   {
-    "Question #": "15",
-    "Question": "A developer has a restaurants database table with partition key = name and sort key = location. They also want to query by cuisine and rating. What should they do?",
-    "Options": {
-      "A": "Set up a local secondary index on cuisine and customer rating.",
-      "B": "Set up a global secondary index on cuisine and customer rating.",
-      "C": "Change the primary key to be based on cuisine and customer rating.",
-      "D": "Perform a query using the cuisine and average customer rating attributes."
-    },
-    "Correct Answer Letter": [
-      "B"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Which of the following are NOT benefits of AWS Cloud computing? (Choose two).",
+    "options": [
+      "A) Multiple procurement cycles.",
+      "B) High-availability.",
+      "C) High-latency.",
+      "D) Temporary and disposable resources.",
+      "E) Fault-tolerant databases."
     ],
-    "Correct Answer Text": "Set up a global secondary index on cuisine and customer rating."
-  },
-  {
-    "Question #": "16",
-    "Question": "A video game developer using Amazon DynamoDB needs to ensure that player profiles are updated correctly when they make in-game purchases. This requires multiple updates as part of one user action. What is the best choice?",
-    "Options": {
-      "A": "Add a DynamoDB Accelerator (DAX) cluster.",
-      "B": "Implement global tables.",
-      "C": "Create application code to verify all parts of the transaction were written and roll back if any failed.",
-      "D": "Use DynamoDB transactions."
-    },
-    "Correct Answer Letter": [
-      "D"
-    ],
-    "Correct Answer Text": "Use DynamoDB transactions."
-  },
-  {
-    "Question #": "17",
-    "Question": "Which scenarios are example use cases for Amazon DynamoDB Streams? (Select TWO.)",
-    "Options": {
-      "A": "An application requiring the fastest possible response time for reads to support real-time bidding.",
-      "B": "An application requiring repeated reads against large regional weather datasets for long analyses.",
-      "C": "An application that automatically sends notifications to mobile devices when new content is uploaded.",
-      "D": "An application that monitors table changes and triggers actions when thresholds are reached.",
-      "E": "An application requiring an in-memory data store."
-    },
-    "Correct Answer Letter": [
-      "C",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "An application that automatically sends notifications to mobile devices when new content is uploaded.",
-      "An application that monitors table changes and triggers actions when thresholds are reached."
+    "correctAnswers": [
+      0,
+      2
     ]
   },
   {
-    "Question #": "18",
-    "Question": "Which statement about global tables is true?",
-    "Options": {
-      "A": "Global tables replicate tables within a single AWS Region.",
-      "B": "Global tables use Amazon S3 to propagate changes between replicas.",
-      "C": "DynamoDB automatically creates identical tables and replicates data to all chosen Regions.",
-      "D": "Global tables support partial replication of selected items."
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Which of the following is a compute service?",
+    "options": [
+      "A) Amazon VPC.",
+      "B) Amazon S3.",
+      "C) Amazon EC2.",
+      "D) Amazon Cloudfront.",
+      "E) Amazon Redshift."
     ],
-    "Correct Answer Text": "When a global table is created, DynamoDB performs all tasks to create identical tables and propagate ongoing data changes to specified Regions."
+    "correctAnswers": [
+      2
+    ]
   },
   {
-    "Question #": "19",
-    "Question": "How far back in days can an Amazon DynamoDB table be restored using point-in-time recovery?",
-    "Options": {
-      "A": "The last week.",
-      "B": "The last 10 days.",
-      "C": "The last 35 days.",
-      "D": "The last calendar month."
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 1: Cloud Concepts",
+    "question": "True or False? Cloud computing provides a simple way to access servers, storage, databases. You own the network-connected hardware.",
+    "options": [
+      "A) True.",
+      "B) False."
     ],
-    "Correct Answer Text": "The last 35 days."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "20",
-    "Question": "Which statement describes DynamoDB API control operations that can be invoked by an application?",
-    "Options": {
-      "A": "Create and manage DynamoDB tables.",
-      "B": "Create, read, update, and delete data in a table.",
-      "C": "Get and write batches of items in a DynamoDB table.",
-      "D": "Make coordinated, all-or-nothing changes to multiple items within and across tables."
-    },
-    "Correct Answer Letter": [
-      "A"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Economies of scale result from ________.",
+    "options": [
+      "A) Having many different cloud providers.",
+      "B) Having hundreds of thousands of customers aggregated in the cloud.",
+      "C) Having hundreds of cloud services available over the internet.",
+      "D) Having to invest heavily in data centers and servers."
     ],
-    "Correct Answer Text": "Create and manage DynamoDB tables."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "1",
-    "Question": "Which phrase best describes a RESTful API?",
-    "Options": {
-      "A": "An API that uses HTTP to communicate between client and server",
-      "B": "A proxy that exists between client and server to handle common problems that occur with API-driven applications",
-      "C": "An API that follows the principles of the Representational State Transfer style",
-      "D": "An API that resides on the web server"
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 1: Cloud Concepts",
+    "question": "Which of these are ways to access AWS core services? (Choose three).",
+    "options": [
+      "A) Technical support calls.",
+      "B) AWS Marketplace.",
+      "C) AWS Management Console.",
+      "D) AWS Command Line Interface (AWS CLI).",
+      "E) Software Development Kits (SDKs)."
     ],
-    "Correct Answer Text": "An API that follows the principles of the Representational State Transfer style"
+    "correctAnswers": [
+      2,
+      3,
+      4
+    ]
   },
   {
-    "Question #": "2",
-    "Question": "Which option suggests the use of WebSocket APIs?",
-    "Options": {
-      "A": "An order processing application returns an order number to each customer when they submit an order.",
-      "B": "A batch process bundles orders and sends them to a fulfillment center application.",
-      "C": "A real-time chat application lets customers talk to customer support about their orders.",
-      "D": "A reporting application gives the sales team access to static daily reports from their phones."
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 2: Billing & Cost",
+    "question": "What options are available for reserved instances? (Choose 3).",
+    "options": [
+      "A) AURI.",
+      "B) NURI.",
+      "C) PURI.",
+      "D) DURI."
     ],
-    "Correct Answer Text": "A real-time chat application lets customers talk to customer support about their orders."
+    "correctAnswers": [
+      0,
+      1,
+      2
+    ]
   },
   {
-    "Question #": "3",
-    "Question": "Which use case suggests using Amazon API Gateway HTTP APIs?",
-    "Options": {
-      "A": "An application needs an API proxy in front of an AWS Lambda function.",
-      "B": "An application must transform a response from an AWS Lambda function before returning the response to the client.",
-      "C": "A developer wants to use mock endpoints to test their API.",
-      "D": "A developer wants to assign different API quotas by client."
-    },
-    "Correct Answer Letter": [
-      "A"
+    "module": "Module 2: Billing & Cost",
+    "question": "Where can a customer go to get more details about Amazon EC2 billing activity that took place 3 months ago?",
+    "options": [
+      "A) Amazon EC2 Dashboard.",
+      "B) AWS Cost Explorer.",
+      "C) AWS Trusted Advisor Dashboard.",
+      "D) AWS CloudTrail logs stored in Amazon S3."
     ],
-    "Correct Answer Text": "An application needs an API proxy in front of an AWS Lambda function."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "4",
-    "Question": "Which statement about Amazon API Gateway integrations is true?",
-    "Options": {
-      "A": "A first-class integration connects an API Gateway HTTP API route to an external third-party service API.",
-      "B": "A developer can use HTTP proxy integrations to direct a route to a resource on the internet.",
-      "C": "API Gateway cannot access resources within a virtual private cloud (VPC).",
-      "D": "An API integration request encapsulates an HTTP request that the backend receives and is always different from the method request that the client submits."
-    },
-    "Correct Answer Letter": [
-      "B"
+    "module": "Module 2: Billing & Cost",
+    "question": "True or false? To receive the discounted rate associated with Reserved Instances, you must make a full, upfront payment for the term of the agreement.",
+    "options": [
+      "A) True.",
+      "B) False."
     ],
-    "Correct Answer Text": "A developer can use HTTP proxy integrations to direct a route to a resource on the internet."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "5",
-    "Question": "Which option requires the fewest application changes for transforming client data before sending to the database?",
-    "Options": {
-      "A": "Export the API definition and use it to update the client.",
-      "B": "Use a mapping template to transform the request before it is sent to the database.",
-      "C": "Create a usage plan that describes the fields and applies only to this client.",
-      "D": "Use a first-class integration to connect the client to the database."
-    },
-    "Correct Answer Letter": [
-      "B"
+    "module": "Module 2: Billing & Cost",
+    "question": "Which statement is true about the pricing model on AWS?",
+    "options": [
+      "A) In most cases, there is per gigabyte charge for inbound data transfer.",
+      "B) Compute is typically charged as a monthly fee based on instance type.",
+      "C) Outbound charges are free up to a per account limit."
     ],
-    "Correct Answer Text": "Use a mapping template to transform the request before it is sent to the database."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "6",
-    "Question": "Which elements are part of the base URI that AWS generates for an Amazon API Gateway API?",
-    "Options": {
-      "A": "Region and stage name",
-      "B": "API identifier and version",
-      "C": "Account ID and stage name",
-      "D": "Region and version"
-    },
-    "Correct Answer Letter": [
-      "A"
+    "module": "Module 2: Billing & Cost",
+    "question": "What are the four support plans offered by AWS support?",
+    "options": [
+      "A) Basic, Developer, Business, Enterprise.",
+      "B) Basic, Startup, Business, Enterprise.",
+      "C) Free, Bronze, Silver, Gold.",
+      "D) All support is free."
     ],
-    "Correct Answer Text": "Region and stage name"
+    "correctAnswers": [
+      0
+    ]
   },
   {
-    "Question #": "7",
-    "Question": "Given this snippet: aws aws apigatewayv2 create-route --api-id 03z501670a -- target arn:aws:lambda:us-east-2:AcctID:function:readFn Which option could replace the to create an API route that returns an individual product value from an online catalog?",
-    "Options": {
-      "A": "route-key 'GET /products/{product_id}'\\",
-      "B": "route-key 'PUT /products'",
-      "C": "route-selection-expression '$GET/product'",
-      "D": "route-selection-expression 'PUT /products/{proxy+}'\\"
-    },
-    "Correct Answer Letter": [
-      "A"
+    "module": "Module 2: Billing & Cost",
+    "question": "What AWS tool lets you explore AWS services and create an estimate for the cost of your use cases on AWS?",
+    "options": [
+      "A) AWS Pricing Calculator.",
+      "B) AWS Budgets.",
+      "C) AWS Cost and Usage Report.",
+      "D) AWS Billing Dashboard."
     ],
-    "Correct Answer Text": "route-key 'GET /products/{product_id}'\\"
+    "correctAnswers": [
+      0
+    ]
   },
   {
-    "Question #": "8",
-    "Question": "Which statement about Amazon API Gateway stages is true?",
-    "Options": {
-      "A": "Stage names are sequentially assigned based on the API version.",
-      "B": "Any stage on any API type can be set to autodeploy.",
-      "C": "Developers can use stage variables to connect different stages to different backends.",
-      "D": "Developers should avoid creating different stages for each development environment."
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 2: Billing & Cost",
+    "question": "As AWS grows the cost of doing business is reduced and savings are passed back to the customer with lower pricing. What is this optimization called?",
+    "options": [
+      "A) Expenditure Awareness.",
+      "B) Economies of Scale.",
+      "C) Matching supply and demand.",
+      "D) EC2 Right Sizing."
     ],
-    "Correct Answer Text": "Developers can use stage variables to connect different stages to different backends."
+    "correctAnswers": [
+      1
+    ]
   },
   {
-    "Question #": "9",
-    "Question": "Which solution most directly protects APIs from common web exploits such as SQL injection or XSS?",
-    "Options": {
-      "A": "Set throttling limits on their API methods in Amazon API Gateway.",
-      "B": "Set all of their APIs to use private endpoints.",
-      "C": "Configure a JSON Web Token (JWT)-based authorizer for Amazon API Gateway.",
-      "D": "Use AWS WAF with Amazon API Gateway."
-    },
-    "Correct Answer Letter": [
-      "D"
+    "module": "Module 2: Billing & Cost",
+    "question": "True or false? AWS offers a variety of services at no charge.",
+    "options": [
+      "A) True",
+      "B) False"
     ],
-    "Correct Answer Text": "Use AWS WAF with Amazon API Gateway."
+    "correctAnswers": [
+      0
+    ]
   },
   {
-    "Question #": "10",
-    "Question": "What does the Amazon API Gateway integration Latency metric tell the user?",
-    "Options": {
-      "A": "Frequency of server-side errors that affect latency",
-      "B": "Speed of the API response back to the client",
-      "C": "Responsiveness of the backend",
-      "D": "How often requests are throttled"
-    },
-    "Correct Answer Letter": [
-      "C"
+    "module": "Module 2: Billing & Cost",
+    "question": "What are the benefits of using AWS Organizations? (Choose two).",
+    "options": [
+      "A) Provides the ability to create groups of accounts and then attach policies to a group.",
+      "B) Replaces existing AWS IAM policies with service control policies (SCP).",
+      "C) Provides the ability to create an unlimited number of nested OUs to support your desired structure.",
+      "D) Simplifies automating account creation and management by using APIs."
     ],
-    "Correct Answer Text": "Responsiveness of the backend"
+    "correctAnswers": [
+      0,
+      3
+    ]
+  },
+  {
+    "module": "Module 2: Billing & Cost",
+    "question": "True or false? Unlimited services are available with the AWS Free Tier to new AWS customers for 12 months following their AWS sign-up date.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+    "options": [
+      "A) AWS Regions.",
+      "B) AWS Edge Locations.",
+      "C) AWS Availability Zones.",
+      "D) Amazon VPC."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "You can run applications and workloads from a region closer to the end users to ________ latency.",
+    "options": [
+      "A) Increase.",
+      "B) Decrease."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "True or False? Networking, storage, compute, and databases are examples of service categories that AWS offers.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "Which of the following are geographic areas that host two or more Availability Zones?",
+    "options": [
+      "A) AWS Regions.",
+      "B) Compute Zones.",
+      "C) Edge Locations."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "________ means the infrastructure has built-in component redundancy and ________ means that resources dynamically adjust to increases or decreases in capacity requirements.",
+    "options": [
+      "A) No human intervention, fault tolerant.",
+      "B) Elastic and scalable, no human intervention.",
+      "C) Fault tolerant, elastic and scalable.",
+      "D) Fault tolerant, no human intervention."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "True or false? Availability zones within a region are connected through low-latency links.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "Which of these statements about availability zones is NOT true?",
+    "options": [
+      "A) Availability zones are designed for fault isolation.",
+      "B) Availability zones are made up of one or more data centers.",
+      "C) A data center can be used for more than one Availability zone.",
+      "D) Availability zones are connected to each other using high-speed private links."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "What is true about Regions? (Choose two).",
+    "options": [
+      "A) They are the physical locations of your customers.",
+      "B) A region is a physical location that has multiple availability zones.",
+      "C) All regions are located in one specific geographic area.",
+      "D) Each region is located in a separate geographic area."
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "AWS highly recommends provisioning your compute resources across ________ Availability Zones.",
+    "options": [
+      "A) All",
+      "B) Multiple",
+      "C) Single",
+      "D) No"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 3: Global Infrastructure",
+    "question": "True or false? Edge locations are only located in the same general area as Regions.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "In the shared responsibility model, AWS is responsible for providing what?",
+    "options": [
+      "A) Security of the cloud.",
+      "B) Security to the cloud.",
+      "C) Security for the cloud.",
+      "D) Security in the cloud."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "In the shared responsibility model, which of the following are examples of 'security in the cloud?' (Choose two).",
+    "options": [
+      "A) Compliance with compute security standards and regulation.",
+      "B) Physical security of the facilities in which the services operate.",
+      "C) Security group configurations.",
+      "D) Encryption of data at rest and data in transit.",
+      "E) Protecting the global infrastructure."
+    ],
+    "correctAnswers": [
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "Which of the following is the responsibility of AWS under the AWS shared responsibility model?",
+    "options": [
+      "A) Configuring third party applications.",
+      "B) Maintaining physical hardware.",
+      "C) Security application access and data.",
+      "D) Managing custom Amazon Machine Images (AMIs)."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "When creating an AWS IAM policy, what are the two types of access that can be granted to a user?",
+    "options": [
+      "A) Institutional Access.",
+      "B) Authorized Access.",
+      "C) Programmatic Access.",
+      "D) AWS Management Console Access.",
+      "E) Administrative Root Access."
+    ],
+    "correctAnswers": [
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "True or false? AWS Organizations enables you to consolidate multiple AWS accounts so that you centrally manage them.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "Which of the following are best practices to secure your account using AWS IAM? (Choose 2).",
+    "options": [
+      "A) Provide users with default administrative privileges.",
+      "B) Leave unused and unnecessary users and credentials in place.",
+      "C) Manage access to AWS resources.",
+      "D) Avoid using IAM groups to grant the same access permissions to multiple users.",
+      "E) Define fine-grained access rights."
+    ],
+    "correctAnswers": [
+      2,
+      4
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "Which of the following should be done by the AWS account root user?",
+    "options": [
+      "A) Secure access for applications.",
+      "B) Integrate with other AWS services.",
+      "C) Change granular permissions.",
+      "D) Change the AWS support plan."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "After initial login, what does AWS recommend as the best practice for the AWS account root user?",
+    "options": [
+      "A) Delete the AWS account root user.",
+      "B) Revoke all permissions on the AWS account root user.",
+      "C) Restrict permission on the AWS account root user.",
+      "D) Delete the access keys of the AWS account root user."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "How would a system administrator add an additional layer of login security to a user's AWS management console?",
+    "options": [
+      "A) Use Amazon Cloud Directory.",
+      "B) Audit AWS IAM roles.",
+      "C) Enable multi-factor authentication.",
+      "D) Enable AWS CloudTrail."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 4: Security",
+    "question": "True or false? AWS Key Management Service (AWS KMS) enables you to assess, audit, and evaluate the configurations of your AWS resources.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "With Amazon VPC, what is the smallest size subnet you can have in VPC?",
+    "options": [
+      "A) /28",
+      "B) /26",
+      "C) /30",
+      "D) /24"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "With Amazon VPC, what is the maximum size IP address range you can have?",
+    "options": [
+      "A) /24",
+      "B) /16",
+      "C) /28",
+      "D) /30"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "You need to allow resources in private subnet to access the internet. Which of the following must be present to enable access?",
+    "options": [
+      "A) Security groups.",
+      "B) Route tables.",
+      "C) NAT gateway.",
+      "D) Network access control lists."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "Which AWS networking service enables a company to create a virtual network within AWS?",
+    "options": [
+      "A) Amazon VPC.",
+      "B) AWS Config.",
+      "C) Amazon Route 53.",
+      "D) AWS Direct Connect."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "True or false? Private subnets have direct access to the internet.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+    "options": [
+      "A) Amazon VPC.",
+      "B) AWS Availability Zones.",
+      "C) AWS Regions.",
+      "D) AWS Edge Locations."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "Which of the following is an optional security control that can be applied at the subnet layer of a VPC?",
+    "options": [
+      "A) Firewall.",
+      "B) Network ACL.",
+      "C) Web application firewall.",
+      "D) Security group."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "What happens when you use Amazon VPC to create a new VPC?",
+    "options": [
+      "A) An internet gateway is created by default.",
+      "B) Three subnets are created by default: in one Availability Zone.",
+      "C) Three subnets are created by default: one for each Availability Zone.",
+      "D) A main route table is created by default."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "Which of the following can be used to protect Amazon EC2 instances hosted in AWS?",
+    "options": [
+      "A) AMI.",
+      "B) Security group.",
+      "C) Internet Gateway."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 5: Networking",
+    "question": "How many IP addresses are available (CIDR /24)?",
+    "options": [
+      "A) 246.",
+      "B) 251.",
+      "C) 256.",
+      "D) 250."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
+    "options": [
+      "A) Amazon EC2 Costs are billed on a monthly basis.",
+      "B) Customers retain full administrative access to their Amazon EC2 instances.",
+      "C) Customers can permanently run enough instances to handle peak workloads.",
+      "D) Amazon EC2 instances can be launched on-demand when needed."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "If your project requires monthly reports that iterate through very large amounts of data, which Amazon EC2 purchasing option should you consider?",
+    "options": [
+      "A) Spot Instances.",
+      "B) Scheduled Reserved Instances.",
+      "C) Dedicated Hosts.",
+      "D) On-Demand Instances."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "What is included in an Amazon Machine Image (AMI)? Select the best answer.",
+    "options": [
+      "A) A template for the root volume for the instance.",
+      "B) Launch permissions that control which AWS accounts can use the AMI to launch instances.",
+      "C) A block device mapping that specifies the volumes to attach to the instance when it's launched.",
+      "D) All of the above."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Which Amazon EC2 feature ensures your instances will not share a physical host with instances from any other AWS customer?",
+    "options": [
+      "A) Amazon VPC.",
+      "B) Placement Groups.",
+      "C) Dedicated Instances.",
+      "D) Reserved Instances."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Which of the following services is a serverless compute service in AWS?",
+    "options": [
+      "A) AWS Config.",
+      "B) AWS Lambda.",
+      "C) AWS OpsWork.",
+      "D) Amazon EC2."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "What is the service provided by AWS that enables developers to easily deploy and manage applications in the cloud?",
+    "options": [
+      "A) Amazon Elastic Container Service.",
+      "B) AWS Elastic Beanstalk.",
+      "C) AWS OpsWork.",
+      "D) AWS CloudFormation."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Your web application needs four instances to support steady traffic. Traffic triples on last day. What is the most cost-effective way?",
+    "options": [
+      "A) Run 12 reserved instances all of the time.",
+      "B) Run four On-Demand Instances constantly, then add eight more On-Demand on the last day of each month.",
+      "C) Run four Reserved Instances constantly, then add eight On-Demand Instances on the last day of each month.",
+      "D) Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "True or false? Containers contain an entire operating system.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Which Amazon EC2 option is best for long-term workload with predictable usage patterns?",
+    "options": [
+      "A) Spot Instances.",
+      "B) On-Demand Instances.",
+      "C) Reserved Instances."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 6: Compute",
+    "question": "Which of the following must be specified when launching a new Amazon EC2 windows instance? (Choose two).",
+    "options": [
+      "A) Amazon EC2 instance type.",
+      "B) Amazon Machine Image (AMI).",
+      "C) The Amazon EC2 Instance ID.",
+      "D) Password for the administrator account."
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "True or false. Amazon S3 is an object storage suitable for the storage of flat files like Microsoft Word documents, photos, etc.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "Amazon S3 replicates all objects __________.",
+    "options": [
+      "A) On multiple volumes within an availability zone.",
+      "B) In multiple Availability Zones within the same region.",
+      "C) Across multiple regions for higher durability.",
+      "D) On multiple S3 buckets."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "Which of the following can be used as a storage class for an S3 object lifecycle policy?",
+    "options": [
+      "A) S3 Standard Access.",
+      "B) AWS Storage Gateway.",
+      "C) S3 Infrequent Access.",
+      "D) S3 Glacier.",
+      "E) S3 Reduced Redundancy Storage."
+    ],
+    "correctAnswers": [
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "The name of an S3 bucket must be unique __________.",
+    "options": [
+      "A) Worldwide across all AWS accounts.",
+      "B) Within a region.",
+      "C) Across all your AWS accounts.",
+      "D) Within your AWS account."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "You can use Amazon EFS to:",
+    "options": [
+      "A) Provide simple, scalable, elastic file storage for use only within AWS.",
+      "B) Implement storage for Amazon EC2 instances that multiple virtual machines can access at the same time.",
+      "C) Host a robust CDN to deliver entire web sites with dynamic, static, and streaming content.",
+      "D) Generate user specific content."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "Amazon EBS is recommended when data ________ and ________ (Choose two).",
+    "options": [
+      "A) Requires object level storage.",
+      "B) Must be quickly accessible, requiring long-term persistence.",
+      "C) Requires an encryption solution.",
+      "D) Needs to be stored in a different availability zone than the one the EC2 instance is in."
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "True or false, by default all data stored in Amazon S3 is viewable by the public.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "Regarding Amazon S3 Glacier, what is a vault?",
+    "options": [
+      "A) The rules that determine who may (or may not) access archives.",
+      "B) An object (photos, videos, files, or documents).",
+      "C) A container for storing archives.",
+      "D) A policy that identifies who can access content stored in Glacier."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "True or false. When you create a bucket in Amazon S3, it is associated with a specific AWS Region.",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 7: Storage",
+    "question": "Which of the following are features of Amazon EBS. (Choose two).",
+    "options": [
+      "A) Data on an Amazon EBS volume is lost when the attached instance is stopped.",
+      "B) Amazon EBS volumes can be encrypted transparently to workloads on the attached instance.",
+      "C) Amazon EBS data is automatically backed up to tape.",
+      "D) Data stored on Amazon EBS is automatically replicated within an Availability Zone."
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "What database technology is best suited to hold session state?",
+    "options": [
+      "A) Amazon RDS.",
+      "B) Amazon DynamoDB.",
+      "C) Amazon Redshift.",
+      "D) Amazon S3."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "Amazon RDS automatically patches the database software and backs up your database. True or False?",
+    "options": [
+      "A) True.",
+      "B) False."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "You need to find an item in an Amazon DynamoDB table using an attribute other than item's primary key.",
+    "options": [
+      "A) PutItem.",
+      "B) Scan.",
+      "C) Query.",
+      "D) GetItem."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "In Amazon DynamoDB, what does the query operation enable you to do?",
+    "options": [
+      "A) Query a table using the partition key and an optional sort key filter.",
+      "B) Query any secondary indexes that exist for a table.",
+      "C) Efficiently retrieve items from a table or secondary index.",
+      "D) All of the above."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "Which AWS cloud service is best suited for analyzing your data by using standard SQL and existing BI tools?",
+    "options": [
+      "A) Amazon RDS.",
+      "B) Amazon S3 Glacier.",
+      "C) Amazon DynamoDB.",
+      "D) Amazon Redshift."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "In Amazon DynamoDB, an attribute is __________.",
+    "options": [
+      "A) A fundamental data element.",
+      "B) A collection of items.",
+      "C) A collection of attributes."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "If you are developing an application that requires a database with extremely fast performance...",
+    "options": [
+      "A) Amazon RDS.",
+      "B) Amazon ElastiCache.",
+      "C) Amazon DynamoDB.",
+      "D) Amazon Redshift."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "Which of the following use cases is appropriate for using Amazon RDS?",
+    "options": [
+      "A) Massive read/write rates.",
+      "B) Simple get or put requests.",
+      "C) Complex transactions.",
+      "D) All of the above."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "What should you consider when choosing a database type?",
+    "options": [
+      "A) Data size.",
+      "B) Data access period.",
+      "C) Query frequency.",
+      "D) Highly available.",
+      "E) All of the above."
+    ],
+    "correctAnswers": [
+      4
+    ]
+  },
+  {
+    "module": "Module 8: Databases",
+    "question": "A company has an application... connect to MYSQL database... use AWS features such as high availability...",
+    "options": [
+      "A) Amazon RDS.",
+      "B) Amazon Aurora.",
+      "C) Amazon DynamoDB.",
+      "D) Amazon Redshift."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which of the following is NOT one of the four areas of the performance efficiency pillar?",
+    "options": [
+      "A) Tradeoffs",
+      "B) Selection",
+      "C) Traceability",
+      "D) Monitoring"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which of the following is a principle when designing cloud-based systems?",
+    "options": [
+      "A) Build tightly-coupled components.",
+      "B) Make infrequent, large batch changes.",
+      "C) Assume everything will fail.",
+      "D) Use as many services as possible."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which of the following are pillars of the AWS Well-Architected Framework?",
+    "options": [
+      "A) Security",
+      "B) Persistence",
+      "C) Operational excellence",
+      "D) Cost Optimization"
+    ],
+    "correctAnswers": [
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which design principles are recommended when considering performance efficiency?",
+    "options": [
+      "A) Match supply with demand.",
+      "B) Use serverless architectures.",
+      "C) Analyze and attribute expenditure.",
+      "D) Democratize advanced technologies.",
+      "E) Enable traceability."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "AWS Trusted Advisor provides insight regarding which five categories of an AWS account?",
+    "options": [
+      "A) Security, fault tolerance, high availability, connectivity, service limits.",
+      "B) Performance, cost optimization, security, fault tolerance, service limits.",
+      "C) Performance, cost optimization, access control, connectivity, security.",
+      "D) Security, access control, high availability, performance, service limits."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "What is the focus of the sustainability pillar of the well-architected framework?",
+    "options": [
+      "A) Designing workloads that recover quickly from failures.",
+      "B) Minimizing the environmental impacts of running cloud workloads.",
+      "C) Avoiding unnecessary costs in cloud workloads.",
+      "D) Automating updates to cloud workloads."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which online tool can assist in security compliance?",
+    "options": [
+      "A) Amazon Kinesis.",
+      "B) AWS Support.",
+      "C) AWS Trusted Advisor.",
+      "D) Amazon CloudWatch."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which of the following is a measure of your system's ability to provide functionality when desired by the user?",
+    "options": [
+      "A) Availability.",
+      "B) Fault Tolerance.",
+      "C) Reliability.",
+      "D) Performance efficiency."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "What is defined as the ability for a system to remain operational even if some of the components of that system fail?",
+    "options": [
+      "A) High durability.",
+      "B) Fault tolerance.",
+      "C) High availability."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 9: Architecture",
+    "question": "Which of the following best describes a system that can withstand some measures of degradation, experiences minimal downtime and requires minimal human intervention?",
+    "options": [
+      "A) Highly available system."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following AWS tools help your application scale up or down based on demand?",
+    "options": [
+      "A) Availability zones.",
+      "B) Amazon EC2 Auto Scaling",
+      "C) AWS CloudFormation.",
+      "D) Elastic Load Balancing AWS Config."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which service would you use to send alerts based on Amazon CloudWatch alarms?",
+    "options": [
+      "A) Amazon SNS.",
+      "B) AWS CloudTrail.",
+      "C) AWS Trusted Advisor.",
+      "D) Amazon Route 53."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following are characteristics of Amazon EC2 Auto Scaling? (Choose three).",
+    "options": [
+      "A) Responds to changing conditions by adding or terminating instances.",
+      "B) Only supports dynamic scaling.",
+      "C) Launches instances from a specified AMI.",
+      "D) Delivers push notifications.",
+      "E) Enforces a minimum number of running Amazon EC2 instances"
+    ],
+    "correctAnswers": [
+      0,
+      2,
+      4
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following must be configured on an Elastic Load Balancing load balancer to expect incoming traffic?",
+    "options": [
+      "A) A port.",
+      "B) A network interface.",
+      "C) A listener.",
+      "D) An instance."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following elements are used to create an Amazon EC2 Auto Scaling launch configuration?",
+    "options": [
+      "A) Amazon Machine Image (AMI).",
+      "B) Load balancer.",
+      "C) Instance type.",
+      "D) Amazon EBS volumes."
+    ],
+    "correctAnswers": [
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following services can help you collect important metrics from Amazon RDS and Amazon EC2 instances?",
+    "options": [
+      "A) Amazon CloudWatch.",
+      "B) Amazon CloudFront.",
+      "C) Amazon CloudSearch.",
+      "D) Amazon CloudTrail.",
+      "E) Amazon EC2 Auto Scaling."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "Which of the following are elements of an Auto Scaling group? (Choose three).",
+    "options": [
+      "A) Maximum size.",
+      "B) Minimum size.",
+      "C) Health checks.",
+      "D) Desired capacity."
+    ],
+    "correctAnswers": [
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "There is an audit at your company and they need to have a log of all access to AWS resources in the account.",
+    "options": [
+      "A) Amazon CloudWatch.",
+      "B) AWS CloudTrail.",
+      "C) Amazon EC2.",
+      "D) Amazon SNS."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "In Elastic Load Balancing, when the load balancing detects an unhealthy target, which of the following are true?",
+    "options": [
+      "A) Stops routing traffic to that target.",
+      "B) Triggers an alarm.",
+      "C) Resumes routing traffic when it detects that the target is healthy again.",
+      "D) Routes traffic to a healthy target.",
+      "E) Resumes routing traffic when manually restarted."
+    ],
+    "correctAnswers": [
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "module": "Module 10: Auto Scaling",
+    "question": "What are the three types of load balancers that Elastic Load Balancing offers? (Choose three).",
+    "options": [
+      "A) Internet Load Balancer.",
+      "B) Application Load Balancer.",
+      "C) Network Load Balancer.",
+      "D) Classic Load Balancer.",
+      "E) Compute Load Balancer.",
+      "F) Auto Scaling Load Balancer."
+    ],
+    "correctAnswers": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "The systems development lifecycle (SDLC) has six phases. The first three phases are plan, define, and design. What are the last three phases of the SDLC?",
+    "options": [
+      "A) Code, build, and test",
+      "B) Develop, deploy, and maintain",
+      "C) Test, deploy, and maintain",
+      "D) Code, build, and maintain"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which task is performed during the develop stage of the systems development lifecycle (SDLC)?",
+    "options": [
+      "A) New components are obtained and installed.",
+      "B) Deficiencies are identified.",
+      "C) New system requirements are defined.",
+      "D) The system is put into use."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A systems administrator must grant a new developer permissions that are associated with the developer role. This role is associated with the developer group. Which AWS service should the administrator use to assign the new developer to the developer group?",
+    "options": [
+      "A) Amazon Elastic Compute Cloud (Amazon EC2)",
+      "B) AWS Identity and Access Management (IAM)",
+      "C) AWS Resource Access Manager (AWS RAM)",
+      "D) Amazon Simple Storage Service (Amazon S3)"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which of the following is an important benefit of AWS CloudShell?",
+    "options": [
+      "A) You manually patch and update the environment.",
+      "B) You pay up front for reserved blocks of time and capacity.",
+      "C) Users get 500 MB of storage per region.",
+      "D) It inherits your credentials from the AWS Management Console."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What are three ways to interact with AWS service application programming interfaces (APIs)? (Select the THREE best options.)",
+    "options": [
+      "A) AWS CloudTrail",
+      "B) AWS software development kits (SDKs)",
+      "C) AWS Identity and Access Management (IAM)",
+      "D) AWS Management Console",
+      "E) AWS X-Ray",
+      "F) AWS Command Line Interface (AWS CLI)"
+    ],
+    "correctAnswers": [
+      1,
+      3,
+      5
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which tool enables users to control their AWS services from the command line and automate service management with scripts?",
+    "options": [
+      "A) Amazon Q Developer",
+      "B) AWS Tools for PowerShell",
+      "C) AWS X-Ray",
+      "D) AWS Identity and Access Management (IAM)"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What is Amazon Q Developer?",
+    "options": [
+      "A) A wizard that leads you through the steps to configure your integrated development environment (IDE)",
+      "B) A generative Al-powered coding assistant",
+      "C) A cloud-based integrated development environment (IDE)",
+      "D) A browser-based CLI"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statements describe AWS resource application programming interfaces (APIs)? (Select TWO.)",
+    "options": [
+      "A) They have objects for request and result data.",
+      "B) They provide a lower-level abstraction than the higher-level calls made by service client APIs.",
+      "C) They provide access to resources through objects and collections.",
+      "D) They provide a higher-level abstraction than the low-level calls made by service client APIs.",
+      "E) They have at least one class per conceptual resource."
+    ],
+    "correctAnswers": [
+      2,
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer is using the AWS software development kit (SDK) for Python (Boto3) and must specify the Region. Which method enables the developer specify the Region?",
+    "options": [
+      "A) By setting the Region when they instantiate the service client",
+      "B) By setting the AWS PROFILE environment variable",
+      "C) Users cannot specify the AWS Region in the service client",
+      "D) By associating a default Region with their profile in the credentials file in the .aws folder within their \"home\" folder"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer makes an application programming interface (API) call to access an Amazon Simple Storage Service (Amazon S3) bucket that doesn't exist. Which HTTP response code does the developer receive from the AWS service?",
+    "options": [
+      "A) 300 series",
+      "B) 200 series",
+      "C) 500 series",
+      "D) 400 series"
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A student is learning about Amazon Simple Storage Service (Amazon S3). During an interview, a potential employer asks the student to explain how Amazon S3 can be used as a storage solution. Which option is a use case for Amazon S3?",
+    "options": [
+      "A) Shared file systems",
+      "B) Hosting active databases",
+      "C) Data lake",
+      "D) Block-level storage"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A _ organizes the Amazon Simple Storage Service (Amazon S3) namespace at the highest level.",
+    "options": [
+      "A) Container",
+      "B) Region",
+      "C) Group",
+      "D) Bucket"
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer wants to store image files in a bucket that is called images-bucket, but receives the error BucketAlreadyExists. Which action must the developer take to resolve this error?",
+    "options": [
+      "A) Bucket names are unique to the Region that they are created in. If the requested bucket name is not available, the developer must create the images-bucket in a different Region.",
+      "B) Bucket names go to the highest bidder. The developer must outbid the current bucket owner.",
+      "C) Bucket names are globally unique. If the requested bucket name is not available, the developer must rename the bucket.",
+      "D) The developer must contact AWS Support to request approval to use the same bucket name."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer is using Amazon Simple Storage Service (Amazon S3) to host a static website in a bucket that is called frank-martha-cafe. This bucket is in the us-east-1 Region. Which URL is the virtual-hosted-style URL for the website?",
+    "options": [
+      "A) https://s3-website-us-east-1.amazonaws.com/frank-martha-cafe",
+      "B) https://www.frank-martha-cafe.s3-website-us-east-1.amazonaws.com",
+      "C) https://frank-martha-cafe.s3-us-east-1.amazonaws.com",
+      "D) https://frank-martha-cafe.s3-website-us-east-1.amazonaws.com"
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "After versioning is enabled on an Amazon Simple Storage Service (Amazon S3) bucket, it can be disabled.",
+    "options": [
+      "A) True",
+      "B) False"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What is the largest size of an object that a user can upload to Amazon Simple Storage Service (Amazon S3) in a single PUT operation?",
+    "options": [
+      "A) 5 GB",
+      "B) 5 TB",
+      "C) 100 MB",
+      "D) 1 GB"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer uses an Amazon Simple Storage Service (Amazon S3) bucket. They want to allow a certain AWS Identity and Access Management (IAM) user to perform any S3 operations on the bucket and its objects. They also want to follow AWS recommendations for granting permissions. Which mechanism should the developer apply to the bucket?",
+    "options": [
+      "A) Cross-Origin resource Sharing (CORS)",
+      "B) IAM policy",
+      "C) Bucket policy",
+      "D) Bucket access control list (ACL)"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer wants to allow a user to download private objects directly from an Amazon Simple Storage Service (Amazon S3) bucket without needing AWS security credentials or permissions. What can the developer share with the user to grant them time-limited access to the objects?",
+    "options": [
+      "A) A temporary token",
+      "B) The bucket endpoint URL",
+      "C) A presigned URL",
+      "D) Their AWS account root user credentials"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which method can be used to encrypt Amazon Simple Storage Service (Amazon S3) objects in transit?",
+    "options": [
+      "A) Server-Side Encryption with AWS KMS-Managed Keys (SSE-KMS)",
+      "B) Server-Side Encryption with Amazon S3-Managed Keys (SSE-S3)",
+      "C) Secure Sockets Layer/Transport Layer Security (SSL/TLS)",
+      "D) Server-Side Encryption with Customer-Provided Keys (SSE-C)"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer hosts a static website in an Amazon Simple Storage Service (Amazon S3) bucket. The website references image objects in another S3 bucket. However, these images do not display on the website. What could be the problem?",
+    "options": [
+      "A) Cross-Region Replication (CRR) has not been enabled on the bucket where the assets are stored.",
+      "B) Cross-Origin Resource Sharing (CORS) has not been enabled on the bucket where the assets are stored.",
+      "C) The security group of the S3 bucket does not include an inbound rule to allow HTTP traffic on port 80.",
+      "D) Amazon S3 does not support object sharing between buckets."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which option is the Amazon Web Services (AWS) customer responsible for under the AWS shared responsibility model? (Select TWO.)",
+    "options": [
+      "A) Security group configuration.",
+      "B) Physical servers.",
+      "C) Client-side data.",
+      "D) Edge location infrastructure.",
+      "E) Availability Zone security."
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which AWS Identity and Access Management (IAM) resource explicitly grants or denies permissions to a user or group of users?",
+    "options": [
+      "A) IAM roles.",
+      "B) IAM users.",
+      "C) IAM groups.",
+      "D) IAM policies."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What is the correct term for the process of verifying a user's identity as a developer?",
+    "options": [
+      "A) Endorsement.",
+      "B) Authentication.",
+      "C) Confirmation.",
+      "D) Authorization."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statements about IAM user authentication are true? (Select TWO.)",
+    "options": [
+      "A) AWS credentials to authenticate with any supported services must be provided.",
+      "B) A user name and password to authenticate to the console must be provided.",
+      "C) A .pem or .ppk file is used to authenticate programmatically to the AWS API.",
+      "D) It is a best practice to use the account root user credentials to authenticate programmatically via AWS CLI.",
+      "E) Each AWS account can have only one administrator who manages other IAM users."
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which suggestion is an AWS recommendation for securing AWS credentials for applications that run on Amazon EC2 instances?",
+    "options": [
+      "A) Embed AWS credentials in the SDK client code.",
+      "B) Store credentials in local AWS configuration files.",
+      "C) Create an IAM role and attach it to the EC2 instance.",
+      "D) Create an IAM user and attach it to the EC2 instance."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What is the format of AWS Identity and Access Management (IAM) policies that define the allowable API calls an entity can invoke?",
+    "options": [
+      "A) YAML Ain't Markup Language (YAML).",
+      "B) Security Assertion Markup Language (SAML).",
+      "C) Comma-separated values (CSV).",
+      "D) JavaScript Object Notation (JSON)."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "An administrator created an IAM group called managers within an AWS account. A ____ policy is attached that allows managers to read and write to an S3 bucket in the same account. What is this type of policy?",
+    "options": [
+      "A) Identity-based.",
+      "B) Resource-based.",
+      "C) Cross-account access.",
+      "D) AdministratorAccess managed."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement reflects best practices when granting permissions to users, groups, roles, and resources?",
+    "options": [
+      "A) Create policies that allow broad access and then limit permissions based on usage.",
+      "B) Use the account root user for routine administrator tasks.",
+      "C) Create policies that follow the principle of least privilege.",
+      "D) Do not set policies for individual resources."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What is the effect of the following IAM policy statement?",
+    "options": [
+      "A) Denies actions on DynamoDB or Amazon S3 resources except for the resources that are listed in the NotResource element.",
+      "B) Denies the ability to write to the pollynotes DynamoDB table.",
+      "C) Denies the ability to read from the polly-notes-web S3 bucket.",
+      "D) Denies actions on the DynamoDB table or S3 buckets that are listed in the NotResource element."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statements are true about evaluation logic for IAM policies? (Select TWO.)",
+    "options": [
+      "A) You cannot have deny and allow statements in the same policy.",
+      "B) An explicit allow overrides an explicit deny.",
+      "C) An explicit deny overrides an explicit allow.",
+      "D) By default, all requests are denied.",
+      "E) By default, all requests are allowed."
+    ],
+    "correctAnswers": [
+      2,
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement best describes Amazon DynamoDB?",
+    "options": [
+      "A) An in-memory data store that can boost the performance of databases.",
+      "B) A graph database engine that is optimized for storing billions of relationships.",
+      "C) A relational database built for the cloud and compatible with MySQL and PostgreSQL.",
+      "D) A key-value and document database that scales horizontally and works well for internet-scale applications."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which component is part of an Amazon DynamoDB table?",
+    "options": [
+      "A) Predefined schema.",
+      "B) SQL-based queries.",
+      "C) Attributes.",
+      "D) Columns."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A DynamoDB table called SensorReadings uses sensor ID as the partition key and timestamp as the sort key. Which statement is true?",
+    "options": [
+      "A) The sensor ID together with the timestamp represent a simple primary key.",
+      "B) It is impossible for two items to have the same partition key.",
+      "C) It is impossible for two items to have the same sort key.",
+      "D) It is impossible for two items to have the same primary key."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement about Amazon DynamoDB partitions is true?",
+    "options": [
+      "A) DynamoDB stores data in partitions and chooses the partition based on the range attribute.",
+      "B) If a table has a simple primary key, DynamoDB stores and retrieves each item based on its hash attribute.",
+      "C) If a table has a composite primary key, DynamoDB sorts items by sort key before selecting a partition.",
+      "D) A developer writes a hash function to tell DynamoDB how to partition items."
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A developer has a restaurants database table with partition key = name and sort key = location. They also want to query by cuisine and rating. What should they do?",
+    "options": [
+      "A) Set up a local secondary index on cuisine and customer rating.",
+      "B) Set up a global secondary index on cuisine and customer rating.",
+      "C) Change the primary key to be based on cuisine and customer rating.",
+      "D) Perform a query using the cuisine and average customer rating attributes."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "A video game developer using Amazon DynamoDB needs to ensure that player profiles are updated correctly when they make in-game purchases. This requires multiple updates as part of one user action. What is the best choice?",
+    "options": [
+      "A) Add a DynamoDB Accelerator (DAX) cluster.",
+      "B) Implement global tables.",
+      "C) Create application code to verify all parts of the transaction were written and roll back if any failed.",
+      "D) Use DynamoDB transactions."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which scenarios are example use cases for Amazon DynamoDB Streams? (Select TWO.)",
+    "options": [
+      "A) An application requiring the fastest possible response time for reads to support real-time bidding.",
+      "B) An application requiring repeated reads against large regional weather datasets for long analyses.",
+      "C) An application that automatically sends notifications to mobile devices when new content is uploaded.",
+      "D) An application that monitors table changes and triggers actions when thresholds are reached.",
+      "E) An application requiring an in-memory data store."
+    ],
+    "correctAnswers": [
+      2,
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement about global tables is true?",
+    "options": [
+      "A) Global tables replicate tables within a single AWS Region.",
+      "B) Global tables use Amazon S3 to propagate changes between replicas.",
+      "C) DynamoDB automatically creates identical tables and replicates data to all chosen Regions.",
+      "D) Global tables support partial replication of selected items."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "How far back in days can an Amazon DynamoDB table be restored using point-in-time recovery?",
+    "options": [
+      "A) The last week.",
+      "B) The last 10 days.",
+      "C) The last 35 days.",
+      "D) The last calendar month."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement describes DynamoDB API control operations that can be invoked by an application?",
+    "options": [
+      "A) Create and manage DynamoDB tables.",
+      "B) Create, read, update, and delete data in a table.",
+      "C) Get and write batches of items in a DynamoDB table.",
+      "D) Make coordinated, all-or-nothing changes to multiple items within and across tables."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which phrase best describes a RESTful API?",
+    "options": [
+      "A) An API that uses HTTP to communicate between client and server",
+      "B) A proxy that exists between client and server to handle common problems that occur with API-driven applications",
+      "C) An API that follows the principles of the Representational State Transfer style",
+      "D) An API that resides on the web server"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which option suggests the use of WebSocket APIs?",
+    "options": [
+      "A) An order processing application returns an order number to each customer when they submit an order.",
+      "B) A batch process bundles orders and sends them to a fulfillment center application.",
+      "C) A real-time chat application lets customers talk to customer support about their orders.",
+      "D) A reporting application gives the sales team access to static daily reports from their phones."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which use case suggests using Amazon API Gateway HTTP APIs?",
+    "options": [
+      "A) An application needs an API proxy in front of an AWS Lambda function.",
+      "B) An application must transform a response from an AWS Lambda function before returning the response to the client.",
+      "C) A developer wants to use mock endpoints to test their API.",
+      "D) A developer wants to assign different API quotas by client."
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement about Amazon API Gateway integrations is true?",
+    "options": [
+      "A) A first-class integration connects an API Gateway HTTP API route to an external third-party service API.",
+      "B) A developer can use HTTP proxy integrations to direct a route to a resource on the internet.",
+      "C) API Gateway cannot access resources within a virtual private cloud (VPC).",
+      "D) An API integration request encapsulates an HTTP request that the backend receives and is always different from the method request that the client submits."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which option requires the fewest application changes for transforming client data before sending to the database?",
+    "options": [
+      "A) Export the API definition and use it to update the client.",
+      "B) Use a mapping template to transform the request before it is sent to the database.",
+      "C) Create a usage plan that describes the fields and applies only to this client.",
+      "D) Use a first-class integration to connect the client to the database."
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which elements are part of the base URI that AWS generates for an Amazon API Gateway API?",
+    "options": [
+      "A) Region and stage name",
+      "B) API identifier and version",
+      "C) Account ID and stage name",
+      "D) Region and version"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Given this snippet: aws aws apigatewayv2 create-route --api-id 03z501670a -- target arn:aws:lambda:us-east-2:AcctID:function:readFn Which option could replace the to create an API route that returns an individual product value from an online catalog?",
+    "options": [
+      "A) route-key 'GET /products/{product_id}'\\",
+      "B) route-key 'PUT /products'",
+      "C) route-selection-expression '$GET/product'",
+      "D) route-selection-expression 'PUT /products/{proxy+}'\\"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which statement about Amazon API Gateway stages is true?",
+    "options": [
+      "A) Stage names are sequentially assigned based on the API version.",
+      "B) Any stage on any API type can be set to autodeploy.",
+      "C) Developers can use stage variables to connect different stages to different backends.",
+      "D) Developers should avoid creating different stages for each development environment."
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "Which solution most directly protects APIs from common web exploits such as SQL injection or XSS?",
+    "options": [
+      "A) Set throttling limits on their API methods in Amazon API Gateway.",
+      "B) Set all of their APIs to use private endpoints.",
+      "C) Configure a JSON Web Token (JWT)-based authorizer for Amazon API Gateway.",
+      "D) Use AWS WAF with Amazon API Gateway."
+    ],
+    "correctAnswers": [
+      3
+    ]
+  },
+  {
+    "module": "aws2",
+    "question": "What does the Amazon API Gateway integration Latency metric tell the user?",
+    "options": [
+      "A) Frequency of server-side errors that affect latency",
+      "B) Speed of the API response back to the client",
+      "C) Responsiveness of the backend",
+      "D) How often requests are throttled"
+    ],
+    "correctAnswers": [
+      2
+    ]
   }
-]
-;
+];
 
-        let selectedQuestions = [];
-        let currentQuestionIndex = 0;
-        let selectedAnswer = null;
-        let selectedAnswers = [];
-        let correctAnswers = 0;
-        let incorrectAnswers = 0;
-        let currentMode = '';
+    let selectedQuestions = [];
+    let currentQuestionIndex = 0;
+    let selectedAnswer = null; // Для одиночного выбора (хранит букву 'A')
+    let selectedAnswers = [];  // Для множественного выбора (хранит массив букв ['A', 'C'])
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
+    let currentMode = '';
 
-        document.getElementById('question-count').textContent = `${questionsData.length} вопросов готовы`;
+    // Обновляем общее количество вопросов на главной
+    document.getElementById('question-count').textContent = questionsData.length;
 
-        function startMode(mode) {
-            currentMode = mode;
-            currentQuestionIndex = 0;
-            correctAnswers = 0;
-            incorrectAnswers = 0;
-            selectedAnswer = null;
-            selectedAnswers = [];
+    // Вспомогательные функции для конвертации индексов (0 -> A, 1 -> B)
+    function getLetter(index) {
+        return String.fromCharCode(65 + index);
+    }
+    
+    function getIndex(letter) {
+        return letter.charCodeAt(0) - 65;
+    }
 
-            document.getElementById('mode-selection').style.display = 'none';
-            document.getElementById('quiz-container').style.display = 'block';
-            document.getElementById('backBtn').style.display = 'block';
+    function isMultipleChoice(question) {
+        return question.correctAnswers && question.correctAnswers.length > 1;
+    }
 
-            if (mode === 'quiz') {
-                selectedQuestions = [...questionsData].sort(() => 0.5 - Math.random()).slice(0, 30);
-                loadQuestionWithOptions();
-            } else if (mode === 'practice') {
-                selectedQuestions = [...questionsData];
-                loadQuestionWithOptions();
-            } else if (mode === 'flashcards') {
-                selectedQuestions = [...questionsData];
-                loadFlashcard();
-            } else if (mode === 'browse') {
-                loadBrowseMode();
+    // Запуск режимов
+    function startMode(mode) {
+        currentMode = mode;
+        currentQuestionIndex = 0;
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+        selectedAnswer = null;
+        selectedAnswers = [];
+
+        document.getElementById('mode-selection').style.display = 'none';
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('backBtn').style.display = 'block';
+
+        if (mode === 'quiz') {
+            // Перемешиваем и берем 30 вопросов
+            selectedQuestions = [...questionsData].sort(() => 0.5 - Math.random()).slice(0, 30);
+            loadQuestionWithOptions();
+        } else if (mode === 'practice') {
+            selectedQuestions = [...questionsData];
+            loadQuestionWithOptions();
+        } else if (mode === 'flashcards') {
+            selectedQuestions = [...questionsData];
+            loadFlashcard();
+        } else if (mode === 'browse') {
+            loadBrowseMode();
+        }
+    }
+
+    // Загрузка вопроса (Quiz/Practice)
+    function loadQuestionWithOptions() {
+        if (currentQuestionIndex >= selectedQuestions.length) {
+            finishQuiz();
+            return;
+        }
+
+        selectedAnswer = null;
+        selectedAnswers = [];
+        
+        const question = selectedQuestions[currentQuestionIndex];
+        const isMulti = isMultipleChoice(question);
+        
+        // Обновляем прогресс бар
+        const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+        document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1}/${selectedQuestions.length}`;
+        
+        // Статистика
+        document.getElementById('correct-count').textContent = correctAnswers;
+        document.getElementById('incorrect-count').textContent = incorrectAnswers;
+        document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+
+        // Генерируем HTML вариантов ответа
+        let optionsHTML = '';
+        question.options.forEach((optString, index) => {
+            const letter = getLetter(index);
+            // Убираем префикс "A) " или "A. " из текста, так как буква у нас отдельно
+            const text = optString.replace(/^[A-Z][\)\.]\s*/, ''); 
+            
+            optionsHTML += `
+                <div class="option" onclick="selectOption('${letter}', ${isMulti})" data-letter="${letter}">
+                    <div class="option-marker ${isMulti ? 'checkbox' : ''}">${letter}</div>
+                    <div class="option-text">${text}</div>
+                </div>
+            `;
+        });
+
+        const multiHint = isMulti ? '<div class="multi-select-hint">Select multiple answers (Выберите несколько вариантов)</div>' : '';
+        const badgeText = question.module || `Question ${currentQuestionIndex + 1}`;
+
+        const questionArea = document.getElementById('question-area');
+        questionArea.innerHTML = `
+            <div class="question-box">
+                <div class="question-badge">${badgeText}</div>
+                <div class="question-text">${question.question}</div>
+                ${multiHint}
+                <div class="options">
+                    ${optionsHTML}
+                </div>
+            </div>
+            <div style="margin-top: 40px; text-align: center;">
+                 <button class="btn btn-primary" onclick="checkAnswer()" id="check-btn">Check Answer</button>
+            </div>
+        `;
+
+        document.getElementById('next-btn').style.display = 'none';
+        document.getElementById('finish-btn').style.display = 'none';
+    }
+
+    // Выбор ответа (клик по опции)
+    function selectOption(letter, isMulti) {
+        const opt = document.querySelector(`.option[data-letter="${letter}"]`);
+        
+        if (isMulti) {
+            if (selectedAnswers.includes(letter)) {
+                selectedAnswers = selectedAnswers.filter(l => l !== letter);
+                opt.classList.remove('selected');
+            } else {
+                selectedAnswers.push(letter);
+                opt.classList.add('selected');
             }
+        } else {
+            // Сбрасываем все остальные
+            document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+            selectedAnswer = letter;
+            opt.classList.add('selected');
         }
+    }
 
-        function isMultipleChoice(question) {
-            return Array.isArray(question['Correct Answer Letter']);
-        }
+    // Проверка ответа
+    function checkAnswer() {
+        const question = selectedQuestions[currentQuestionIndex];
+        const isMulti = isMultipleChoice(question);
 
-        function loadQuestionWithOptions() {
-            if (currentQuestionIndex >= selectedQuestions.length) {
-                finishQuiz();
+        if (isMulti) {
+            if (selectedAnswers.length === 0) {
+                alert('Please select at least one answer!');
                 return;
             }
+        } else {
+            if (!selectedAnswer) {
+                alert('Please select an answer!');
+                return;
+            }
+        }
 
-            selectedAnswer = null;
-            selectedAnswers = [];
-            const question = selectedQuestions[currentQuestionIndex];
-            const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-
-            document.getElementById('progress-bar').style.width = progress + '%';
-            document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
-            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
-            document.getElementById('correct-count').textContent = correctAnswers;
-            document.getElementById('incorrect-count').textContent = incorrectAnswers;
-
-            const isMulti = isMultipleChoice(question);
-            let optionsHTML = '';
-            const options = question['Options'];
+        // Преобразуем правильные индексы (0, 1...) в буквы (A, B...)
+        const correctLetters = question.correctAnswers.map(idx => getLetter(idx));
+        
+        // Подсветка правильных и неправильных ответов
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.style.pointerEvents = 'none'; // Блокируем клики
+            const letter = opt.getAttribute('data-letter');
             
-            for (let letter in options) {
-                optionsHTML += `<div class="option" onclick="selectOption('${letter}', ${isMulti})" data-letter="${letter}">
-                    <div class="option-marker ${isMulti ? 'checkbox' : ''}"></div>
-                    <div><strong>${letter})</strong> ${options[letter]}</div>
-                </div>`;
-            }
-
-            const multiHint = isMulti ? '<div class="multi-select-hint">⚠️ Это вопрос с множественным выбором! Выберите все правильные ответы.</div>' : '';
-
-            const questionHTML = `
-                <div class="question-box">
-                    <div class="question-badge">Вопрос #${question['Question #']}</div>
-                    <div class="question-text">${question['Question']}</div>
-                    ${multiHint}
-                    <div class="options">
-                        ${optionsHTML}
-                    </div>
-                    <div style="margin-top: 40px; text-align: center;">
-                        <button class="btn btn-primary" onclick="checkAnswer()" id="check-btn">Проверить ответ</button>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('question-area').innerHTML = questionHTML;
-            document.getElementById('next-btn').style.display = 'none';
-            document.getElementById('finish-btn').style.display = 'none';
-        }
-
-        function selectOption(letter, isMulti) {
-            if (isMulti) {
-                const opt = document.querySelector(`[data-letter="${letter}"]`);
-                if (selectedAnswers.includes(letter)) {
-                    selectedAnswers = selectedAnswers.filter(l => l !== letter);
-                    opt.classList.remove('selected');
-                } else {
-                    selectedAnswers.push(letter);
-                    opt.classList.add('selected');
-                }
+            if (correctLetters.includes(letter)) {
+                opt.classList.add('correct');
             } else {
-                document.querySelectorAll('.option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                document.querySelector(`[data-letter="${letter}"]`).classList.add('selected');
-                selectedAnswer = letter;
-            }
-        }
-
-        function checkAnswer() {
-            const question = selectedQuestions[currentQuestionIndex];
-            const isMulti = isMultipleChoice(question);
-
-            if (isMulti) {
-                if (selectedAnswers.length === 0) {
-                    alert('Пожалуйста, выберите хотя бы один ответ!');
-                    return;
-                }
-            } else {
-                if (!selectedAnswer) {
-                    alert('Пожалуйста, выберите ответ!');
-                    return;
+                // Если этот вариант был выбран пользователем, но он неправильный
+                const wasSelected = (isMulti && selectedAnswers.includes(letter)) || (!isMulti && selectedAnswer === letter);
+                if (wasSelected) {
+                    opt.classList.add('incorrect');
                 }
             }
+        });
 
-            const correctLetters = isMulti ? question['Correct Answer Letter'] : [question['Correct Answer Letter']];
-
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.style.pointerEvents = 'none';
-                const letter = opt.getAttribute('data-letter');
-
-                if (correctLetters.includes(letter)) {
-                    opt.classList.add('correct');
-                } else if (isMulti ? selectedAnswers.includes(letter) : letter === selectedAnswer) {
-                    if (!correctLetters.includes(letter)) {
-                        opt.classList.add('incorrect');
-                    }
-                }
-            });
-
-            let isCorrect = false;
-            if (isMulti) {
-                const sortedSelected = [...selectedAnswers].sort().join(',');
-                const sortedCorrect = [...correctLetters].sort().join(',');
-                isCorrect = sortedSelected === sortedCorrect;
-            } else {
-                isCorrect = selectedAnswer === correctLetters[0];
-            }
-
-            if (isCorrect) {
-                correctAnswers++;
-            } else {
-                incorrectAnswers++;
-            }
-
-            document.getElementById('check-btn').style.display = 'none';
-            showNextButton();
+        // Проверяем правильность
+        let isCorrect = false;
+        if (isMulti) {
+            // Сортируем массивы для сравнения
+            const sortedSelected = [...selectedAnswers].sort().join(',');
+            const sortedCorrect = [...correctLetters].sort().join(',');
+            isCorrect = (sortedSelected === sortedCorrect);
+        } else {
+            isCorrect = correctLetters.includes(selectedAnswer);
         }
 
-        function showNextButton() {
-            document.getElementById('correct-count').textContent = correctAnswers;
-            document.getElementById('incorrect-count').textContent = incorrectAnswers;
-
-            if (currentQuestionIndex < selectedQuestions.length - 1) {
-                document.getElementById('next-btn').style.display = 'block';
-            } else {
-                document.getElementById('finish-btn').style.display = 'block';
-            }
+        if (isCorrect) {
+            correctAnswers++;
+            // Здесь можно добавить эффект конфетти
+        } else {
+            incorrectAnswers++;
         }
 
-        function nextQuestion() {
-            currentQuestionIndex++;
+        // Обновляем счетчик
+        document.getElementById('correct-count').textContent = correctAnswers;
+        document.getElementById('incorrect-count').textContent = incorrectAnswers;
 
-            if (currentMode === 'flashcards') {
-                loadFlashcard();
-            } else {
-                loadQuestionWithOptions();
-            }
-        }
-
-        function finishQuiz() {
-            document.getElementById('quiz-container').style.display = 'none';
-            document.getElementById('result-screen').style.display = 'block';
-
-            const total = correctAnswers + incorrectAnswers;
-            const percentage = total > 0 ? Math.round((correctAnswers / total) * 100) : 0;
-
-            document.getElementById('final-score').textContent = percentage + '%';
-            document.getElementById('result-correct').textContent = correctAnswers;
-            document.getElementById('result-incorrect').textContent = incorrectAnswers;
-            document.getElementById('result-total').textContent = total;
-        }
-
-        function loadFlashcard() {
-            if (currentQuestionIndex >= selectedQuestions.length) {
-                currentQuestionIndex = 0;
-            }
-
-            const question = selectedQuestions[currentQuestionIndex];
-            const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
-
-            document.getElementById('progress-bar').style.width = progress + '%';
-            document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1} / ${selectedQuestions.length}`;
-            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
-
-            let optionsHTML = '';
-            const options = question['Options'];
-            const correctLetters = Array.isArray(question['Correct Answer Letter']) ? question['Correct Answer Letter'] : [question['Correct Answer Letter']];
-
-            for (let letter in options) {
-                const isCorrect = correctLetters.includes(letter);
-                optionsHTML += `<div class="flashcard-option ${isCorrect ? 'correct' : ''}"><strong>${letter})</strong> ${options[letter]}</div>`;
-            }
-
-            const flashcardHTML = `
-                <div class="flashcard">
-                    <div class="flashcard-question">
-                        <div>${question['Question']}</div>
-                    </div>
-                    <div class="flashcard-options">
-                        ${optionsHTML}
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('question-area').innerHTML = flashcardHTML;
+        // Скрываем кнопку проверки, показываем кнопку Далее
+        document.getElementById('check-btn').style.display = 'none';
+        
+        if (currentQuestionIndex < selectedQuestions.length - 1) {
             document.getElementById('next-btn').style.display = 'block';
-            document.getElementById('next-btn').textContent = 'Следующая карточка →';
-            document.getElementById('finish-btn').style.display = 'none';
+        } else {
+            document.getElementById('finish-btn').style.display = 'block';
+        }
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentMode === 'flashcards') {
+            loadFlashcard();
+        } else {
+            loadQuestionWithOptions();
+        }
+    }
+
+    function finishQuiz() {
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'block';
+        
+        const total = correctAnswers + incorrectAnswers;
+        const percentage = total > 0 ? Math.round((correctAnswers / total) * 100) : 0;
+        
+        document.getElementById('final-score').textContent = percentage + '%';
+        document.getElementById('result-correct').textContent = correctAnswers;
+        document.getElementById('result-incorrect').textContent = incorrectAnswers;
+        document.getElementById('result-total').textContent = total;
+    }
+
+    function restartQuiz() {
+        returnToMenu();
+    }
+
+    function returnToMenu() {
+        document.getElementById('mode-selection').style.display = 'block';
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('backBtn').style.display = 'none';
+        // Показываем хедер квиза снова (если был скрыт в browse mode)
+        document.querySelector('.quiz-header').style.display = 'block';
+    }
+
+    // Режим карточек (Flashcards)
+    function loadFlashcard() {
+        if (currentQuestionIndex >= selectedQuestions.length) {
+            currentQuestionIndex = 0; 
         }
 
-        function loadBrowseMode() {
-            let browseHTML = '<div class="search-box"><input type="text" class="search-input" placeholder="🔍 Поиск..." oninput="filterQuestions(this.value)"></div><div id="all-questions">';
+        const question = selectedQuestions[currentQuestionIndex];
+        
+        // Прогресс
+        const progress = ((currentQuestionIndex + 1) / selectedQuestions.length) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+        document.getElementById('progress-text').textContent = `${currentQuestionIndex + 1}/${selectedQuestions.length}`;
+        document.getElementById('current-question').textContent = currentQuestionIndex + 1;
 
-            questionsData.forEach((q, index) => {
-                let optionsHTML = '';
-                const options = q['Options'];
-                const correctLetters = Array.isArray(q['Correct Answer Letter']) ? q['Correct Answer Letter'] : [q['Correct Answer Letter']];
+        // Правильные ответы
+        const correctLetters = question.correctAnswers.map(idx => getLetter(idx));
 
-                for (let letter in options) {
-                    const isCorrect = correctLetters.includes(letter);
-                    optionsHTML += `<div class="flashcard-option ${isCorrect ? 'correct' : ''}" style="margin-bottom: 12px;"><strong>${letter})</strong> ${options[letter]}</div>`;
-                }
+        let optionsHTML = '';
+        question.options.forEach((optString, index) => {
+            const letter = getLetter(index);
+            const text = optString.replace(/^[A-Z][\)\.]\s*/, '');
+            const isCorrect = correctLetters.includes(letter);
+            
+            optionsHTML += `
+                <div class="flashcard-option ${isCorrect ? 'correct' : ''}">
+                    <strong>${letter}</strong> ${text}
+                </div>
+            `;
+        });
 
-                browseHTML += `
-                    <div class="question-box question-item" style="margin-bottom: 30px;">
-                        <div class="question-badge">#${q['Question #']}</div>
-                        <div class="question-text">${q['Question']}</div>
-                        <div style="margin-top: 24px;">
-                            ${optionsHTML}
-                        </div>
+        const flashcardHTML = `
+            <div class="flashcard">
+                <div class="flashcard-question">
+                    <div>${question.question}</div>
+                </div>
+                <div class="flashcard-options">
+                    ${optionsHTML}
+                </div>
+            </div>
+        `;
+
+        document.getElementById('question-area').innerHTML = flashcardHTML;
+        document.getElementById('next-btn').style.display = 'block';
+        document.getElementById('next-btn').textContent = 'Next Card';
+        document.getElementById('finish-btn').style.display = 'none';
+        
+        // В режиме флешкарточек не нужна статистика правильных/неправильных на экране
+    }
+
+    // Режим просмотра всех вопросов (Browse)
+    function loadBrowseMode() {
+        let browseHTML = `
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search questions..." oninput="filterQuestions(this.value)">
+            </div>
+            <div id="all-questions">
+        `;
+
+        questionsData.forEach((q, index) => {
+            const correctLetters = q.correctAnswers.map(idx => getLetter(idx));
+            
+            let optionsHTML = '';
+            q.options.forEach((optString, optIndex) => {
+                 const letter = getLetter(optIndex);
+                 const text = optString.replace(/^[A-Z][\)\.]\s*/, '');
+                 const isCorrect = correctLetters.includes(letter);
+                 
+                 optionsHTML += `
+                    <div class="flashcard-option ${isCorrect ? 'correct' : ''}" style="margin-bottom: 12px;">
+                        <strong>${letter}</strong> ${text}
                     </div>
-                `;
+                 `;
             });
 
-            browseHTML += '</div>';
-            document.getElementById('question-area').innerHTML = browseHTML;
-            document.querySelector('.quiz-header').style.display = 'none';
-        }
+            const badgeText = q.module || `Question ${index + 1}`;
 
-        function filterQuestions(searchText) {
-            const items = document.querySelectorAll('.question-item');
-            const search = searchText.toLowerCase();
+            browseHTML += `
+                <div class="question-box question-item" style="margin-bottom: 30px;">
+                    <div class="question-badge">${badgeText}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div style="margin-top: 24px;">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+        });
 
-            items.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(search)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+        browseHTML += '</div>';
+        document.getElementById('question-area').innerHTML = browseHTML;
+        
+        // Скрываем шапку прогресса в режиме просмотра
+        document.querySelector('.quiz-header').style.display = 'none';
+        document.getElementById('next-btn').style.display = 'none';
+        document.getElementById('finish-btn').style.display = 'none';
+    }
 
-        function returnToMenu() {
-            document.getElementById('mode-selection').style.display = 'block';
-            document.getElementById('quiz-container').style.display = 'none';
-            document.getElementById('result-screen').style.display = 'none';
-            document.getElementById('backBtn').style.display = 'none';
-            document.querySelector('.quiz-header').style.display = 'block';
-        }
+    function filterQuestions(searchText) {
+        const items = document.querySelectorAll('.question-item');
+        const search = searchText.toLowerCase();
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(search)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
 
-        function restartQuiz() {
-            returnToMenu();
-        }
-    </script>
+    
 </body>
 </html>
