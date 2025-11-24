@@ -610,7 +610,1541 @@
     </div>
 
     <script>
-        const questionsData = [{"Question #": "1", "Question": "Which device operates primarily at Layer 2 of the OSI model?", "Options": {"A": "Router", "B": "Switch", "C": "Hub", "D": "Firewall"}, "Correct Answer Letter": "B", "Correct Answer Text": "Switch"}, {"Question #": "2", "Question": "What is the main function of a default gateway?", "Options": {"A": "To provide DNS resolution", "B": "To connect to remote networks", "C": "To assign IP addresses", "D": "To block unwanted traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "To connect to remote networks"}, {"Question #": "3", "Question": "Which cable is used to connect a PC to a switch?", "Options": {"A": "Crossover cable", "B": "Straight-through cable", "C": "Fiber optic cable", "D": "Console cable"}, "Correct Answer Letter": "B", "Correct Answer Text": "Straight-through cable"}, {"Question #": "4", "Question": "What is the purpose of a MAC address?", "Options": {"A": "Identifies devices on the same IP network", "B": "Identifies devices at the data link layer", "C": "Provides IP routing", "D": "Encrypts network traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "Identifies devices at the data link layer"}, {"Question #": "5", "Question": "What is the default VLAN on a Cisco switch?", "Options": {"A": "VLAN 0", "B": "VLAN 10", "C": "VLAN 1", "D": "VLAN 99"}, "Correct Answer Letter": "C", "Correct Answer Text": "VLAN 1"}, {"Question #": "6", "Question": "Which layer of the OSI model is responsible for data encryption?", "Options": {"A": "Session", "B": "Presentation", "C": "Network", "D": "Transport"}, "Correct Answer Letter": "B", "Correct Answer Text": "Presentation"}, {"Question #": "7", "Question": "Which protocol provides reliable data transfer?", "Options": {"A": "TCP", "B": "UDP", "C": "ICMP", "D": "IP"}, "Correct Answer Letter": "A", "Correct Answer Text": "TCP"}, {"Question #": "8", "Question": "In the TCP/IP model, which layer corresponds to the OSI Network layer?", "Options": {"A": "Application", "B": "Internet", "C": "Transport", "D": "Link"}, "Correct Answer Letter": "B", "Correct Answer Text": "Internet"}, {"Question #": "9", "Question": "Which tool captures and analyzes network packets?", "Options": {"A": "Putty", "B": "Wireshark", "C": "Packet Tracer", "D": "Telnet"}, "Correct Answer Letter": "B", "Correct Answer Text": "Wireshark"}, {"Question #": "10", "Question": "What is encapsulation in networking?", "Options": {"A": "Adding headers/trailers around data", "B": "Encrypting data", "C": "Removing headers", "D": "Translating IP addresses"}, "Correct Answer Letter": "A", "Correct Answer Text": "Adding headers/trailers around data"}, {"Question #": "11", "Question": "What unit measures bandwidth?", "Options": {"A": "Bytes", "B": "Bits per second", "C": "Hertz", "D": "Megabytes per hour"}, "Correct Answer Letter": "B", "Correct Answer Text": "Bits per second"}, {"Question #": "12", "Question": "Which device converts digital signals to analog for transmission?", "Options": {"A": "Switch", "B": "Modem", "C": "Hub", "D": "Repeater"}, "Correct Answer Letter": "B", "Correct Answer Text": "Modem"}, {"Question #": "13", "Question": "Which cable type is most resistant to electromagnetic interference?", "Options": {"A": "UTP", "B": "STP", "C": "Coaxial", "D": "Fiber optic"}, "Correct Answer Letter": "D", "Correct Answer Text": "Fiber optic"}, {"Question #": "14", "Question": "Binary value of decimal 45 is:", "Options": {"A": "100101", "B": "101101", "C": "110011", "D": "1011010"}, "Correct Answer Letter": "B", "Correct Answer Text": "101101"}, {"Question #": "15", "Question": "Which layer defines physical media characteristics?", "Options": {"A": "Network", "B": "Data Link", "C": "Physical", "D": "Transport"}, "Correct Answer Letter": "C", "Correct Answer Text": "Physical"}, {"Question #": "16", "Question": "Ethernet uses which access method?", "Options": {"A": "CSMA/CA", "B": "CSMA/CD", "C": "Token Ring", "D": "TDMA"}, "Correct Answer Letter": "B", "Correct Answer Text": "CSMA/CD"}, {"Question #": "17", "Question": "What is the frame delimiter in Ethernet?", "Options": {"A": "Preamble", "B": "CRC", "C": "Source MAC", "D": "EtherType"}, "Correct Answer Letter": "A", "Correct Answer Text": "Preamble"}, {"Question #": "18", "Question": "Switches use which table to forward frames?", "Options": {"A": "ARP table", "B": "Routing table", "C": "MAC address table", "D": "IP address table"}, "Correct Answer Letter": "C", "Correct Answer Text": "MAC address table"}, {"Question #": "19", "Question": "What is the minimum Ethernet frame size?", "Options": {"A": "46 bytes", "B": "64 bytes", "C": "128 bytes", "D": "512 bytes"}, "Correct Answer Letter": "B", "Correct Answer Text": "64 bytes"}, {"Question #": "20", "Question": "VLANs are used to:", "Options": {"A": "Increase physical ports", "B": "Divide a LAN into segments", "C": "Reduce MAC addresses", "D": "Encrypt data"}, "Correct Answer Letter": "B", "Correct Answer Text": "Divide a LAN into segments"}, {"Question #": "21", "Question": "Which command shows the routing table on a Cisco router?", "Options": {"A": "show interfaces", "B": "show ip route", "C": "show arp", "D": "show version"}, "Correct Answer Letter": "B", "Correct Answer Text": "show ip route"}, {"Question #": "22", "Question": "Which protocol maps IP addresses to MAC addresses?", "Options": {"A": "DNS", "B": "DHCP", "C": "ARP", "D": "ICMP"}, "Correct Answer Letter": "C", "Correct Answer Text": "ARP"}, {"Question #": "23", "Question": "What type of address is 192.168.1.1?", "Options": {"A": "Public", "B": "Private", "C": "Multicast", "D": "Loopback"}, "Correct Answer Letter": "B", "Correct Answer Text": "Private"}, {"Question #": "24", "Question": "Which device operates at Layer 3?", "Options": {"A": "Switch", "B": "Router", "C": "Bridge", "D": "Hub"}, "Correct Answer Letter": "B", "Correct Answer Text": "Router"}, {"Question #": "25", "Question": "What is the function of a default route?", "Options": {"A": "For DNS lookup", "B": "Used when no other route matches", "C": "Used for ARP resolution", "D": "For broadcast traffic"}, "Correct Answer Letter": "B", "Correct Answer Text": "Used when no other route matches"}, {"Question #": "26", "Question": "Subnet mask 255.255.255.192 provides how many usable hosts?", "Options": {"A": "62", "B": "30", "C": "126", "D": "14"}, "Correct Answer Letter": "A", "Correct Answer Text": "62"}, {"Question #": "27", "Question": "192.168.10.0/26 — what is the broadcast address?", "Options": {"A": "192.168.10.64", "B": "192.168.10.63", "C": "192.168.10.62", "D": "192.168.10.65"}, "Correct Answer Letter": "B", "Correct Answer Text": "192.168.10.63"}, {"Question #": "28", "Question": "Which class is IP 172.16.5.1?", "Options": {"A": "Class A", "B": "Class B", "C": "Class C", "D": "Class D"}, "Correct Answer Letter": "B", "Correct Answer Text": "Class B"}, {"Question #": "29", "Question": "What is the CIDR notation for subnet mask 255.255.255.0?", "Options": {"A": "/24", "B": "/25", "C": "/26", "D": "/27"}, "Correct Answer Letter": "A", "Correct Answer Text": "/24"}, {"Question #": "30", "Question": "Which command assigns an IP to a router interface?", "Options": {"A": "ip assign", "B": "set ip address", "C": "ip address 192.168.1.1 255.255.255.0", "D": "assign address"}, "Correct Answer Letter": "C", "Correct Answer Text": "ip address 192.168.1.1 255.255.255.0"}, {"Question #": "31", "Question": "IPv6 address length is:", "Options": {"A": "32 bits", "B": "64 bits", "C": "128 bits", "D": "256 bits"}, "Correct Answer Letter": "C", "Correct Answer Text": "128 bits"}, {"Question #": "32", "Question": "Which IPv6 address is equivalent to IPv4 loopback 127.0.0.1?", "Options": {"A": "::1", "B": "::", "C": "FE80::1", "D": "FF02::1"}, "Correct Answer Letter": "A", "Correct Answer Text": "::1"}, {"Question #": "33", "Question": "Which protocol is used by IPv6 for address resolution?", "Options": {"A": "ICMPv6", "B": "ARP", "C": "DHCPv6", "D": "ND"}, "Correct Answer Letter": "D", "Correct Answer Text": "ND"}, {"Question #": "34", "Question": "What is the scope of address FE80::1?", "Options": {"A": "Global", "B": "Unique local", "C": "Link-local", "D": "Anycast"}, "Correct Answer Letter": "C", "Correct Answer Text": "Link-local"}, {"Question #": "35", "Question": "Which ICMPv6 message type is Neighbor Advertisement?", "Options": {"A": "133", "B": "134", "C": "135", "D": "136"}, "Correct Answer Letter": "D", "Correct Answer Text": "136"}, {"Question #": "36", "Question": "Which protocol ensures reliable delivery?", "Options": {"A": "UDP", "B": "TCP", "C": "ICMP", "D": "IP"}, "Correct Answer Letter": "B", "Correct Answer Text": "TCP"}, {"Question #": "37", "Question": "Port 80 is used by:", "Options": {"A": "FTP", "B": "SMTP", "C": "HTTP", "D": "DNS"}, "Correct Answer Letter": "C", "Correct Answer Text": "HTTP"}, {"Question #": "38", "Question": "Which field in TCP header ensures ordering?", "Options": {"A": "Sequence number", "B": "Acknowledgment number", "C": "Port number", "D": "Window size"}, "Correct Answer Letter": "A", "Correct Answer Text": "Sequence number"}, {"Question #": "39", "Question": "UDP is used for:", "Options": {"A": "File Transfer", "B": "Web browsing", "C": "Voice streaming", "D": "Email"}, "Correct Answer Letter": "C", "Correct Answer Text": "Voice streaming"}, {"Question #": "40", "Question": "TCP three-way handshake sequence is:", "Options": {"A": "SYN → SYN-ACK → ACK", "B": "ACK → SYN → SYN-ACK", "C": "SYN → ACK → SYN-ACK", "D": "FIN → ACK → FIN"}, "Correct Answer Letter": "A", "Correct Answer Text": "SYN → SYN-ACK → ACK"}, {"Question #": "41", "Question": "DNS uses which transport protocol?", "Options": {"A": "TCP", "B": "UDP", "C": "ICMP", "D": "Both TCP and UDP"}, "Correct Answer Letter": "D", "Correct Answer Text": "Both TCP and UDP"}, {"Question #": "42", "Question": "SMTP works on which port?", "Options": {"A": "21", "B": "25", "C": "80", "D": "110"}, "Correct Answer Letter": "B", "Correct Answer Text": "25"}, {"Question #": "43", "Question": "POP3 retrieves emails from:", "Options": {"A": "Server to client", "B": "Client to server", "C": "Peer to peer", "D": "None of these"}, "Correct Answer Letter": "A", "Correct Answer Text": "Server to client"}, {"Question #": "44", "Question": "FTP control connection uses which port?", "Options": {"A": "20", "B": "21", "C": "22", "D": "23"}, "Correct Answer Letter": "B", "Correct Answer Text": "21"}, {"Question #": "45", "Question": "HTTP status code 404 means:", "Options": {"A": "OK", "B": "Forbidden", "C": "Not Found", "D": "Unauthorized"}, "Correct Answer Letter": "C", "Correct Answer Text": "Not Found"}, {"Question #": "46", "Question": "Which protocol securely connects to network devices?", "Options": {"A": "Telnet", "B": "SSH", "C": "HTTP", "D": "FTP"}, "Correct Answer Letter": "B", "Correct Answer Text": "SSH"}, {"Question #": "47", "Question": "Which command encrypts passwords on Cisco devices?", "Options": {"A": "enable secret", "B": "password encrypt", "C": "service password-encryption", "D": "encrypt all"}, "Correct Answer Letter": "C", "Correct Answer Text": "service password-encryption"}, {"Question #": "48", "Question": "Which is a strong password example?", "Options": {"A": "admin123", "B": "Password", "C": "@NetWork!23", "D": "12345"}, "Correct Answer Letter": "C", "Correct Answer Text": "@NetWork!23"}, {"Question #": "49", "Question": "Which message appears before login to warn users?", "Options": {"A": "MOTD banner", "B": "Welcome banner", "C": "Login message", "D": "Session banner"}, "Correct Answer Letter": "A", "Correct Answer Text": "MOTD banner"}, {"Question #": "50", "Question": "Which feature prevents brute-force login attempts on Cisco devices?", "Options": {"A": "login lockout", "B": "password block", "C": "login block-for", "D": "ssh timeout"}, "Correct Answer Letter": "C", "Correct Answer Text": "login block-for"}];
+        const questionsData = [
+    {
+        "Question #": "1",
+        "Question": "Which option describes a benefit that led the shipping industry and the software industry to use containers?",
+        "Options": {
+            "A": "Infrastructure providers can create strong dependencies between their platform and the types of containers that they choose to work with.",
+            "B": "The abstraction of details of what's being \"shipped\" increases the agility of a system.",
+            "C": "Increased visibility into the details of what's being \"shipped\" helps each point in the system to provide the right type of support.",
+            "D": "The ability to use nonstandard types of containers gives producers flexibility."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "The abstraction of details of what's being \"shipped\" increases the agility of a system.",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "2",
+        "Question": "Which options are components of a container? (Select TWO.)",
+        "Options": {
+            "A": "Host server",
+            "B": "Runtime engine",
+            "C": "Operating system",
+            "D": "Application code",
+            "E": "Virtual machine"
+        },
+        "Correct Answer Letter": "B, D",
+        "Correct Answer Text": "Runtime engine; Application code",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "3",
+        "Question": "Which statement about Docker containers is true?",
+        "Options": {
+            "A": "A container is a runnable instance of an image.",
+            "B": "A container registry is a template to launch containers.",
+            "C": "A container image is a writeable template.",
+            "D": "A container layer is a thin read-only layer that is associated with a running container."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "A container is a runnable instance of an image.",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "4",
+        "Question": "Which Docker CLI command creates a container named my_app_1 from the image named node_app?",
+        "Options": {
+            "A": "docker run --name my_app_1 node_app",
+            "B": "docker build --tag my_app_1",
+            "C": "docker exec -it my_app_1 sh",
+            "D": "docker images my_app_1 from node_app"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "docker run --name my_app_1 node_app",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "5",
+        "Question": "Which statement about a Dockerfile is true?",
+        "Options": {
+            "A": "A Dockerfile is a YAML file that provides instructions to create a container image.",
+            "B": "Each instruction in a Dockerfile creates a read-only layer in the image.",
+            "C": "If a developer changes the Dockerfile and rebuilds the image, all layers of the image must be rebuilt.",
+            "D": "Developers cannot use the Dockerfile to run scripts that would run after the container is instantiated."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Each instruction in a Dockerfile creates a read-only layer in the image.",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "6",
+        "Question": "A developer wants to migrate a monolithic shopping website to a microservice-based application. Which option reflects a reason to choose containers?",
+        "Options": {
+            "A": "Each container can use the language and technology that are best suited for the service.",
+            "B": "Containerized components are not isolated, so the application will evolve as a singular system.",
+            "C": "Containers are well-suited to designs that avoid the use of temporary resources.",
+            "D": "Containers separate your dependencies and libraries into their own objects."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Each container can use the language and technology that are best suited for the service.",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "7",
+        "Question": "Which option reflects a primary reason that the developer might use a container orchestration service?",
+        "Options": {
+            "A": "To schedule container starts and stops and determine where to place containers",
+            "B": "To base their containers on third-party images",
+            "C": "To remove the requirement to use a container registry",
+            "D": "To receive automated recommendations about how to improve their application code to run on containers"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "To schedule container starts and stops and determine where to place containers",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "8",
+        "Question": "Which statement about the Amazon Elastic Container Service (Amazon ECS) is true?",
+        "Options": {
+            "A": "Amazon ECS is a highly scalable container orchestration service that supports Docker containers.",
+            "B": "Amazon ECS requires the use of the Amazon Elastic Container Registry (Amazon ECR) for container images.",
+            "C": "Amazon ECS supports launching containers in Amazon EC2 or AWS Lambda.",
+            "D": "With Amazon ECS, you can deploy applications to containers even if they have not been architected specifically to run on containers."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Amazon ECS is a highly scalable container orchestration service that supports Docker containers.",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "9",
+        "Question": "What is the name for a logical collection of AWS Elastic Beanstalk components, which is conceptually similar to a folder?",
+        "Options": {
+            "A": "Environment",
+            "B": "Platform",
+            "C": "Application",
+            "D": "Environment tier"
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Application",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "10",
+        "Question": "Which AWS Elastic Beanstalk deployment policy option should the developer use for canary testing?",
+        "Options": {
+            "A": "Immutable",
+            "B": "Rolling with batch",
+            "C": "Traffic Splitting",
+            "D": "Blue/Green"
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Traffic Splitting",
+        "Module": "Module 8: Containers"
+    },
+    {
+        "Question #": "11",
+        "Question": "Which option describes factors that the developers should consider when they decide where to add caching?",
+        "Options": {
+            "A": "Avoid caching for data queries that are slow and expensive to run.",
+            "B": "Review the data and its access patterns. Data that changes rapidly but is infrequently accessed should be cached.",
+            "C": "Consider the tolerance for stale data in each context where the data is used.",
+            "D": "Add as much caching in as many places as you can as early in development as possible."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Consider the tolerance for stale data in each context where the data is used.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "12",
+        "Question": "A developer has determined that an in-memory key-value store would improve performance... They want to keep the solution as simple as possible and need to support read replicas. Which option should they choose?",
+        "Options": {
+            "A": "Amazon ElastiCache for Memcached",
+            "B": "Amazon ElastiCache for Redis",
+            "C": "Amazon CloudFront Functions",
+            "D": "Lambda@Edge"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Amazon ElastiCache for Redis",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "13",
+        "Question": "Amazon ElastiCache is being added... Which task would be the responsibility of the application developer?",
+        "Options": {
+            "A": "Applying software patches to the cache instances",
+            "B": "Writing code to check the health of the cluster before writing to the cache",
+            "C": "Writing code that looks for the requested data in the cache and, if the data is not found, requests it from the origin",
+            "D": "Write code to integrate the cache with the Amazon RDS instances that it will be reading from"
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Writing code that looks for the requested data in the cache and, if the data is not found, requests it from the origin",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "14",
+        "Question": "Which statement about Amazon ElastiCache is true?",
+        "Options": {
+            "A": "A node is a variable-size chunk of secure, network-attached RAM.",
+            "B": "Your application connects to an ElastiCache node by using a unique address called an endpoint.",
+            "C": "With the Memcached engine, data is partitioned across shards in a cluster.",
+            "D": "Every node within a cluster must run the same cache engine, but the nodes can run on different instance types."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Your application connects to an ElastiCache node by using a unique address called an endpoint.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "15",
+        "Question": "A developer has been asked to address complaints from customers in the London area about the performance of a web-based application that is hosted in New York. Which option might the developer implement?",
+        "Options": {
+            "A": "Use Amazon CloudFront to replicate the application code on Amazon Elastic Compute Cloud (Amazon EC2) instances in the London Region.",
+            "B": "Set up a CloudFront distribution that can serve static content from edge locations that are closer to UK users.",
+            "C": "Set up a CloudFront regional edge location in the London Region.",
+            "D": "Set up one CloudFront edge location in New York and one in London."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Set up a CloudFront distribution that can serve static content from edge locations that are closer to UK users.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "16",
+        "Question": "A developer has been asked to increase the cache hit ratio for their Amazon CloudFront distribution. Which option should they try?",
+        "Options": {
+            "A": "Include only the minimum necessary values in the cache key.",
+            "B": "Decrease the maximum time to live (TTL) setting in a cache policy.",
+            "C": "Decrease the max-age setting in a file's Cache-Control header.",
+            "D": "Increase the cache hit setting in a cache policy."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Include only the minimum necessary values in the cache key.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "17",
+        "Question": "Which statement about Amazon CloudFront cached file expiration is true?",
+        "Options": {
+            "A": "Each file in the cache automatically expires after 24 hours, and you cannot modify this setting.",
+            "B": "After a file expires, the next time the edge location gets a user request for the file, CloudFront forwards the request to the origin server.",
+            "C": "When the origin receives a request, the origin sends the latest version of the file regardless of whether it is the same as the expired version in the cache.",
+            "D": "You can control cache file duration with CloudFront cache policy settings or through Cache-Control settings in the origin file headers."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "After a file expires, the next time the edge location gets a user request for the file, CloudFront forwards the request to the origin server.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "18",
+        "Question": "Which use case suggests the use of Amazon CloudFront Functions?",
+        "Options": {
+            "A": "A function that redirects the viewer to a different URL and adds a custom response header",
+            "B": "A function that uses a third-party library",
+            "C": "A function that requires network access to use external services for processing",
+            "D": "A function that requires access to the body of HTTP requests"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "A function that redirects the viewer to a different URL and adds a custom response header",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "19",
+        "Question": "Which statement reflects a benefit of lazy loading as a caching strategy?",
+        "Options": {
+            "A": "Lazy loading avoids filling up the cache with data that is not requested.",
+            "B": "With lazy loading, data in the cache never becomes stale.",
+            "C": "With lazy loading, every write involves two trips\u2014a write to the cache and a write to the database\u2014which adds latency to the process.",
+            "D": "Lazy loading might result in cache churn. The cache might be updated often if certain records are updated repeatedly."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Lazy loading avoids filling up the cache with data that is not requested.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "20",
+        "Question": "A developer has been asked whether caching might improve the performance of their online bidding application. How should they answer this question?",
+        "Options": {
+            "A": "Caching probably will not yield much performance improvement for this type of application.",
+            "B": "Caching might improve performance by reducing the number of hits to the backend database.",
+            "C": "However, caching cannot improve performance issues that occur between the client and the web server.",
+            "D": "Using different types of caching at each application layer might improve both the frontend and backend performance."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Using different types of caching at each application layer might improve both the frontend and backend performance.",
+        "Module": "Module 9: Caching"
+    },
+    {
+        "Question #": "21",
+        "Question": "What are the advantages of cloud computing over computing on premises?",
+        "Options": {
+            "A": "Avoid large capital purchase.",
+            "B": "Use on-demand capacity.",
+            "C": "Go global in minutes.",
+            "D": "Increase speed and agility.",
+            "E": "All of the above."
+        },
+        "Correct Answer Letter": "E",
+        "Correct Answer Text": "All of the above.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "22",
+        "Question": "What is the pricing model that enables AWS customers to pay for resources on an as-needed basis?",
+        "Options": {
+            "A": "Pay as you decommission.",
+            "B": "Pay as you go.",
+            "C": "Pay as you buy.",
+            "D": "Pay as you reserve."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Pay as you go.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "23",
+        "Question": "Which of these is Not a cloud computing model?",
+        "Options": {
+            "A": "System Administration as a service.",
+            "B": "Platform as a service.",
+            "C": "Infrastructure as a service.",
+            "D": "Software as a service."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "System Administration as a service.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "24",
+        "Question": "True or False? AWS owns and maintains the network-connected hardware required for application services, while you provision and use what you need.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "25",
+        "Question": "Which of these is not a primary benefit of cloud computing over on-premises computing?",
+        "Options": {
+            "A": "Increase speed and agility.",
+            "B": "Pay for racking, stacking and powering servers.",
+            "C": "Eliminate guessing on your infrastructure capacity need.",
+            "D": "Trade capital expense for variable expense."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Pay for racking, stacking and powering servers.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "26",
+        "Question": "Which of the following are not benefits of AWS Cloud computing? (Choose two).",
+        "Options": {
+            "A": "Multiple procurement cycles.",
+            "B": "High-availability.",
+            "C": "High-latency. (\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u043f\u043e\u043c\u0435\u0442\u043a\u0430 $ \u0441\u043c\u0435\u0449\u0435\u043d\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043e\u0442\u0432\u0435\u0442)",
+            "D": "Temporary and disposable resources.",
+            "E": "Fault-tolerant databases."
+        },
+        "Correct Answer Letter": "A, C",
+        "Correct Answer Text": "Multiple procurement cycles.; High-latency. (\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u043f\u043e\u043c\u0435\u0442\u043a\u0430 $ \u0441\u043c\u0435\u0449\u0435\u043d\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043e\u0442\u0432\u0435\u0442)",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "27",
+        "Question": "Which of the following is a compute service?",
+        "Options": {
+            "A": "Amazon VPC.",
+            "B": "Amazon S3.",
+            "C": "Amazon EC2.",
+            "D": "Amazon Cloudfront.",
+            "E": "Amazon Redshift."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Amazon EC2.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "28",
+        "Question": "True or False? Cloud computing provides a simple way to access servers, storage, databases... You own the network-connected hardware...",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "29",
+        "Question": "Economies of scale result from __________.",
+        "Options": {
+            "A": "Having many different cloud providers.",
+            "B": "Having hundreds of thousands of customers aggregated in the cloud.",
+            "C": "Having hundreds of cloud services available over the internet.",
+            "D": "Having to invest heavily in data centers and servers."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Having hundreds of thousands of customers aggregated in the cloud.",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "30",
+        "Question": "Which of these are ways to access AWS core services? (Choose three).",
+        "Options": {
+            "A": "Technical support calls.",
+            "B": "AWS Marketplace.",
+            "C": "AWS Management Console.",
+            "D": "AWS Command Line Interface (AWS CLI).",
+            "E": "Software Development Kits (SDK's)."
+        },
+        "Correct Answer Letter": "C, D, E",
+        "Correct Answer Text": "AWS Management Console.; AWS Command Line Interface (AWS CLI).; Software Development Kits (SDK's).",
+        "Module": "Module 1: Cloud Concepts"
+    },
+    {
+        "Question #": "31",
+        "Question": "What options are available for reserved instances? (Choose 3).",
+        "Options": {
+            "A": "AURI.",
+            "B": "NURI.",
+            "C": "PURI.",
+            "D": "DURI."
+        },
+        "Correct Answer Letter": "A, B, C",
+        "Correct Answer Text": "AURI.; NURI.; PURI.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "32",
+        "Question": "Where can a customer go to get more details about Amazon Elastic Compute Cloud (Amazon EC2) billing activity that took the place 3 months ago?",
+        "Options": {
+            "A": "Amazon EC2 Dashboard.",
+            "B": "AWS Cost Explorer.",
+            "C": "AWS Trusted Advisor Dashboard.",
+            "D": "AWS CloudTrail logs stored in Amazon Simple Storage Service (Amazon S3)."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "AWS Cost Explorer.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "33",
+        "Question": "True or false? To receive the discounted rate associated with Reserved Instances, you must make a full, upfront payment for the term of the agreement.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "34",
+        "Question": "Which statement is true about the pricing model on AWS?",
+        "Options": {
+            "A": "In most cases, there is per gigabyte charge for inbound data transfer.",
+            "B": "Compute is typically charged as a monthly fee based on instance type.",
+            "C": "Outbound charges are free up to a per account limit."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Compute is typically charged as a monthly fee based on instance type.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "35",
+        "Question": "What are the four support plans offered by AWS support?",
+        "Options": {
+            "A": "Basic, Developer, Business, Enterprise.",
+            "B": "Basic, Startup, Business, Enterprise.",
+            "C": "Free, Bronze, Silver, Gold.",
+            "D": "All support is free."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Basic, Developer, Business, Enterprise.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "36",
+        "Question": "What AWS tool lets you explore AWS services and create an estimate for the cost of your use cases on AWS?",
+        "Options": {
+            "A": "AWS Pricing Calculator.",
+            "B": "AWS Budgets.",
+            "C": "AWS Cost and Usage Report.",
+            "D": "AWS Billing Dashboard."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "AWS Pricing Calculator.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "37",
+        "Question": "As AWS grows the cost of doing business is reduced and savings are passed back to the customer with lower pricing. What is this optimization called?",
+        "Options": {
+            "A": "Expenditure Awareness.",
+            "B": "Economies of Scale.",
+            "C": "Matching supply and demand.",
+            "D": "EC2 Right Sizing."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Economies of Scale.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "38",
+        "Question": "True or false? AWS offers a variety of services at no charge.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "39",
+        "Question": "What are the benefits of using AWS Organizations? (Choose two).",
+        "Options": {
+            "A": "Provides the ability to create groups of accounts and then attach policies to a group.",
+            "B": "Replaces existing AWS Identity and Access Management (IAM) policies with service control policies (SCP).",
+            "C": "Provides the ability to create an unlimited number of nested organizational units (OU's) to support your desired structure.",
+            "D": "Simplifies automating account creation and management by using API's."
+        },
+        "Correct Answer Letter": "B, D",
+        "Correct Answer Text": "Replaces existing AWS Identity and Access Management (IAM) policies with service control policies (SCP).; Simplifies automating account creation and management by using API's.",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "40",
+        "Question": "True or false? Unlimited services are available with the AWS Free Tier to new AWS customers for 12 months following their AWS sign-up date.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False",
+        "Module": "Module 2: Billing & Cost"
+    },
+    {
+        "Question #": "41",
+        "Question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+        "Options": {
+            "A": "AWS Regions.",
+            "B": "AWS Edge Locations. (\u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435 \u0441\u043c\u0435\u0449\u0435\u043d\u0430, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442)",
+            "C": ".",
+            "D": "Amazon Virtual Private Cloud (Amazon VP"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "AWS Edge Locations. (\u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435 \u0441\u043c\u0435\u0449\u0435\u043d\u0430, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442)",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "42",
+        "Question": "You can run applications and workloads from a region closer to the end users to __________ latency.",
+        "Options": {
+            "A": "Increase.",
+            "B": "Decrease."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Decrease.",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "43",
+        "Question": "True or False? Networking, storage, compute, and databases are examples of service categories that AWS offers.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "44",
+        "Question": "Which of the following are geographic areas that host two or more Availability Zones?",
+        "Options": {
+            "A": "AWS Regions.",
+            "B": "Compute Zones.",
+            "C": "Edge Locations."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "AWS Regions.",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "45",
+        "Question": "__________ means the infrastructure has built-in component redundancy and __________ means that resources dynamically adjust to increases or decreases in capacity requirements.",
+        "Options": {
+            "A": "No human intervention, fault tolerant.",
+            "B": "Elastic and scalable, no human intervention.",
+            "C": "",
+            "D": "Fault tolerant, no human intervention. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u0430 \u044d\u0442\u0430 \u0441\u0442\u0440\u043e\u043a\u0430, \u0445\u043e\u0442\u044f \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u043e\u0442\u0432\u0435\u0442"
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Fault tolerant, no human intervention. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u0430 \u044d\u0442\u0430 \u0441\u0442\u0440\u043e\u043a\u0430, \u0445\u043e\u0442\u044f \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u043e\u0442\u0432\u0435\u0442",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "46",
+        "Question": "True or false? Availability zones within a region are connected through low-latency links.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "47",
+        "Question": "Which of these statements about availability zones is NOT true?",
+        "Options": {
+            "A": "Availability zones are designed for fault isolation.",
+            "B": "Availability zones are made up of one or more data centers.",
+            "C": "A data center can be used for more than one Availability zone.",
+            "D": "Availability zones are connected to each other using high-speed private links. (\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u0432 \u0444\u0430\u0439\u043b\u0435 \u044d\u0442\u043e \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e \u043a\u0430\u043a \u043d\u0435\u0432\u0435\u0440\u043d\u043e\u0435, \u0445\u043e\u0442\u044f \u0432 AWS \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u043e. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u043f\u043e\u0434\u0440\u0430\u0437\u0443\u043c\u0435\u0432\u0430\u043b\u043e\u0441\u044c \"\u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435\" \u0438\u0437\u043e\u043b\u044f\u0446\u0438\u0438)."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Availability zones are connected to each other using high-speed private links. (\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u0435: \u0432 \u0444\u0430\u0439\u043b\u0435 \u044d\u0442\u043e \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e \u043a\u0430\u043a \u043d\u0435\u0432\u0435\u0440\u043d\u043e\u0435, \u0445\u043e\u0442\u044f \u0432 AWS \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u043e. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u043f\u043e\u0434\u0440\u0430\u0437\u0443\u043c\u0435\u0432\u0430\u043b\u043e\u0441\u044c \"\u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435\" \u0438\u0437\u043e\u043b\u044f\u0446\u0438\u0438).",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "48",
+        "Question": "What is true about Regions? (Choose two).",
+        "Options": {
+            "A": "They are the physical locations of your customers.",
+            "B": "A region is a physical location that has multiple availability zones.",
+            "C": "All regions are located in one specific geographic area.",
+            "D": "Each region is located in a separate geographic area."
+        },
+        "Correct Answer Letter": "C, D",
+        "Correct Answer Text": "All regions are located in one specific geographic area.; Each region is located in a separate geographic area.",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "49",
+        "Question": "AWS highly recommends provisioning your compute resources across __________ Availability Zones.",
+        "Options": {
+            "A": "All",
+            "B": "Multiple",
+            "C": "Single",
+            "D": "No"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Multiple",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "50",
+        "Question": "True or false? Edge locations are only located in the same general area as Regions.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False",
+        "Module": "Module 3: Global Infrastructure"
+    },
+    {
+        "Question #": "51",
+        "Question": "In the shared responsibility model, AWS is responsible for providing what?",
+        "Options": {
+            "A": "Security of the cloud.",
+            "B": "Security to the cloud. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e \"to\", \u043d\u043e \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0442\u0435\u0440\u043c\u0438\u043d \"of\". \u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0441\u0442\u043e\u0438\u0442 \u0432\u043e\u0437\u043b\u0435 \u0441\u0442\u0440\u043e\u043a\u0438 \u0441 \"to\").",
+            "C": "Security for the cloud.",
+            "D": "Security in the cloud."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Security to the cloud. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e \"to\", \u043d\u043e \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0442\u0435\u0440\u043c\u0438\u043d \"of\". \u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0441\u0442\u043e\u0438\u0442 \u0432\u043e\u0437\u043b\u0435 \u0441\u0442\u0440\u043e\u043a\u0438 \u0441 \"to\").",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "52",
+        "Question": "In the shared responsibility model, which of the following are examples of \"security in the cloud?\" (Choose two).",
+        "Options": {
+            "A": "Compliance with compute security standards and regulation.",
+            "B": "Physical security of the facilities in which the services operate.",
+            "C": "Security group configurations.",
+            "D": "Encryption of data at rest and data in transit.",
+            "E": "Protecting the global infrastructure. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e Protecting, \u043d\u043e \u044d\u0442\u043e \"Of the cloud\". \u0412\u0435\u0440\u043e\u044f\u0442\u043d\u043e, Security Group Configurations \u2014 \u0432\u0442\u043e\u0440\u043e\u0439 \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442)."
+        },
+        "Correct Answer Letter": "D, E",
+        "Correct Answer Text": "Encryption of data at rest and data in transit.; Protecting the global infrastructure. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e Protecting, \u043d\u043e \u044d\u0442\u043e \"Of the cloud\". \u0412\u0435\u0440\u043e\u044f\u0442\u043d\u043e, Security Group Configurations \u2014 \u0432\u0442\u043e\u0440\u043e\u0439 \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442).",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "53",
+        "Question": "Which of the following is the responsibility of AWS under the AWS shared responsibility model?",
+        "Options": {
+            "A": "Configuring third party applications.",
+            "B": "Maintaining physical hardware.",
+            "C": "Security application access and data.",
+            "D": "Managing custom Amazon Machine Images (AMI's)."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Maintaining physical hardware.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "54",
+        "Question": "When creating an AWS Identity and Access Management (IAM) policy, what are the two types of access that can be granted to a user?",
+        "Options": {
+            "A": "Institutional Access.",
+            "B": "Authorized Access.",
+            "C": "Programmatic Access.",
+            "D": "AWS Management Console Access.",
+            "E": "Administrative Root Access."
+        },
+        "Correct Answer Letter": "C, D",
+        "Correct Answer Text": "Programmatic Access.; AWS Management Console Access.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "55",
+        "Question": "True or false? AWS Organizations enables you to consolidate multiple AWS accounts so that you centrally manage them.",
+        "Options": {
+            "A": "True.",
+            "B": "False. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u041d\u0430 \u0441\u0430\u043c\u043e\u043c \u0434\u0435\u043b\u0435 True)."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u041d\u0430 \u0441\u0430\u043c\u043e\u043c \u0434\u0435\u043b\u0435 True).",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "56",
+        "Question": "Which of the following are best practices to secure your account using AWS Identity and Access Management? (Choose 2).",
+        "Options": {
+            "A": "Provide users with default administrative privileges.",
+            "B": "Leave unused and unnecessary users and credentials in place.",
+            "C": "Manage access to AWS resources.",
+            "D": "Avoid using IAM groups to grant the same access permissions to multiple users. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u0433\u0440\u0443\u043f\u043f\u044b \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u044e\u0442\u0441\u044f).",
+            "E": "Define fine-grained access rights."
+        },
+        "Correct Answer Letter": "D, E",
+        "Correct Answer Text": "Avoid using IAM groups to grant the same access permissions to multiple users. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u0433\u0440\u0443\u043f\u043f\u044b \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u044e\u0442\u0441\u044f).; Define fine-grained access rights.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "57",
+        "Question": "Which of the following should be done by the AWS account root user?",
+        "Options": {
+            "A": "Secure access for applications.",
+            "B": "Integrate with other AWS services.",
+            "C": "Change granular permissions.",
+            "D": "Change the AWS support plan."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Change the AWS support plan.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "58",
+        "Question": "After initial login, what does AWS recommend as the best practice for the AWS account root user?",
+        "Options": {
+            "A": "Delete the AWS account root user.",
+            "B": "Revoke all permissions on the AWS account root user.",
+            "C": "Restrict permission on the AWS account root user.",
+            "D": "Delete the access keys of the AWS account root user."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Delete the access keys of the AWS account root user.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "59",
+        "Question": "How would a system administrator add an additional layer of login security to a user's AWS management console?",
+        "Options": {
+            "A": "Use Amazon Cloud Directory.",
+            "B": "Audit AWS Identity and Access Management (IAM) roles.",
+            "C": "Enable multi-factor authentication.",
+            "D": "Enable AWS CloudTrail."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Enable multi-factor authentication.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "60",
+        "Question": "True or false? AWS Key Management Service (AWS KMS) enables you to assess, audit, and evaluate the configurations of your AWS resources.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 4: Security"
+    },
+    {
+        "Question #": "61",
+        "Question": "With Amazon Virtual Private Cloud (Amazon VP",
+        "Options": {
+            "C": "/30",
+            "A": "/28",
+            "B": "/26",
+            "D": "/24"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "/28",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "62",
+        "Question": "With Amazon VPC, what is the maximum size IP address range you can have?",
+        "Options": {
+            "A": "/24",
+            "B": "/16",
+            "C": "/28",
+            "D": "/30"
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "/16",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "63",
+        "Question": "You need to allow resources in private subnet to access the internet. Which of the following must be present to enable access?",
+        "Options": {
+            "A": "Security groups.",
+            "B": "Route tables.",
+            "C": "NAT gateway.",
+            "D": "Network access control lists. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e NACL, \u0445\u043e\u0442\u044f \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442 \u0434\u043b\u044f \u0432\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u2014 NAT Gateway)."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Network access control lists. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e NACL, \u0445\u043e\u0442\u044f \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442 \u0434\u043b\u044f \u0432\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u2014 NAT Gateway).",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "64",
+        "Question": "Which AWS networking service enables a company to create a virtual network within AWS?",
+        "Options": {
+            "A": "Amazon Virtual Private Cloud (Amazon VP",
+            "C": "Amazon Route 53.",
+            "B": "AWS Config.",
+            "D": "AWS Direct Connect."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Amazon Virtual Private Cloud (Amazon VP",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "65",
+        "Question": "True or false? Private subnets have direct access to the internet.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "66",
+        "Question": "Which component of AWS Global Infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+        "Options": {
+            "A": "Amazon Virtual Private Cloud (Amazon VP",
+            "C": "AWS Regions.",
+            "B": "AWS Availability Zones.",
+            "D": "AWS Edge Locations."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "AWS Edge Locations.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "67",
+        "Question": "Which of the following is an optional security control that can be applied at the subnet layer of a VPC?",
+        "Options": {
+            "A": "Firewall.",
+            "B": "Network ACL.",
+            "C": "Web application firewall.",
+            "D": "Security group."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Network ACL.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "68",
+        "Question": "What happens when you use Amazon Virtual Private Cloud to create a new VPC?",
+        "Options": {
+            "A": "An internet gateway is created by default.",
+            "B": "Three subnets are created by default: in one Availability Zone.",
+            "C": "Three subnets are created by default: one for each Availability Zone.",
+            "D": "A main route table is created by default."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "A main route table is created by default.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "69",
+        "Question": "Which of the following can be used to protect Amazon Elastic Compute Cloud (Amazon EC2) instances hosted in AWS?",
+        "Options": {
+            "A": "AMI.",
+            "B": "Security group.",
+            "C": "Internet Gateway."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Security group.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "70",
+        "Question": "How many IP addresses are available (CIDR /24)?",
+        "Options": {
+            "A": "246.",
+            "B": "251.",
+            "C": "256.",
+            "D": "250."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "251.",
+        "Module": "Module 5: Networking"
+    },
+    {
+        "Question #": "71",
+        "Question": "Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
+        "Options": {
+            "A": "Amazon EC2 Costs are billed on a monthly basis.",
+            "B": "Customers retain full administrative access to their Amazon EC2 instances.",
+            "C": "Customers can permanently run enough instances to handle peak workloads.",
+            "D": "Amazon EC2 instances can be launched on-demand when needed."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Amazon EC2 instances can be launched on-demand when needed.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "72",
+        "Question": "If your project requires monthly reports that iterate through very large amounts of data, which Amazon Elastic Compute Cloud EC2 purchasing option should you consider?",
+        "Options": {
+            "A": "Spot Instances.",
+            "B": "Scheduled Reserved Instances.",
+            "C": "Dedicated Hosts.",
+            "D": "On-Demand Instances."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Scheduled Reserved Instances.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "73",
+        "Question": "What is included in an Amazon Machine Image (AMI)? Select the best answer.",
+        "Options": {
+            "A": "A template for the root volume for the instance.",
+            "B": "Launch permissions that control which AWS accounts can use the AMI to launch instances.",
+            "C": "A block device mapping that specifies the volumes to attach to the instance when it's launched.",
+            "D": "All of the above."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "All of the above.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "74",
+        "Question": "Which Amazon Elastic Compute Cloud EC2 feature ensures your instances will not share a physical host with instances from any other AWS customer?",
+        "Options": {
+            "A": "Amazon VPC.",
+            "B": "Placement Groups.",
+            "C": "Dedicated Instances.",
+            "D": "Reserved Instances."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Dedicated Instances.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "75",
+        "Question": "Which of the following services is a serverless compute service in AWS?",
+        "Options": {
+            "A": "AWS Config.",
+            "B": "AWS Lambda.",
+            "C": "AWS OpsWork.",
+            "D": "Amazon EC2."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "AWS Lambda.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "76",
+        "Question": "What is the service provided by AWS that enables developers to easily deploy and manage applications in the cloud?",
+        "Options": {
+            "A": "Amazon Elastic Container Service.",
+            "B": "AWS Elastic Beanstalk.",
+            "C": "AWS OpsWork.",
+            "D": "AWS CloudFormation."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "AWS Elastic Beanstalk.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "77",
+        "Question": "Your web application needs four instances to support steady traffic... traffic triples on last day. What is the most cost-effective way?",
+        "Options": {
+            "A": "Run 12 reserved instances all of the time.",
+            "B": "Run four On-Demand Instances constantly, then add eight more On-Demand on the last day of each month.",
+            "C": "Run four Reserved Instances constantly, then add eight On-Demand Instances on the last day of each month.",
+            "D": "Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d \u044d\u0442\u043e\u0442 \u0432\u0430\u0440\u0438\u0430\u043d\u0442, \u0445\u043e\u0442\u044f \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u0432\u0430\u0440\u0438\u0430\u043d\u0442 C \u0432\u0435\u0440\u043d\u0435\u0435)."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Run four On-Demand Instances constantly, then add eight Reserved Instances on the last day of each month. (\u0412 \u0444\u0430\u0439\u043b\u0435 \u043e\u0442\u043c\u0435\u0447\u0435\u043d \u044d\u0442\u043e\u0442 \u0432\u0430\u0440\u0438\u0430\u043d\u0442, \u0445\u043e\u0442\u044f \u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438 \u0432\u0430\u0440\u0438\u0430\u043d\u0442 C \u0432\u0435\u0440\u043d\u0435\u0435).",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "78",
+        "Question": "True or false? Containers contain an entire operating system.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "79",
+        "Question": "Which Amazon EC2 option is best for long-term workload with predictable usage patterns?",
+        "Options": {
+            "A": "Spot Instances.",
+            "B": "On-Demand Instances.",
+            "C": "Reserved Instances."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Reserved Instances.",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "80",
+        "Question": "Which of the following must be specified when launching a new Amazon Elastic Cloud Compute EC2 windows instance? (Choose two).",
+        "Options": {
+            "A": "Amazon EC2 instance type.",
+            "B": "Amazon Machine Image (AMI).",
+            "C": "The Amazon EC2 Instance ID.",
+            "D": "Password for the administrator account."
+        },
+        "Correct Answer Letter": "A, B",
+        "Correct Answer Text": "Amazon EC2 instance type.; Amazon Machine Image (AMI).",
+        "Module": "Module 6: Compute"
+    },
+    {
+        "Question #": "81",
+        "Question": "True or false. Amazon Simple Storage Service (S3) is an object storage suitable for the storage of flat files like Microsoft Word documents, photos, etc.",
+        "Options": {
+            "A": "True",
+            "B": "False"
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "82",
+        "Question": "Amazon S3 replicates all objects __________.",
+        "Options": {
+            "A": "On multiple volumes within an availability zone.",
+            "B": "In multiple Availability Zones within the same region.",
+            "C": "Across multiple regions for higher durability.",
+            "D": "On multiple S3 buckets."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "In multiple Availability Zones within the same region.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "83",
+        "Question": "Which of the following can be used as a storage class for an S3 object lifecycle policy?",
+        "Options": {
+            "A": "S3 Standard Access.",
+            "B": "AWS Storage Gateway.",
+            "C": "S3 Infrequent Access.",
+            "D": "Simple Storage Service Glacier.",
+            "E": "S3 Reduced Redundancy Storage."
+        },
+        "Correct Answer Letter": "A, C, D",
+        "Correct Answer Text": "S3 Standard Access.; S3 Infrequent Access.; Simple Storage Service Glacier.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "84",
+        "Question": "The name of an S3 bucket must be unique __________.",
+        "Options": {
+            "A": "Worldwide across all AWS accounts.",
+            "B": "Within a region.",
+            "C": "Across all your AWS accounts.",
+            "D": "Within your AWS account."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Worldwide across all AWS accounts.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "85",
+        "Question": "You can use Amazon Elastic File System (EFS) to:",
+        "Options": {
+            "A": "Provide simple, scalable, elastic file storage for use only within AWS.",
+            "B": ".",
+            "C": "Host a robust CDN to deliver entire web sites with dynamic, static, and streaming content. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e C, \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442",
+            "D": "Generate user specific content."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Host a robust CDN to deliver entire web sites with dynamic, static, and streaming content. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e C, \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "86",
+        "Question": "Amazon Elastic Block Storage (Amazon EBS) is recommended when data __________ and __________ (Choose two).",
+        "Options": {
+            "A": "Requires object level storage.",
+            "B": "Must be quickly accessible, requiring long-term persistence.",
+            "C": "Requires an encryption solution.",
+            "D": "Needs to be stored in a different availability zone than the one the EC2 instance is in. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e D, \u043d\u043e EBS \u043f\u0440\u0438\u0432\u044f\u0437\u0430\u043d \u043a \u043e\u0434\u043d\u043e\u0439 \u0437\u043e\u043d\u0435)."
+        },
+        "Correct Answer Letter": "B, D",
+        "Correct Answer Text": "Must be quickly accessible, requiring long-term persistence.; Needs to be stored in a different availability zone than the one the EC2 instance is in. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043e D, \u043d\u043e EBS \u043f\u0440\u0438\u0432\u044f\u0437\u0430\u043d \u043a \u043e\u0434\u043d\u043e\u0439 \u0437\u043e\u043d\u0435).",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "87",
+        "Question": "True or false, by default all data stored in Amazon S3 is viewable by the public.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "False.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "88",
+        "Question": "Regarding Amazon S3 Glacier, what is a vault?",
+        "Options": {
+            "A": "The rules that determine who may (or may not) access archives.",
+            "B": "An object (photos, videos, files, or documents).",
+            "C": "A container for storing archives. (\u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435 \u0441\u043c\u0435\u0449\u0435\u043d\u0430, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442).",
+            "D": "A policy that identifies who can access content stored in Glacier."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "A container for storing archives. (\u041f\u043e\u043c\u0435\u0442\u043a\u0430 \u0432 \u0444\u0430\u0439\u043b\u0435 \u0441\u043c\u0435\u0449\u0435\u043d\u0430, \u043d\u043e \u044d\u0442\u043e \u0432\u0435\u0440\u043d\u044b\u0439 \u043e\u0442\u0432\u0435\u0442).",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "89",
+        "Question": "True or false. When you create a bucket in Amazon S3, it is associated with a specific AWS Region.",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "90",
+        "Question": "Which of the following are features of Amazon Elastic Block Store (Amazon EBS). (Choose two).",
+        "Options": {
+            "A": "Data on an Amazon EBS volume is lost when the attached instance is stopped.",
+            "B": "Amazon EBS volumes can be encrypted transparently to workloads on the attached instance.",
+            "C": "Amazon EBS data is automatically backed up to tape. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430).",
+            "D": "Data stored on Amazone EBS is automatically replicated within an Availability Zone."
+        },
+        "Correct Answer Letter": "C, D",
+        "Correct Answer Text": "Amazon EBS data is automatically backed up to tape. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430).; Data stored on Amazone EBS is automatically replicated within an Availability Zone.",
+        "Module": "Module 7: Storage"
+    },
+    {
+        "Question #": "91",
+        "Question": "What database technology is best suited to hold session state?",
+        "Options": {
+            "A": "Amazon Relational Database Service (Amazon RDS).",
+            "B": "Amazon DynamoDB.",
+            "C": "Amazon Redshift. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: Redshift \u043d\u0435 \u0434\u043b\u044f \u0441\u0435\u0441\u0441\u0438\u0439).",
+            "D": "Amazon Simple Storage Service (Amazon S3)."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Amazon Redshift. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: Redshift \u043d\u0435 \u0434\u043b\u044f \u0441\u0435\u0441\u0441\u0438\u0439).",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "92",
+        "Question": "Amazon RDS automatically patches the database software and backs up your database...",
+        "Options": {
+            "A": "True.",
+            "B": "False."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "True.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "93",
+        "Question": "You need to find an item in an Amazon DynamoDB table using an attribute other than item's primary key.",
+        "Options": {
+            "A": "PutItem.",
+            "B": "Scan.",
+            "C": "Query.",
+            "D": "GetItem."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Scan.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "94",
+        "Question": "In Amazon DynamoDB, what does the query operation enable you to do?",
+        "Options": {
+            "A": "Query a table using the partition key and an optional sort key filter.",
+            "B": "Query any secondary indexes that exist for a table.",
+            "C": "Efficiently retrieve items from a table or secondary index.",
+            "D": "All of the above."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "All of the above.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "95",
+        "Question": "Which AWS cloud service is best suited for analyzing your data by using standard structured query language (SQL) and existing business intelligence (BI) tools?",
+        "Options": {
+            "A": "Amazon Relational Database Service (Amazon RDS).",
+            "B": "Amazon Simple Storage Service Glacier.",
+            "C": "Amazon Dynamo DB.",
+            "D": "Amazon Redshift."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Amazon Redshift.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "96",
+        "Question": "In Amazon DynamoDB, an attribute is __________.",
+        "Options": {
+            "A": "A fundamental data element.",
+            "B": "A collection of items.",
+            "C": "A collection of attributes."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "A fundamental data element.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "97",
+        "Question": "If you are developing an application that requires a database with extremely fast performance...",
+        "Options": {
+            "A": "Amazon Relational Database Service.",
+            "B": "Amazon ElastiCache.",
+            "C": "Amazon DynamoDB.",
+            "D": "Amazon Redshift."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Amazon DynamoDB.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "98",
+        "Question": "Which of the following use cases is appropriate for using Amazon Relational Database Services (Amazon RDS).",
+        "Options": {
+            "A": "Massive read/write rates.",
+            "B": "Simple get or put requests.",
+            "C": "Complex transactions.",
+            "D": "All of the above."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Complex transactions.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "99",
+        "Question": "What should you consider when choosing a database type?",
+        "Options": {
+            "A": "Data size.",
+            "B": "Data access period.",
+            "C": "Query frequency.",
+            "D": "Highly available.",
+            "E": "All of the above."
+        },
+        "Correct Answer Letter": "E",
+        "Correct Answer Text": "All of the above.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "100",
+        "Question": "A company has an application... connect to MYSQL database... use AWS features such as high availability...",
+        "Options": {
+            "A": "Amazon RDS.",
+            "B": "Amazon Aurora.",
+            "C": "Amazon DynamoDB.",
+            "D": "Amazon Redshift."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Amazon Aurora.",
+        "Module": "Module 8: Databases (Part 2)"
+    },
+    {
+        "Question #": "101",
+        "Question": "Which of the following is not one of the four areas of the performance efficiency pillar?",
+        "Options": {
+            "A": "Tradeoffs",
+            "B": "Selection",
+            "C": "Traceability",
+            "D": "Monitoring"
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Traceability",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "102",
+        "Question": "Which of the following is a principle when designing cloud-based systems?",
+        "Options": {
+            "A": "Build tightly-coupled components.",
+            "B": "Make infrequent, large batch changes.",
+            "C": "Assume everything will fail.",
+            "D": "Use as many services as possible."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Assume everything will fail.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "103",
+        "Question": "Which of the following are pillars of the AWS Well-Architected Framework?",
+        "Options": {
+            "A": "Security",
+            "B": "Persistence",
+            "C": "Operational excellence",
+            "D": "Cost Optimization"
+        },
+        "Correct Answer Letter": "A, C, D",
+        "Correct Answer Text": "Security; Operational excellence; Cost Optimization",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "104",
+        "Question": "Which design principles are recommended when considering performance efficiency?",
+        "Options": {
+            "A": "Match supply with demand.",
+            "B": "Use serverless architectures.",
+            "C": "Analyze and attribute expenditure.",
+            "D": "Democratize advanced technologies.",
+            "E": "Enable traceability."
+        },
+        "Correct Answer Letter": "D",
+        "Correct Answer Text": "Democratize advanced technologies.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "105",
+        "Question": "AWS Trusted Advisor provides insight regarding which five categories of an AWS account?",
+        "Options": {
+            "A": "Security, fault tolerance, high availability, connectivity, service limits.",
+            "B": "Performance, cost optimization, security, fault tolerance, service limits.",
+            "C": "Performance, cost optimization, access control, connectivity, security.",
+            "D": "Security, access control, high availability, performance, service limits."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Performance, cost optimization, access control, connectivity, security.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "106",
+        "Question": "What is the focus of the sustainability pillar of the well-architected framework?",
+        "Options": {
+            "A": "Designing workloads that recover quickly from failures.",
+            "B": "Minimizing the environmental impacts of running cloud workloads.",
+            "C": "Avoiding unnecessary costs in cloud workloads.",
+            "D": "Automating updates to cloud workloads."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Minimizing the environmental impacts of running cloud workloads.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "107",
+        "Question": "Which online tool can assist in security compliance?",
+        "Options": {
+            "A": "Amazon Kinesis.",
+            "B": "AWS Support.",
+            "C": "AWS Trusted Advisor.",
+            "D": "Amazon CloudWatch."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "AWS Trusted Advisor.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "108",
+        "Question": "Which of the following is a measure of your system's ability to provide functionality when desired by the user?",
+        "Options": {
+            "A": "Availability.",
+            "B": "Fault Tolerance.",
+            "C": "Reliability.",
+            "D": "Performance efficiency."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Reliability.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "109",
+        "Question": "What is defined as the ability for a system to remain operational even if some of the components of that system fail?",
+        "Options": {
+            "A": "High durability.",
+            "B": "Fault tolerance.",
+            "C": "High availability."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Fault tolerance.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "110",
+        "Question": "Which of the following best describes a system that can withstand some measures of degradation, experiences minimal downtime and requires minimal human intervention?",
+        "Options": {
+            "A": "Highly available system."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Highly available system.",
+        "Module": "Module 9: Architecture"
+    },
+    {
+        "Question #": "111",
+        "Question": "Which of the following AWS tools help your application scale up or down based on demand?",
+        "Options": {
+            "A": "Availability zones.",
+            "B": "Amazon EC2 Auto Scaling",
+            "C": "AWS CloudFormation.",
+            "D": "Elastic Load Balancing AWS Config."
+        },
+        "Correct Answer Letter": "B",
+        "Correct Answer Text": "Amazon EC2 Auto Scaling",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "112",
+        "Question": "Which service would you use to send alerts based on Amazon CloudWatch alarms?",
+        "Options": {
+            "A": "Amazon Simple Notification Service (Amazon SNS).",
+            "B": "AWS CloudTrail.",
+            "C": "AWS Trusted Advisor.",
+            "D": "Amazon Route 53."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Amazon Simple Notification Service (Amazon SNS).",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "113",
+        "Question": "Which of the following are characteristics of Amazon EC2 Auto Scaling? (Choose three).",
+        "Options": {
+            "A": "Responds to changing conditions by adding or terminating instances.",
+            "B": "Only supports dynamic scaling.",
+            "C": "Launches instances from a specified Amazon Machine Image (AMI).",
+            "D": "Delivers push notifications.",
+            "E": "Enforces a minimum number of running Amazon EC2 instances"
+        },
+        "Correct Answer Letter": "A, C, E",
+        "Correct Answer Text": "Responds to changing conditions by adding or terminating instances.; Launches instances from a specified Amazon Machine Image (AMI).; Enforces a minimum number of running Amazon EC2 instances",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "114",
+        "Question": "Which of the following must be configured on an Elastic Load Balancing load balancer to expect incoming traffic?",
+        "Options": {
+            "A": "A port.",
+            "B": "A network interface.",
+            "C": "A listener.",
+            "D": "An instance."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "A listener.",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "115",
+        "Question": "Which of the following elements are used to create an Amazon EC2 Auto Scaling launch configuration?",
+        "Options": {
+            "A": "Amazon Machine Image (AMI).",
+            "B": "Load balancer.",
+            "C": "Instance type.",
+            "D": "Amazon Elastic Block Store (Amazon EBS) volumes."
+        },
+        "Correct Answer Letter": "A, C",
+        "Correct Answer Text": "Amazon Machine Image (AMI).; Instance type.",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "116",
+        "Question": "Which of the following services can help you collect important metrics from Amazon Relational Database Service (Amazon RDS) and Amazon Elastic Compute Cloud (Amazon EC2) instances?",
+        "Options": {
+            "A": "Amazon CloudWatch.",
+            "B": "Amazon CloudFront.",
+            "C": "Amazon CloudSearch.",
+            "D": "Amazon CloudTrail.",
+            "E": "Amazon EC2 Auto Scaling."
+        },
+        "Correct Answer Letter": "A",
+        "Correct Answer Text": "Amazon CloudWatch.",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "117",
+        "Question": "Which of the following are elements of an Auto Scaling group? (Choose three).",
+        "Options": {
+            "A": "Maximum size.",
+            "B": "Minimum size.",
+            "C": "Health checks.",
+            "D": "Desired capacity."
+        },
+        "Correct Answer Letter": "A, B, D",
+        "Correct Answer Text": "Maximum size.; Minimum size.; Desired capacity.",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "118",
+        "Question": "There is an audit at your company and they need to have a big log of all access to AWS resources in the account.",
+        "Options": {
+            "A": "Amazon CloudWatch.",
+            "B": "AWS CloudTrail.",
+            "C": "Amazon Elastic Compute Cloud (Amazon EC2). (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0441\u0435\u0440\u0432\u0438\u0441 \u2014 CloudTrail, \u043d\u043e \u043e\u0442\u043c\u0435\u0447\u0435\u043d EC2).",
+            "D": "Amazon Simple Notification Service (Amazon SNS)."
+        },
+        "Correct Answer Letter": "C",
+        "Correct Answer Text": "Amazon Elastic Compute Cloud (Amazon EC2). (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430: \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u0441\u0435\u0440\u0432\u0438\u0441 \u2014 CloudTrail, \u043d\u043e \u043e\u0442\u043c\u0435\u0447\u0435\u043d EC2).",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "119",
+        "Question": "In Elastic Load Balancing, when the load balancing detects an unhealthy target, which of the following are true?",
+        "Options": {
+            "A": "Stops routing traffic to that target.",
+            "B": "Triggers an alarm.",
+            "C": "Resumes routing traffic when it detects that the target is healthy again.",
+            "D": "Routes traffic to a healthy target.",
+            "E": "Resumes routing traffic when manually restarted. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430)."
+        },
+        "Correct Answer Letter": "A, C, E",
+        "Correct Answer Text": "Stops routing traffic to that target.; Resumes routing traffic when it detects that the target is healthy again.; Resumes routing traffic when manually restarted. (\u041e\u0448\u0438\u0431\u043a\u0430 \u0444\u0430\u0439\u043b\u0430).",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    },
+    {
+        "Question #": "120",
+        "Question": "What are the three types of load balancers that Elastic Load Balancing offers? (Choose three).",
+        "Options": {
+            "A": "Internet Load Balancer.",
+            "B": "Application Load Balancer.",
+            "C": "Network Load Balancer.",
+            "D": "Classic Load Balancer.",
+            "E": "Compute Load Balancer.",
+            "F": "Auto Scaling Load Balancer."
+        },
+        "Correct Answer Letter": "B, C, D",
+        "Correct Answer Text": "Application Load Balancer.; Network Load Balancer.; Classic Load Balancer.",
+        "Module": "Module 10: Auto Scaling & Monitoring"
+    }
+];
 
         let currentMode = '';
         let currentQuestionIndex = 0;
@@ -860,6 +2394,39 @@
         function restartQuiz() {
             returnToMenu();
         }
-    </script>
+    
+    // --- Module Selection Logic ---
+    const moduleSelect = document.getElementById('module-select');
+    let filteredQuestionsData = [...questionsData]; // Default to all
+
+    // Populate Dropdown
+    const modules = [...new Set(questionsData.map(q => q.Module))].filter(Boolean);
+    modules.forEach(mod => {
+        const opt = document.createElement('option');
+        opt.value = mod;
+        opt.innerText = mod;
+        moduleSelect.appendChild(opt);
+    });
+
+    window.filterQuestions = function() {
+        const selected = moduleSelect.value;
+        if (selected === 'all') {
+            filteredQuestionsData = [...questionsData];
+        } else {
+            filteredQuestionsData = questionsData.filter(q => q.Module === selected);
+        }
+        // Visual feedback
+        const btn = document.querySelector('.mode-btn'); 
+        // Optional: Update UI to show count
+    };
+
+    // Patch the shuffle/init logic
+    // We intercept the original functionality by redefining how 'questions' are loaded
+    // The original script likely has: questions = [...questionsData].sort(...) inside startMode
+
+    // Let's look for that specific line in the 'template' content variable using Python
+    // and replace it.
+
+</script>
 </body>
 </html>
