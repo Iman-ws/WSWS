@@ -617,253 +617,6 @@
         const questionsData = [
   {
     "Question #": "1",
-    "Question": "Which option describes a benefit that led the shipping industry and the software industry to use containers?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "The abstraction of details of what's being \"shipped\" increases the agility of a system.",
-    "Options": {
-      "A": "Infrastructure providers can create strong dependencies between their platform and the types of containers that they choose to work with.",
-      "B": "The abstraction of details of what's being \"shipped\" increases the agility of a system.",
-      "C": "Increased visibility into the details of what's being \"shipped\" helps each point in the system to provide the right type of support.",
-      "D": "The ability to use nonstandard types of containers gives producers flexibility."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "Which options are components of a container? (Select TWO.)",
-    "Correct Answer Letter": [
-      "B",
-      "D"
-    ],
-    "Correct Answer Text": [
-      "Runtime engine",
-      "Application code"
-    ],
-    "Options": {
-      "A": "Host server",
-      "B": "Runtime engine",
-      "C": "Operating system",
-      "D": "Application code",
-      "E": "Virtual machine"
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Which statement about Docker containers is true?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "A container is a runnable instance of an image.",
-    "Options": {
-      "A": "A container is a runnable instance of an image.",
-      "B": "A container registry is a template to launch containers.",
-      "C": "A container image is a writeable template.",
-      "D": "A container layer is a thin read-only layer that is associated with a running container."
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which Docker CLI command creates a container named my_app_1 from the image named node_app?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "docker run --name my_app_1 node_app",
-    "Options": {
-      "A": "docker run --name my_app_1 node_app",
-      "B": "docker build --tag my_app_1",
-      "C": "docker exec -it my_app_1 sh",
-      "D": "docker images my_app_1 from node_app"
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "Which statement about a Dockerfile is true?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Each instruction in a Dockerfile creates a read-only layer in the image.",
-    "Options": {
-      "A": "A Dockerfile is a YAML file that provides instructions to create a container image.",
-      "B": "Each instruction in a Dockerfile creates a read-only layer in the image.",
-      "C": "If a developer changes the Dockerfile and rebuilds the image, all layers of the image must be rebuilt.",
-      "D": "Developers cannot use the Dockerfile to run scripts that would run after the container is instantiated."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "A developer wants to migrate a monolithic shopping website to a microservice-based application. Which option reflects a reason to choose containers?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Each container can use the language and technology that are best suited for the service.",
-    "Options": {
-      "A": "Each container can use the language and technology that are best suited for the service.",
-      "B": "Containerized components are not isolated, so the application will evolve as a singular system.",
-      "C": "Containers are well-suited to designs that avoid the use of temporary resources.",
-      "D": "Containers separate your dependencies and libraries into their own objects."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which option reflects a primary reason that the developer might use a container orchestration service?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "To schedule container starts and stops and determine where to place containers",
-    "Options": {
-      "A": "To schedule container starts and stops and determine where to place containers",
-      "B": "To base their containers on third-party images",
-      "C": "To remove the requirement to use a container registry",
-      "D": "To receive automated recommendations about how to improve their application code to run on containers"
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "Which statement about the Amazon Elastic Container Service (Amazon ECS) is true?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Amazon ECS is a highly scalable container orchestration service that supports Docker containers.",
-    "Options": {
-      "A": "Amazon ECS is a highly scalable container orchestration service that supports Docker containers.",
-      "B": "Amazon ECS requires the use of the Amazon Elastic Container Registry (Amazon ECR) for container images.",
-      "C": "Amazon ECS supports launching containers in Amazon EC2 or AWS Lambda.",
-      "D": "With Amazon ECS, you can deploy applications to containers even if they have not been architected specifically to run on containers."
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "What is the name for a logical collection of AWS Elastic Beanstalk components, which is conceptually similar to a folder?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Application",
-    "Options": {
-      "A": "Environment",
-      "B": "Platform",
-      "C": "Application",
-      "D": "Environment tier"
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "Which AWS Elastic Beanstalk deployment policy option should the developer use for canary testing?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Traffic Splitting",
-    "Options": {
-      "A": "Immutable",
-      "B": "Rolling with batch",
-      "C": "Traffic Splitting",
-      "D": "Blue/Green"
-    }
-  },
-  {
-    "Question #": "1",
-    "Question": "Which option describes factors that the developers should consider when they decide where to add caching?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Consider the tolerance for stale data in each context where the data is used.",
-    "Options": {
-      "A": "Avoid caching for data queries that are slow and expensive to run.",
-      "B": "Review the data and its access patterns. Data that changes rapidly but is infrequently accessed should be cached.",
-      "C": "Consider the tolerance for stale data in each context where the data is used.",
-      "D": "Add as much caching in as many places as you can as early in development as possible."
-    }
-  },
-  {
-    "Question #": "2",
-    "Question": "A developer has determined that an in-memory key-value store would improve performance... They want to keep the solution as simple as possible and need to support read replicas. Which option should they choose?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Amazon ElastiCache for Redis",
-    "Options": {
-      "A": "Amazon ElastiCache for Memcached",
-      "B": "Amazon ElastiCache for Redis",
-      "C": "Amazon CloudFront Functions",
-      "D": "Lambda@Edge"
-    }
-  },
-  {
-    "Question #": "3",
-    "Question": "Amazon ElastiCache is being added... Which task would be the responsibility of the application developer?",
-    "Correct Answer Letter": "C",
-    "Correct Answer Text": "Writing code that looks for the requested data in the cache and, if the data is not found, requests it from the origin",
-    "Options": {
-      "A": "Applying software patches to the cache instances",
-      "B": "Writing code to check the health of the cluster before writing to the cache",
-      "C": "Writing code that looks for the requested data in the cache and, if the data is not found, requests it from the origin",
-      "D": "Write code to integrate the cache with the Amazon RDS instances that it will be reading from"
-    }
-  },
-  {
-    "Question #": "4",
-    "Question": "Which statement about Amazon ElastiCache is true?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Your application connects to an ElastiCache node by using a unique address called an endpoint.",
-    "Options": {
-      "A": "A node is a variable-size chunk of secure, network-attached RAM.",
-      "B": "Your application connects to an ElastiCache node by using a unique address called an endpoint.",
-      "C": "With the Memcached engine, data is partitioned across shards in a cluster.",
-      "D": "Every node within a cluster must run the same cache engine, but the nodes can run on different instance types."
-    }
-  },
-  {
-    "Question #": "5",
-    "Question": "A developer has been asked to address complaints from customers in the London area about the performance of a web-based application that is hosted in New York. Which option might the developer implement?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "Set up a CloudFront distribution that can serve static content from edge locations that are closer to UK users.",
-    "Options": {
-      "A": "Use Amazon CloudFront to replicate the application code on Amazon Elastic Compute Cloud (Amazon EC2) instances in the London Region.",
-      "B": "Set up a CloudFront distribution that can serve static content from edge locations that are closer to UK users.",
-      "C": "Set up a CloudFront regional edge location in the London Region.",
-      "D": "Set up one CloudFront edge location in New York and one in London."
-    }
-  },
-  {
-    "Question #": "6",
-    "Question": "A developer has been asked to increase the cache hit ratio for their Amazon CloudFront distribution. Which option should they try?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Include only the minimum necessary values in the cache key.",
-    "Options": {
-      "A": "Include only the minimum necessary values in the cache key.",
-      "B": "Decrease the maximum time to live (TTL) setting in a cache policy.",
-      "C": "Decrease the max-age setting in a file's Cache-Control header.",
-      "D": "Increase the cache hit setting in a cache policy."
-    }
-  },
-  {
-    "Question #": "7",
-    "Question": "Which statement about Amazon CloudFront cached file expiration is true?",
-    "Correct Answer Letter": "B",
-    "Correct Answer Text": "After a file expires, the next time the edge location gets a user request for the file, CloudFront forwards the request to the origin server.",
-    "Options": {
-      "A": "Each file in the cache automatically expires after 24 hours, and you cannot modify this setting.",
-      "B": "After a file expires, the next time the edge location gets a user request for the file, CloudFront forwards the request to the origin server.",
-      "C": "When the origin receives a request, the origin sends the latest version of the file regardless of whether it is the same as the expired version in the cache.",
-      "D": "You can control cache file duration with CloudFront cache policy settings or through Cache-Control settings in the origin file headers."
-    }
-  },
-  {
-    "Question #": "8",
-    "Question": "Which use case suggests the use of Amazon CloudFront Functions?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "A function that redirects the viewer to a different URL and adds a custom response header",
-    "Options": {
-      "A": "A function that redirects the viewer to a different URL and adds a custom response header",
-      "B": "A function that uses a third-party library",
-      "C": "A function that requires network access to use external services for processing",
-      "D": "A function that requires access to the body of HTTP requests"
-    }
-  },
-  {
-    "Question #": "9",
-    "Question": "Which statement reflects a benefit of lazy loading as a caching strategy?",
-    "Correct Answer Letter": "A",
-    "Correct Answer Text": "Lazy loading avoids filling up the cache with data that is not requested.",
-    "Options": {
-      "A": "Lazy loading avoids filling up the cache with data that is not requested.",
-      "B": "With lazy loading, data in the cache never becomes stale.",
-      "C": "With lazy loading, every write involves two trips—a write to the cache and a write to the database—which adds latency to the process.",
-      "D": "Lazy loading might result in cache churn. The cache might be updated often if certain records are updated repeatedly."
-    }
-  },
-  {
-    "Question #": "10",
-    "Question": "A developer has been asked whether caching might improve the performance of their online bidding application. How should they answer this question?",
-    "Correct Answer Letter": "D",
-    "Correct Answer Text": "Using different types of caching at each application layer might improve both the frontend and backend performance.",
-    "Options": {
-      "A": "Caching probably will not yield much performance improvement for this type of application.",
-      "B": "Caching might improve performance by reducing the number of hits to the backend database.",
-      "C": "However, caching cannot improve performance issues that occur between the client and the web server.",
-      "D": "Using different types of caching at each application layer might improve both the frontend and backend performance."
-    }
-  },
-  {
-    "Question #": "1",
     "Question": "What are the advantages of cloud computing over computing on premises?",
     "Correct Answer Letter": "E",
     "Correct Answer Text": "All of the above.",
@@ -1087,7 +840,7 @@
   },
   {
     "Question #": "8",
-    "Question": "True or false? AWS offers a variety of services at no charge?",
+    "Question": "True or false? AWS offers a variety of services at no charge.",
     "Correct Answer Letter": "A",
     "Correct Answer Text": "True",
     "Options": {
@@ -1868,6 +1621,294 @@
       "B": "Amazon Aurora.",
       "C": "Amazon DynamoDB.",
       "D": "Amazon Redshift."
+    }
+  },
+  {
+    "Question #": "1",
+    "Question": "Which of the following is not one of the four areas of the performance efficiency pillar?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "Traceability",
+    "Options": {
+      "A": "Tradeoffs",
+      "B": "Selection",
+      "C": "Traceability",
+      "D": "Monitoring"
+    }
+  },
+  {
+    "Question #": "2",
+    "Question": "Which of the following is a principle when designing cloud-based systems?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "Assume everything will fail.",
+    "Options": {
+      "A": "Build tightly-coupled components.",
+      "B": "Make infrequent, large batch changes.",
+      "C": "Assume everything will fail.",
+      "D": "Use as many services as possible."
+    }
+  },
+  {
+    "Question #": "3",
+    "Question": "Which of the following are pillars of the AWS Well-Architected Framework?",
+    "Correct Answer Letter": [
+      "A",
+      "C",
+      "D"
+    ],
+    "Correct Answer Text": [
+      "Security",
+      "Operational excellence",
+      "Cost Optimization"
+    ],
+    "Options": {
+      "A": "Security",
+      "B": "Persistence",
+      "C": "Operational excellence",
+      "D": "Cost Optimization"
+    }
+  },
+  {
+    "Question #": "4",
+    "Question": "Which design principles are recommended when considering performance efficiency?",
+    "Correct Answer Letter": "D",
+    "Correct Answer Text": "Democratize advanced technologies.",
+    "Options": {
+      "A": "Match supply with demand.",
+      "B": "Use serverless architectures.",
+      "C": "Analyze and attribute expenditure.",
+      "D": "Democratize advanced technologies.",
+      "E": "Enable traceability."
+    }
+  },
+  {
+    "Question #": "5",
+    "Question": "AWS Trusted Advisor provides insight regarding which five categories of an AWS account?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "Performance, cost optimization, access control, connectivity, security.",
+    "Options": {
+      "A": "Security, fault tolerance, high availability, connectivity, service limits.",
+      "B": "Performance, cost optimization, security, fault tolerance, service limits.",
+      "C": "Performance, cost optimization, access control, connectivity, security.",
+      "D": "Security, access control, high availability, performance, service limits."
+    }
+  },
+  {
+    "Question #": "6",
+    "Question": "What is the focus of the sustainability pillar of the well-architected framework?",
+    "Correct Answer Letter": "B",
+    "Correct Answer Text": "Minimizing the environmental impacts of running cloud workloads.",
+    "Options": {
+      "A": "Designing workloads that recover quickly from failures.",
+      "B": "Minimizing the environmental impacts of running cloud workloads.",
+      "C": "Avoiding unnecessary costs in cloud workloads.",
+      "D": "Automating updates to cloud workloads."
+    }
+  },
+  {
+    "Question #": "7",
+    "Question": "Which online tool can assist in security compliance?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "AWS Trusted Advisor.",
+    "Options": {
+      "A": "Amazon Kinesis.",
+      "B": "AWS Support.",
+      "C": "AWS Trusted Advisor.",
+      "D": "Amazon CloudWatch."
+    }
+  },
+  {
+    "Question #": "8",
+    "Question": "Which of the following is a measure of your system's ability to provide functionality when desired by the user?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "Reliability.",
+    "Options": {
+      "A": "Availability.",
+      "B": "Fault Tolerance.",
+      "C": "Reliability.",
+      "D": "Performance efficiency."
+    }
+  },
+  {
+    "Question #": "9",
+    "Question": "What is defined as the ability for a system to remain operational even if some of the components of that system fail?",
+    "Correct Answer Letter": "B",
+    "Correct Answer Text": "Fault tolerance.",
+    "Options": {
+      "A": "High durability.",
+      "B": "Fault tolerance.",
+      "C": "High availability."
+    }
+  },
+  {
+    "Question #": "10",
+    "Question": "Which of the following best describes a system that can withstand some measures of degradation, experiences minimal downtime and requires minimal human intervention?",
+    "Correct Answer Letter": "A",
+    "Correct Answer Text": "Highly available system.",
+    "Options": {
+      "A": "Highly available system."
+    }
+  },
+  {
+    "Question #": "1",
+    "Question": "Which of the following AWS tools help your application scale up or down based on demand?",
+    "Correct Answer Letter": "B",
+    "Correct Answer Text": "Amazon EC2 Auto Scaling",
+    "Options": {
+      "A": "Availability zones.",
+      "B": "Amazon EC2 Auto Scaling",
+      "C": "AWS CloudFormation.",
+      "D": "Elastic Load Balancing AWS Config."
+    }
+  },
+  {
+    "Question #": "2",
+    "Question": "Which service would you use to send alerts based on Amazon CloudWatch alarms?",
+    "Correct Answer Letter": "A",
+    "Correct Answer Text": "Amazon Simple Notification Service (Amazon SNS).",
+    "Options": {
+      "A": "Amazon Simple Notification Service (Amazon SNS).",
+      "B": "AWS CloudTrail.",
+      "C": "AWS Trusted Advisor.",
+      "D": "Amazon Route 53."
+    }
+  },
+  {
+    "Question #": "3",
+    "Question": "Which of the following are characteristics of Amazon EC2 Auto Scaling? (Choose three).",
+    "Correct Answer Letter": [
+      "A",
+      "C",
+      "E"
+    ],
+    "Correct Answer Text": [
+      "Responds to changing conditions by adding or terminating instances.",
+      "Launches instances from a specified Amazon Machine Image (AMI).",
+      "Enforces a minimum number of running Amazon EC2 instances"
+    ],
+    "Options": {
+      "A": "Responds to changing conditions by adding or terminating instances.",
+      "B": "Only supports dynamic scaling.",
+      "C": "Launches instances from a specified Amazon Machine Image (AMI).",
+      "D": "Delivers push notifications.",
+      "E": "Enforces a minimum number of running Amazon EC2 instances"
+    }
+  },
+  {
+    "Question #": "4",
+    "Question": "Which of the following must be configured on an Elastic Load Balancing load balancer to expect incoming traffic?",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "A listener.",
+    "Options": {
+      "A": "A port.",
+      "B": "A network interface.",
+      "C": "A listener.",
+      "D": "An instance."
+    }
+  },
+  {
+    "Question #": "5",
+    "Question": "Which of the following elements are used to create an Amazon EC2 Auto Scaling launch configuration?",
+    "Correct Answer Letter": [
+      "A",
+      "C"
+    ],
+    "Correct Answer Text": [
+      "Amazon Machine Image (AMI).",
+      "Instance type."
+    ],
+    "Options": {
+      "A": "Amazon Machine Image (AMI).",
+      "B": "Load balancer.",
+      "C": "Instance type.",
+      "D": "Amazon Elastic Block Store (Amazon EBS) volumes."
+    }
+  },
+  {
+    "Question #": "6",
+    "Question": "Which of the following services can help you collect important metrics from Amazon Relational Database Service (Amazon RDS) and Amazon Elastic Compute Cloud (Amazon EC2) instances?",
+    "Correct Answer Letter": "A",
+    "Correct Answer Text": "Amazon CloudWatch.",
+    "Options": {
+      "A": "Amazon CloudWatch.",
+      "B": "Amazon CloudFront.",
+      "C": "Amazon CloudSearch.",
+      "D": "Amazon CloudTrail.",
+      "E": "Amazon EC2 Auto Scaling."
+    }
+  },
+  {
+    "Question #": "7",
+    "Question": "Which of the following are elements of an Auto Scaling group? (Choose three).",
+    "Correct Answer Letter": [
+      "A",
+      "B",
+      "D"
+    ],
+    "Correct Answer Text": [
+      "Maximum size.",
+      "Minimum size.",
+      "Desired capacity."
+    ],
+    "Options": {
+      "A": "Maximum size.",
+      "B": "Minimum size.",
+      "C": "Health checks.",
+      "D": "Desired capacity."
+    }
+  },
+  {
+    "Question #": "8",
+    "Question": "There is an audit at your company and they need to have a big log of all access to AWS resources in the account.",
+    "Correct Answer Letter": "C",
+    "Correct Answer Text": "Amazon Elastic Compute Cloud (Amazon EC2). (Ошибка файла: правильный сервис — CloudTrail, но отмечен EC2).",
+    "Options": {
+      "A": "Amazon CloudWatch.",
+      "B": "AWS CloudTrail.",
+      "C": "Amazon Elastic Compute Cloud (Amazon EC2). (Ошибка файла: правильный сервис — CloudTrail, но отмечен EC2).",
+      "D": "Amazon Simple Notification Service (Amazon SNS)."
+    }
+  },
+  {
+    "Question #": "9",
+    "Question": "In Elastic Load Balancing, when the load balancing detects an unhealthy target, which of the following are true?",
+    "Correct Answer Letter": [
+      "A",
+      "C",
+      "E"
+    ],
+    "Correct Answer Text": [
+      "Stops routing traffic to that target.",
+      "Resumes routing traffic when it detects that the target is healthy again.",
+      "Resumes routing traffic when manually restarted. (Ошибка файла)."
+    ],
+    "Options": {
+      "A": "Stops routing traffic to that target.",
+      "B": "Triggers an alarm.",
+      "C": "Resumes routing traffic when it detects that the target is healthy again.",
+      "D": "Routes traffic to a healthy target.",
+      "E": "Resumes routing traffic when manually restarted. (Ошибка файла)."
+    }
+  },
+  {
+    "Question #": "10",
+    "Question": "What are the three types of load balancers that Elastic Load Balancing offers? (Choose three).",
+    "Correct Answer Letter": [
+      "B",
+      "C",
+      "D"
+    ],
+    "Correct Answer Text": [
+      "Application Load Balancer.",
+      "Network Load Balancer.",
+      "Classic Load Balancer."
+    ],
+    "Options": {
+      "A": "Internet Load Balancer.",
+      "B": "Application Load Balancer.",
+      "C": "Network Load Balancer.",
+      "D": "Classic Load Balancer.",
+      "E": "Compute Load Balancer.",
+      "F": "Auto Scaling Load Balancer."
     }
   },
   {
